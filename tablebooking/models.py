@@ -9,6 +9,9 @@ class Table (models.Model):
     number_of_people = models.PositiveIntegerField()
     private_booth = models.BooleanField(default=False)
 
+class Meta:
+    ordering = ['-table_no']
+
 
 def __str__(self):
     return self.table_no
@@ -24,9 +27,13 @@ class Reservation (models.Model):
     number_of_child_seats = models.PositiveIntegerField()
 
 
-class Meta:
-    ordering = ['-table_no']
-
-
 def __str__(self):
     return self.reservation_no
+
+class WaitingList (models.Model):
+    rank = models.PositiveIntegerField()
+    table = models.ForeignKey(Table, on_delete=models.CASCADE)
+    reservation = models.ForeignKey(Reservation, on_delete=models.CASCADE)
+
+def __str__(self):
+    return self.rank
