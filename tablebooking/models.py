@@ -25,6 +25,7 @@ class Reservation (models.Model):
     time = models.TimeField()
     number_of_people = models.PositiveIntegerField()
     number_of_child_seats = models.PositiveIntegerField()
+    comment = models.TextField(blank=True)
 
 
 def __str__(self):
