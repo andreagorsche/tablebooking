@@ -5,8 +5,8 @@ from django_summernote.admin import SummernoteModelAdmin
 @admin.register(Reservation)
 class ReservationAdmin(SummernoteModelAdmin):
     
-    list_display = ('table', 'date', 'guest_name', 'number_of_people')
-    search_fields = ['table', 'guest_name']
+    list_display = ('table', 'date', 'number_of_people')
+    search_fields = ['table']
     list_filter = ('table','date','number_of_people')
     summernote_fields = ('comment')
 

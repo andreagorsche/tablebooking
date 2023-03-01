@@ -1,3 +1,7 @@
 from django.shortcuts import render
+from django.views import generic
+from .models import Reservation
 
-# Create your views here.
+class ReservationList (generic.ListView):
+    model = Reservation
+    queryset = Reservation.object.filter(Guest)
