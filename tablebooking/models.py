@@ -25,3 +25,6 @@ class Reservation (models.Model):
     number_of_child_seats = models.PositiveIntegerField()
     comment = models.TextField(blank=True)
     is_waitlisted = models.BooleanField(default=False)
+
+def __str__(self):
+    return self.table 

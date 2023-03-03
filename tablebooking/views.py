@@ -10,15 +10,15 @@ def base(request):
 
 def booking_form(request):
     if request.method == 'Post':
+        table = request.Post['table']
+        user = request.Post['user']
         date = request.Post['date']
         time = request.Post['time']
         no_of_people = request.Post['no_of_people']
         no_of_child_seats = request.Post['no_of_child_seats']
         private_booth = request.Post['private_booth']
-
         new_reservation = Reservation(date=date, time=time, people=no_of_people, kids=no_of_child_seats, private=private_booth)
         new_reservation.save()
-
     return render(request, 'tablebooking/booking_form.html')
 
 
