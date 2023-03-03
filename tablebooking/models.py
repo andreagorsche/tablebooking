@@ -16,6 +16,7 @@ def __str__(self):
 
 class Reservation (models.Model):
     table = models.ForeignKey(Table, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     date = models.DateField()
     time = models.TimeField()
     number_of_people = models.PositiveIntegerField()
