@@ -16,18 +16,11 @@ def __str__(self):
 
 class Reservation (models.Model):
     table = models.ForeignKey(Table, on_delete=models.CASCADE)
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, default = 0)
     date = models.DateField()
     time = models.TimeField()
     number_of_people = models.PositiveIntegerField()
     number_of_child_seats = models.PositiveIntegerField()
     comment = models.TextField(blank=True)
     is_waitlisted = models.BooleanField(default=False)
-
-class Guest (models.Model):
-    first_name = models.CharField(max_length= 25)
-    last_name = models.CharField(max_length= 25)
-    username = models.CharField(max_length= 50)
-    email = models. EmailField()
-    reservation = models.ForeignKey(Reservation, on_delete=models.CASCADE)
 
