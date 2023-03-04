@@ -1,23 +1,21 @@
 from django.shortcuts import render
-from .models import Reservation
+from .models import Table, Reservation
 from django.http import HttpResponse
 from datetime import datetime
-
 
 def base(request):
     return render(request, 'tablebooking/base.html')
 
 
 def booking_form(request):
-    if request.method == 'Post':
-        table = request.Post['table']
-        user = request.Post['user']
-        date = request.Post['date']
-        time = request.Post['time']
-        no_of_people = request.Post['no_of_people']
-        no_of_child_seats = request.Post['no_of_child_seats']
-        private_booth = request.Post['private_booth']
-        new_reservation = Reservation(date=date, time=time, people=no_of_people, kids=no_of_child_seats, private=private_booth)
+    if request.method == 'POST':
+        print("Hello")
+        private_booth = Table.request.POST['private_booth']
+        date = request.POST['date']
+        time = request.POST['time']
+        number_of_people = request.POST['no_of_people']
+        number_of_child_seats = request.POST['no_of_child_seats']
+        new_reservation = Reservation(private_booth=private_booth, date=date, time=time, number_of_people=number_of_people, number_of_child_seats=number_of_child_seats)
         new_reservation.save()
     return render(request, 'tablebooking/booking_form.html')
 

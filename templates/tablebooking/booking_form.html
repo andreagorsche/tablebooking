@@ -2,22 +2,23 @@
 
 {% block content %}
 
-<form action="" method = "Post">{% csrf_token %}
+<form action="{% url 'booking_form' %}" method = "POST">
+  {% csrf_token %}
   <div class="mb-3">
     <label for="date" class="form-label">Date</label>
     <input type="date" class="form-control" id="date" name="date">
   </div>
   <div class="mb-3">
     <label for="time" class="form-label">Time</label>
-    <input type="time" class="form-control" id="time" name = 'time'>
+    <input type="time" class="form-control" id="time" name='time'>
   </div>
   <div class="mb-3">
-    <label for="no_of_people" class="form-label">Number of People</label>
-    <input type="number" class="form-control" id="no_of_people" name="no_of_people">
+    <label for="number_of_people" class="form-label">Number of People</label>
+    <input type="number" class="form-control" id="number_of_people" name="number_of_people">
   </div>
   <div class="mb-3">
-    <label for="no_of_child_seats" class="form-label">Number of Child Seats</label>
-    <input type="number" class="form-control" id="no_of_child_seats" name="no_of_child_seats">
+    <label for="number_of_child_seats" class="form-label">Number of Child Seats</label>
+    <input type="number" class="form-control" id="number_of_child_seats" name="number_of_child_seats">
   </div>
   <div class="mb-3 form-check">
     <input type="private_booth" class="form-check-input" id="private_booth" name="private_booth">

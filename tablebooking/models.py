@@ -26,5 +26,6 @@ class Reservation (models.Model):
     comment = models.TextField(blank=True)
     is_waitlisted = models.BooleanField(default=False)
 
+
 def __str__(self):
-    return self.table 
+    return self.table
