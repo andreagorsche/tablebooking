@@ -21,7 +21,8 @@ class Reservation (models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, default=0)
     date = models.DateField()
     time = models.TimeField()
-    #number_of_people = models.PositiveIntegerField()
+    number_of_people = models.PositiveIntegerField()        #not supposed to stay this way, just to make the code run
+    private_booth = models.BooleanField(default=False)      #not supposed to stay this way, just to make the code run
     number_of_child_seats = models.PositiveIntegerField()
     comment = models.TextField(blank=True)
     is_waitlisted = models.BooleanField(default=False)
