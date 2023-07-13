@@ -21,7 +21,7 @@ class Reservation (models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, default=0)
     date = models.DateField()
     time = models.TimeField()
-    number_of_people = models.PositiveIntegerField()
+    #number_of_people = models.PositiveIntegerField()
     number_of_child_seats = models.PositiveIntegerField()
     comment = models.TextField(blank=True)
     is_waitlisted = models.BooleanField(default=False)
@@ -29,3 +29,6 @@ class Reservation (models.Model):
 
 def __str__(self):
     return self.table
+
+def number_of_people(self):
+    return self.table.number_of_people
