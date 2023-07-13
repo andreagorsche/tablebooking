@@ -10,12 +10,12 @@ def base(request):
 def booking_form(request):
     if request.method == 'POST':
         print("Hello")
-        private_booth = Table.request.POST['private_booth']
         date = request.POST['date']
         time = request.POST['time']
-        number_of_people = request.POST['no_of_people']
-        number_of_child_seats = request.POST['no_of_child_seats']
-        new_reservation = Reservation(private_booth=private_booth, date=date, time=time, number_of_people=number_of_people, number_of_child_seats=number_of_child_seats)
+        number_of_people = request.POST['number_of_people']
+        number_of_child_seats = request.POST['number_of_child_seats']
+        private_booth = request.POST.get('private_booth', False)
+        new_reservation = Reservation(date=date, time=time, number_of_people=number_of_people, number_of_child_seats=number_of_child_seats, private_booth=private_booth)
         new_reservation.save()
     return render(request, 'tablebooking/booking_form.html')
 
