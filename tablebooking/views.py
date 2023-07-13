@@ -2,22 +2,25 @@ from django.shortcuts import render
 from .models import Table, Reservation
 from django.http import HttpResponse
 from datetime import datetime
+from django.views.generic.edit import CreateView
+from django.urls import reverse_lazy
+from .forms import ReservationForm
+
 
 def base(request):
     return render(request, 'tablebooking/base.html')
 
 
-def booking_form(request):
-    if request.method == 'POST':
-        print("Hello")
-        date = request.POST['date']
-        time = request.POST['time']
-        number_of_people = request.POST['number_of_people']
-        number_of_child_seats = request.POST['number_of_child_seats']
-        private_booth = request.POST.get('private_booth', False)
-        new_reservation = Reservation(date=date, time=time, number_of_people=number_of_people, number_of_child_seats=number_of_child_seats, private_booth=private_booth)
-        new_reservation.save()
-    return render(request, 'tablebooking/booking_form.html')
+class create_booking(CreateView):
+    model = Reservation
+    template_name = "tablebooking/create_booking.html"
+    success_url = reverse_lazy('home')
+    form_class = ReservationForm
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        tables = Table.objects.filter(number_of_people=form.instance.number_of_people)
+        return super().form_valid(form)
 
 
 def login(request):
