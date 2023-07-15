@@ -20,9 +20,11 @@ class create_booking(CreateView):
     def form_valid(self, form):
         form.instance.user = self.request.user
         tables = Table.objects.filter(number_of_seats__gte=form.instance.number_of_guests)
+        if tables.exists():
+            form.instance.table = tables.first()
         return super().form_valid(form)
 
-''' validate the entered date
+'''    # validate the entered date
 
     def validate_date(date):
         # Check if data was entered
