@@ -19,26 +19,29 @@ class create_booking(CreateView):
 
     def form_valid(self, form):
         form.instance.user = self.request.user
-        tables = Table.objects.filter(number_of_people=form.instance.number_of_people)
+        tables = Table.objects.filter(number_of_seats__gte=form.instance.number_of_guests)
         return super().form_valid(form)
 
-    def validate_date():
-        date = Reservation.objects.get('date')
-        date_format = '%Y-%m-%d'
-        today = datetime.today()
-        if (date == ""):
-            raise Validation_Error ("This field cannot be left blank")
-            if (date < today):
-                raise Validation_Error ("Booking date can't be in the past")
-                print(date)
-            else:
-                try:
-                    dateObject = datetime.datetime.strptime(date_string, date_format)
-                    print(dateObject)
-                except ValueError:
-                    print("Incorrect data format, should be YYYY-MM-DD")  
-        return date
+''' validate the entered date
 
+    def validate_date(date):
+        # Check if data was entered
+        if not date:
+            raise ValidationError("This field cannot be left blank")
+
+        # Check if the date string matches the format "dd/mm/yyyy"
+        try:
+            validate_date = datetime.strptime(date, "%d/%m/%Y").date()
+        except ValueError:
+            raise ValidationError("Incorrect date format. Please use the format dd/mm/yyyy")
+
+        # Check if date is not in the past
+        today = datetime.today().date()
+        if validate_date < today:
+            raise ValidationError("Booking date can't be in the past")
+
+        return validated_date'''
+    
 
 def login(request):
     return render(request, 'tablebooking/menu.html')
