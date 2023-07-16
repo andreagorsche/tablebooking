@@ -3,6 +3,7 @@ from .models import Table, Reservation
 from django.http import HttpResponse
 from datetime import datetime
 from django.views.generic.edit import CreateView
+from django.views import generic
 from django.urls import reverse_lazy
 from .forms import ReservationForm
 
@@ -11,7 +12,7 @@ def base(request):
     return render(request, 'tablebooking/base.html')
 
 
-class create_booking(CreateView):
+class CreateReservation(CreateView):
     model = Reservation
     template_name = "tablebooking/create_booking.html"
     success_url = reverse_lazy('home')
@@ -24,30 +25,12 @@ class create_booking(CreateView):
             form.instance.table = tables.first()
         return super().form_valid(form)
 
-'''    # validate the entered date
-
-    def validate_date(date):
-        # Check if data was entered
-        if not date:
-            raise ValidationError("This field cannot be left blank")
-
-        # Check if the date string matches the format "dd/mm/yyyy"
-        try:
-            validate_date = datetime.strptime(date, "%d/%m/%Y").date()
-        except ValueError:
-            raise ValidationError("Incorrect date format. Please use the format dd/mm/yyyy")
-
-        # Check if date is not in the past
-        today = datetime.today().date()
-        if validate_date < today:
-            raise ValidationError("Booking date can't be in the past")
-
-        return validated_date'''
-    
-
 def login(request):
     return render(request, 'tablebooking/menu.html')
 
+class ReservationList(generic.ListView):
+    model = Reservation
+    queryset = Reservation.objects.all()
+    template_name = "tablebooking/list_booking.html"
+    paginate_by = 5
 
-def manage_booking(request):
-    return render(request, 'tablebooking/manage_booking.html')

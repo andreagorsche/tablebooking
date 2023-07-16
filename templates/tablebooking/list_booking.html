@@ -1,0 +1,47 @@
+{% extends 'tablebooking/base.html' %}
+
+    {% block content %}
+    <div id= "reservation_list">
+        {% for reservation in reservation_list %}
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Reservation Number</th>
+                <th scope="col">Date</th>
+                <th scope="col">Time</th>
+                <th scope="col">Number of guests</th>
+                <th scope="col">Number of child seats</th>
+                <th scope="col">Private Booth</th>
+                <th scope="col">Waitlisted</th>
+                <th scope="col">Comment</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>{{ reservation.id }}</td>
+                <td>{{ reservation.date }}</td>
+                <td>{{ reservation.time }}</td>
+                <td>{{ reservation.number_of_guests }}</td>
+                <td>{{ reservation.number_of_child_seats }}</td>
+                <td>{{ reservation.private_booth }}</td>
+                <td>{{ reservation.waitlisted }}</td>
+                <td>{{ reservation.comment }}</td>
+              </tr>
+            </tbody>
+          </table>
+        {% endfor %}
+    </div>
+    {% if is_paginated %}
+    <nav aria-label="Page navigation">
+        <ul class="pagination justify-content-center">
+            {% if page_obj.has_previous %}
+              <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV </a></li>
+            {% endif %}
+            {% if page_obj.has_next %}
+              <li><a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
+            {% endif %}
+            </ul>
+            </nav>
+    {% endif %}
+    {% endblock content %}
+   

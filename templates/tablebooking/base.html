@@ -17,10 +17,10 @@
           </li>
           {% if user.is_authenticated %} 
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'create_booking' %}">Book a Table</a>
+            <a class="nav-link" href="{% url 'create_reservation' %}">Book a Table</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'manage_booking' %}">View Bookings</a>
+            <a class="nav-link" href="{% url 'list_reservation' %}">View Bookings</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
