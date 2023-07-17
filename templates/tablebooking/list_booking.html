@@ -26,6 +26,11 @@
                 <td>{{ reservation.private_booth }}</td>
                 <td>{{ reservation.waitlisted }}</td>
                 <td>{{ reservation.comment }}</td>
+                <td>
+                  <a href="{% url 'manage_reservation' pk=reservation.pk %}">
+                      <button>Manage Reservation</button>
+                  </a>
+              </td>
               </tr>
             </tbody>
           </table>
