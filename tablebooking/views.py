@@ -2,7 +2,7 @@ from django.shortcuts import render
 from .models import Table, Reservation
 from django.http import HttpResponse
 from datetime import datetime
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, DeleteView
 from django.views import generic
 from django.urls import reverse_lazy
 from .forms import ReservationForm
@@ -37,4 +37,8 @@ class ReservationUpdate (generic.UpdateView):
     model = Reservation
     fields = ('date', 'time', 'number_of_guests', 'number_of_child_seats', 'comment')
     template_name = "tablebooking/manage_booking.html"
+    success_url = reverse_lazy('list_reservation') 
+
+class ReservationDelete(DeleteView):
+    model = Reservation
     success_url = reverse_lazy('list_reservation') 
