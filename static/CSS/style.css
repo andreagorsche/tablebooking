@@ -2,8 +2,37 @@
 
 header {
     margin: 0;
+    background-color: aliceblue;
+    opacity: 0.85;
+    color: cadetblue; 
 }
 
 .logo {
-font-family: Pacfico;
+font-family: Pacifico;
+}
+
+body{
+    font-family: Cormorant Garamond;
+    color: aliceblue;
+    background-image:url("../images/cafe-g2124e8ecd_1920.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 5px center;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+   }
+   
+
+footer{
+    margin-top: auto;
+    background-color: aliceblue;
+    opacity: 0.85;
+    color: cadetblue;  
+}
+
+#test{
+    background-color: cadetblue;   
+    margin: 18%; 
+    padding: 3%;
 }

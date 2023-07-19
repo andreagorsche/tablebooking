@@ -12,47 +12,61 @@
 </head>
 <body>
     <header>
-        <h1 id= logo href="{% url 'home' %}" >Delicious Daily</h1>
-        <ul class="nav">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="{% url 'menu' %}">Menu</a>
-          </li>
-          {% if user.is_authenticated %} 
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'create_reservation' %}">Book a Table</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'list_reservation' %}">View Bookings</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
-          </li>
-          {% else %}
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'account_login' %}">Login</a>
-          </li>
+      <div class="container">
+        <div class="row">
+          <div class="col-3">
+            <h1 id= logo href="{% url 'home' %}" >Delicious Daily</h1>
+          </div>
+          <div class="col-6">
+          </div>
+          <div class="col-3">
+            <ul class="nav">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="{% url 'menu' %}">Menu</a>
+              </li>
+              {% if user.is_authenticated %} 
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'create_reservation' %}">Book a Table</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'list_reservation' %}">View Bookings</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
+              </li>
+              {% else %}
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'account_login' %}">Login</a>
+              </li>
+          </div>
+        </div>
+      
+        
+        
           {% endif %}
 
           </ul>
     </header>
    
     {% block content %}
-   <h1>Welcome to Delicious Daily!</h1>
-   <img src="../../static/images/salmon.jpg" class="img-fluid" alt="Salmon">  
-    <p> At Delicious Daily you will get served with delicous meals on a daily basis. Our Chef Louise handpicks the fresh ingredients on our closeby food market. Guaranteeing you only get the best of the best on your plate. 
-    </p>
-  
+    <div class="container text-center" id="test">
       <div class="row">
-        <div class="col-8">
-          "Food is more than just filling the stomach. Food is there to be fully enjoyed."
+        <div class="col-4">
+        <h1>Welcome to Delicious Daily!</h1>
+       <p> At Delicious Daily you will get served with delicous meals on a daily basis. Our Chef Louise handpicks the fresh ingredients on our closeby food market. Guaranteeing you only get the best of the best on your plate. 
+    </p>
+    <p> "Food is more than just filling the stomach. Food is there to be fully enjoyed."</p>
         </div>
-        <div class="image of chef">col-4</div>
       </div>
     </div>
     {% endblock content %}
+
+    <footer>
+      <p>copyright 2023</p>
+    </footer>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 </body>
