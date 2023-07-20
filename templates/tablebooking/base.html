@@ -20,7 +20,7 @@
             <div class="col-6 text-right">
             <ul id="nav">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="{% url 'menu' %}">Menu</a>
+                <a class="nav-link active" aria-current="page" href="#menu">Menu</a>
               </li>
               {% if user.is_authenticated %} 
               <li class="nav-item">
@@ -46,9 +46,11 @@
     </header>
    
     {% block content %}
-    <section id="'intro">
+    <section id="'intro" class="position-relative">
+      <div id="intro-img" class = "z-1 position-absolute">
       <img src="../../static/images/cafe-g2124e8ecd_1920.jpg" class="img-fluid" alt="Breakfast">
-      <div class="container text-center">
+      </div>
+      <div class="container text-center z-0 position-relative" id="'intro-box">
         <div class="row no-gutters">
           <h1>Welcome to Delicious Daily!</h1>
           <p> At Delicious Daily you will get served with delicous meals on a daily basis. Our Chef Louise handpicks the fresh ingredients on our closeby food market. Guaranteeing you only get the best of the best on your plate. 
@@ -57,12 +59,46 @@
       </div>      
      
     </section>
-    <section id ='quote'>
-        <p> "Food is more than just filling the stomach. Food is there to be fully enjoyed."</p>
-        <img src="../../static/images/chef-g8f6a89c5f_1280.jpg" class="img-fluid" alt="Breakfast">
+    <section id ='quote'class="relative-absolute">
+              <div class="row align-items-center position-relative">
+          <div class="col">
+            <p> "Food is more than just filling the stomach. Food is there to be fully enjoyed."</p>
+          </div>
+          <div class="col">
+            <img src="../../static/images/chef-g8f6a89c5f_1280.jpg" class="img-fluid" alt="Breakfast">
+          </div>
+        </div>
+      
     </section>
-    <section id='menu'>
-
+    <section id='menu'class="z-1 position-relative">
+      <div class="container-fluid text-center position-relative">
+        <h1>MENU</h1>
+        <div class="row align-items-start">
+          <div class="col">
+            <h1>Breakfast</h1>
+            <img src="../../static/images/breakfast.jpg" class="img-fluid" alt="Breakfast">  
+          </div>
+          <div class="col">
+            <h1>Lunch</h1>
+            <img src="../../static/images/barbeque1280.png" class="img-fluid" alt="Breakfast">  
+          </div>
+          <div class="col">
+            <h1>Dinner</h1>
+            <img src="../../static/images/desert1280.png" class="img-fluid" alt="Breakfast">  
+          </div>
+        </div>
+        <div class="row align-items-start">
+          <div class="col">
+            Menu 1
+        </div>
+          <div class="col">
+            Menu 2
+          </div>
+          <div class="col">
+            Menu 3
+          </div>
+        </div>
+      </div>
     </section>
     {% endblock content %}
 

@@ -30,10 +30,10 @@ footer{
 }
 
 .container {
-    background-color: cadetblue;   
-    margin: 18%; 
-    padding: 3%;
-    opacity: 95%;
+  background-color: cadetblue;   
+  margin: 18%; 
+  padding: 3%;
+  opacity: 95%;
 }
 
 /* Remove default list styling (bullets) */
@@ -46,24 +46,33 @@ footer{
   /* Display the list items horizontally */
   #nav li {
     display: inline-block;
-    margin-right: 20px; /* Adjust as needed to create space between menu items */
+    margin-right: 30px; 
   }
   
-  /* Optional: Add some styling to the links */
+  /* Add some styling to the links */
   #nav li a {
     text-decoration: none;
-    color: #333; /* Change the color as needed */
+    color: #333;
+    font-size: 20px;
   }
   
-  /* Optional: Style the active link differently */
+  /* Style the active link differently */
   #nav li.active a {
     font-weight: bold;
-    /* Add any other styles you want for the active link */
   }
 
-  #start-img{
-    height:100vh;
-    z-index: -1;
-    position: relative;
 
-  }
+#quote {
+  font-family: Pacifico;
+  font-size: 50px;
+  color: cadetblue;
+  margin-top: 15%;
+}
+
+#menu {
+  background-color: cadetblue;
+  padding:5%;
+}
+
+
+  
