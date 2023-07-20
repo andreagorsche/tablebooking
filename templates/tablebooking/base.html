@@ -12,15 +12,13 @@
 </head>
 <body>
     <header>
-      <div class="container">
+      <div class="container-fluid p-0 m-0">
         <div class="row">
-          <div class="col-3">
+          <div class="col-6">
             <h1 id= logo href="{% url 'home' %}" >Delicious Daily</h1>
           </div>
-          <div class="col-6">
-          </div>
-          <div class="col-3">
-            <ul class="nav">
+            <div class="col-6 text-right">
+            <ul id="nav">
               <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="{% url 'menu' %}">Menu</a>
               </li>
@@ -43,25 +41,29 @@
               </li>
           </div>
         </div>
-      
-        
-        
           {% endif %}
-
           </ul>
     </header>
    
     {% block content %}
-    <div class="container text-center" id="test">
-      <div class="row">
-        <div class="col-4">
-        <h1>Welcome to Delicious Daily!</h1>
-       <p> At Delicious Daily you will get served with delicous meals on a daily basis. Our Chef Louise handpicks the fresh ingredients on our closeby food market. Guaranteeing you only get the best of the best on your plate. 
-    </p>
-    <p> "Food is more than just filling the stomach. Food is there to be fully enjoyed."</p>
+    <section id="'intro">
+      <img src="../../static/images/cafe-g2124e8ecd_1920.jpg" class="img-fluid" alt="Breakfast">
+      <div class="container text-center">
+        <div class="row no-gutters">
+          <h1>Welcome to Delicious Daily!</h1>
+          <p> At Delicious Daily you will get served with delicous meals on a daily basis. Our Chef Louise handpicks the fresh ingredients on our closeby food market. Guaranteeing you only get the best of the best on your plate. 
+          </p>
         </div>
-      </div>
-    </div>
+      </div>      
+     
+    </section>
+    <section id ='quote'>
+        <p> "Food is more than just filling the stomach. Food is there to be fully enjoyed."</p>
+        <img src="../../static/images/chef-g8f6a89c5f_1280.jpg" class="img-fluid" alt="Breakfast">
+    </section>
+    <section id='menu'>
+
+    </section>
     {% endblock content %}
 
     <footer>

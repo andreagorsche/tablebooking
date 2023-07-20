@@ -1,28 +1,26 @@
 @import url('https://fonts.googleapis.com/css?family=Pacifico:400|Cormorant Garamond:300,400,500,600,700');
 
-header {
-    margin: 0;
-    background-color: aliceblue;
-    opacity: 0.85;
-    color: cadetblue; 
-}
-
-.logo {
-font-family: Pacifico;
-}
-
 body{
     font-family: Cormorant Garamond;
     color: aliceblue;
-    background-image:url("../images/cafe-g2124e8ecd_1920.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: 5px center;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
    }
-   
+
+#logo {
+    font-family: Pacifico;
+    margin:0;
+    padding:0;
+}
+
+header {
+    margin: 0;
+    padding: 0;
+    background-color: aliceblue;
+    opacity: 0.85;
+    color: cadetblue; 
+}
 
 footer{
     margin-top: auto;
@@ -31,8 +29,41 @@ footer{
     color: cadetblue;  
 }
 
-#test{
+.container {
     background-color: cadetblue;   
     margin: 18%; 
     padding: 3%;
+    opacity: 95%;
 }
+
+/* Remove default list styling (bullets) */
+#nav {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  /* Display the list items horizontally */
+  #nav li {
+    display: inline-block;
+    margin-right: 20px; /* Adjust as needed to create space between menu items */
+  }
+  
+  /* Optional: Add some styling to the links */
+  #nav li a {
+    text-decoration: none;
+    color: #333; /* Change the color as needed */
+  }
+  
+  /* Optional: Style the active link differently */
+  #nav li.active a {
+    font-weight: bold;
+    /* Add any other styles you want for the active link */
+  }
+
+  #start-img{
+    height:100vh;
+    z-index: -1;
+    position: relative;
+
+  }
