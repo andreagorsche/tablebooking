@@ -4,8 +4,13 @@ body{
     font-family: Cormorant Garamond;
     color: aliceblue;
     min-height: 100vh;
+    font-size: 2.5 vw;
     display: flex;
     flex-direction: column;
+   }
+
+   h1 {
+    font-size: 3vw;
    }
 
 #logo {
@@ -20,7 +25,7 @@ header {
     background-color: aliceblue;
     opacity: 0.85;
     color: cadetblue; 
-}
+    }
 
 footer{
     margin-top: auto;
@@ -36,7 +41,7 @@ footer{
   opacity: 95%;
 }
 
-/* Remove default list styling (bullets) */
+/* remove bullets from menu display */
 #nav {
     list-style: none;
     padding: 0;
@@ -46,14 +51,13 @@ footer{
   /* Display the list items horizontally */
   #nav li {
     display: inline-block;
-    margin-right: 30px; 
+    margin-right: 3vw; 
   }
   
   /* Add some styling to the links */
   #nav li a {
     text-decoration: none;
     color: #333;
-    font-size: 20px;
   }
   
   /* Style the active link differently */
@@ -64,15 +68,17 @@ footer{
 
 #quote {
   font-family: Pacifico;
-  font-size: 50px;
   color: cadetblue;
   margin-top: 15%;
+  margin-left: 5%;
+  margin-right: 2%;
 }
 
 #menu {
   background-color: cadetblue;
   padding:5%;
 }
+
 
 
   
