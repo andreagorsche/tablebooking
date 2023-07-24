@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://kit.fontawesome.com/5b93d82091.js" type="text/css" crossorigin="anonymous"/>
-    <link rel="stylesheet" href="../../static/CSS/style.css">
+    <link rel="stylesheet" href="../../static/css/style.css">
 
     <title>Delicious Daily</title>
 </head>
@@ -15,12 +15,12 @@
       <div class="container-fluid p-0 m-0">
         <div class="row">
           <div class="col-6">
-            <h1 id= logo href="{% url 'home' %}" >Delicious Daily</h1>
+            <h1><a id="logo" href="{% url 'home' %}">Delicious Daily</a></h1>
           </div>
             <div class="col-6 text-right">
             <ul id="nav">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#menu">Menu</a>
+                <a class="nav-link active" aria-current="page" href="{% url 'home' %}#menu">Menu</a>
               </li>
               {% if user.is_authenticated %} 
               <li class="nav-item">
@@ -46,9 +46,9 @@
     </header>
    
     {% block content %}
-    <div id="'intro" class= "container-fluid position-relative p-0 m-0">
+    <div id="'intro" class= "container-fluid position-relative p-0 m-0 align-items-center d-flex">
       <div id="intro-img" class = "z-1 position-absolute">
-      <img src="../../static/images/cafe-g2124e8ecd_1920.jpg" class="img-fluid" alt="Breakfast">
+      <img src="../../static/images/header.jpg" class="img-fluid" alt="Cafe">
       </div>
       <div class="container text-center z-0 position-relative" id="'intro-box">
         <div class="row no-gutters">
@@ -61,7 +61,7 @@
     </div>
     <div id ='quote'class="container-fluid p-0 m-0">
               <div class="row align-items-center">
-          <div class="col">
+          <div class="col m-5">
             <p> "Food is more than just filling the stomach. Food is there to be fully enjoyed." </p>
             <p>Louis, Chef at Delicious Daily.</p>
           </div>
@@ -71,10 +71,10 @@
         </div>
       
       </div>
-    <div id='menu'class="container-fluid p-0 m-0">
+    <div id='menu'class="container-fluid p-5">
       <div class="container-fluid text-center">
         <h1>MENU</h1>
-        <div class="row align-items-start">
+        <div class="row align-items-start p-5">
           <div class="col">
             <h1>Breakfast</h1>
             <img src="../../static/images/breakfast_shorter.png" class="img-fluid" alt="Breakfast">  

@@ -14,7 +14,10 @@ body{
    }
 
 #logo {
+    text-decoration: none;    
     font-family: Pacifico;
+    color: cadetblue;
+    font-size: 2.5vw;
     margin:0;
     padding:0;
 }
@@ -60,6 +63,8 @@ footer{
   #nav li a {
     text-decoration: none;
     color: #333;
+    margin-top: 3%;
+    font-size: 1.5vw;
   }
   
   /* Style the active link differently */
@@ -70,13 +75,24 @@ footer{
 
 #quote {
   font-family: Pacifico;
+  font-size: 3vh;
   color: cadetblue;
-  margin-top: 15%;
-  margin-left: 5%;
-  margin-right: 2%;
+  margin: 5vh;
 }
 
 #menu {
   background-color: cadetblue;
-  padding:5%;
+}
+
+
+/* Styles for smaller screens (adjust the breakpoint as needed) */
+@media screen and (max-width: 767px) {
+  #quote {
+    font-size: 2vw;
+    margin: 2px;
+  }
+
+  body{
+    font-size: 2vw;
+}
 }
