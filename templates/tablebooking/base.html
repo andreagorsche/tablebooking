@@ -59,7 +59,7 @@
       </div>      
      
     </div>
-    <div id ='quote'class="container-fluid">
+    <div id ='quote'class="container-fluid p-0 m-0">
               <div class="row align-items-center">
           <div class="col">
             <p> "Food is more than just filling the stomach. Food is there to be fully enjoyed." </p>
@@ -71,7 +71,7 @@
         </div>
       
       </div>
-    <div id='menu'class="container-fluid z-1 p-0 m-0">
+    <div id='menu'class="container-fluid p-0 m-0">
       <div class="container-fluid text-center">
         <h1>MENU</h1>
         <div class="row align-items-start">
@@ -81,11 +81,11 @@
           </div>
           <div class="col">
             <h1>Lunch</h1>
-            <img src="../../static/images/barbeque1280.png" class="img-fluid" alt="Breakfast">  
+            <img src="../../static/images/barbeque1280.png" class="img-fluid" alt="Lunch">  
           </div>
           <div class="col">
             <h1>Dinner</h1>
-            <img src="../../static/images/desert1280.png" class="img-fluid" alt="Breakfast">  
+            <img src="../../static/images/desert1280.png" class="img-fluid" alt="Dinner">  
           </div>
         </div>
       </div>
@@ -93,7 +93,18 @@
     {% endblock content %}
 
     <footer>
-      <p>copyright 2023</p>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-6">
+            <p>Delicious Daily</p>
+            <p>Delicious Street 1</p>
+            <p>1111 Cheesy Town</p>
+          </div>
+        </div>
+      </div>
+          <div class="col-6 text-right">
+            <p>copyright 2023</p>
+          </div>
     </footer>
     
 </body>

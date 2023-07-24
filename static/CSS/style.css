@@ -32,6 +32,8 @@ footer{
     background-color: aliceblue;
     opacity: 0.85;
     color: cadetblue;  
+    width: 100%;
+    display: inline-block;
 }
 
 .container {
@@ -41,7 +43,7 @@ footer{
   opacity: 95%;
 }
 
-/* remove bullets from menu display */
+/* remove bullets from menu display, set margin and padding to zero */
 #nav {
     list-style: none;
     padding: 0;
@@ -78,7 +80,3 @@ footer{
   background-color: cadetblue;
   padding:5%;
 }
-
-
-
-  
