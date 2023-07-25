@@ -10,6 +10,7 @@ class ReservationForm(forms.ModelForm):
     def clean(self):
         cleaned_data = super(ReservationForm, self).clean()
         date = cleaned_data.get('date')
+        number_of_guests = cleaned_data.get('number_of_guests')
 
         # Check if the date is in the correct format: dd/mm/yyyy
         try:
@@ -21,6 +22,10 @@ class ReservationForm(forms.ModelForm):
         if date and arrow.utcnow().datetime < date:
             raise forms.ValidationError('You can’t book a table in the past')
         
+        #Check if number_of_guests are not None and not small or equal to null
+        if number_of_guests is not None and number_of_guests <= 0:
+            raise forms.ValidationError('Number of guests must be greater than 0.')
+
         return cleaned_data
 
     class Meta:

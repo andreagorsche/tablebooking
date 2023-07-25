@@ -21,10 +21,11 @@ class CreateReservation(CreateView):
     form_class = ReservationForm
     
     def form_valid(self, form):
+        data = form.cleaned_data
         form.instance.user = self.request.user
         tables = Table.objects.filter(number_of_seats__gte=form.instance.number_of_guests)
         if tables.exists():
-            form.instance.table = tables.first()
+                form.instance.table = tables.first()
         return super().form_valid(form)
 
 class ReservationList(generic.ListView):
