@@ -1,19 +1,20 @@
 from django import forms
 from .models import Reservation, Table
+from datetime import datetime
 
 class ReservationForm(forms.ModelForm):
+    date = forms.DateField(input_formats=['%d/%m/%Y'])  # Set the input format
+
     class Meta:
         model = Reservation
         fields = ('date', 'time', 'number_of_guests', 'number_of_child_seats', 'comment')
 
-'''     def clean_date(self):
+    # Attempt to parse the date string into a datetime object
+    def clean_date(self):
         date = self.cleaned_data['date']
         try:
-            validated_date = validate_date(date)
-        except ValidationError as e:
-            raise forms.ValidationError(e.message)
-
-        return validated_date'''
-
-
-
+            datetime.strptime(date, '%d/%m/%Y')
+        except ValueError:
+            raise forms.ValidationError("This date is not in the right format. Please use DD/MM/YYYY")
+            print("error")
+        return date
