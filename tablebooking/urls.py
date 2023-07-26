@@ -9,5 +9,6 @@ urlpatterns = [
     path('list_booking/', ReservationList.as_view(), name='list_reservation'),
     path('manage_booking/<int:pk>/', ReservationUpdate.as_view(), name='manage_reservation'),
     path('confirm_delete/<int:pk>/', ReservationDelete.as_view(), name='delete_reservation'),
+    path('confirm_update/<int:pk>/', ReservationUpdate.as_view(), name='upd_conf_reservation'),
     path('menu/', views.login, name='menu'),
 ]
