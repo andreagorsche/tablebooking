@@ -71,52 +71,59 @@
         </div>
       
       </div>
-    <div id='menu'class="container-fluid p-5">
-      <div class="container-fluid text-center">
+    <div id='menu'class="container-fluid p-5 text-center">
         <h1>MENU</h1>
         <div class="row align-items-start p-5">
-          <div class="col">
-            <h1>Breakfast</h1>
-            <img src="../../static/images/breakfast_shorter.png" class="img-fluid" alt="Breakfast">
-            <div class="menu-content">
+          <div class="col-4 menu-card">
+            <div class="front" data-menu="Breakfast">
+              <h1>Breakfast</h1>
+              <img src="../../static/images/breakfast_shorter.png" class="img-fluid" alt="Breakfast">
+            </div>
+            <div class="back">
               <p>Breakfast Menu</p>  
               <p>Coffee, tea or drink of choice</p>
-              and
+              <p>and</p>
               <p>Scrambled Eggs with ham and toast</p>
-              or
+              <p>or</p>
               <p>Porridge with fresh seasonal fruits</p>
-              or
+              <p>or</p>
               <p>Pancakes with home-made jam</p>
+            </div>
           </div>
-          <div class="col">
-            <h1>Lunch</h1>
-            <img src="../../static/images/barbeque1280.png" class="img-fluid" alt="Lunch">  
-            <div class="menu-content">
+          <div class="col-4 menu-card">
+            <div class="front">
+              <h1>Lunch</h1>
+              <img src="../../static/images/barbeque1280.png" class="img-fluid" alt="Lunch">  
+            </div>
+            <div class="back">
               <p>Lunch Menu</p>  
               <p>Soup of the day</p>
-              and
+              <p>and</p>
               <p>Veggie Wok with gluten-free noodles</p>
-              or
+              <p>or</p>
               <p>Beef Steak in red-wine-sauce and potatoes</p>
-              and
+              <p>and</p>
               <p>Desert of the Day</p>
+            </div>
           </div>
-          </div>
-          <div class="col">
-            <h1>Dinner</h1>
-            <img src="../../static/images/desert1280.png" class="img-fluid" alt="Dinner">
-            <p>Dinner Menu</p>  
+          <div class="col-4 menu-card">
+            <div class="front">
+              <h1>Dinner</h1>
+              <img src="../../static/images/desert1280.png" class="img-fluid" alt="Dinner">
+            </div>
+            <div class="back">
+              <p>Dinner Menu</p>  
               <p>Soup of the day</p>
-              and
+              <p>and</p>
               <p>Fresh Fish of the day with veggies and rice</p>
-              or
+              <p>or</p>
               <p>Vegetarian Jambalaya</p>
-              and
+              <p>and</p>
               <p>Desert of the Day</p> 
+            </div>
           </div>
         </div>
       </div>
-    </div>
     {% endblock content %}
 
     <footer>
@@ -133,6 +140,6 @@
             <p>copyright 2023</p>
           </div>
     </footer>
-    
+  <script src="../../static/javascript/script.js"></script>    
 </body>
 </html>
