@@ -17,7 +17,7 @@ class ReservationForm(forms.ModelForm):
             datetime.strptime(str(date), '%Y-%m-%d')
         except ValueError:
             raise forms.ValidationError('Invalid date format. Please use the format DD/MM/YYYY.')
-
+        
         # Check if the date is in the past
         if date and arrow.utcnow().datetime < date:
             raise forms.ValidationError('You can’t book a table in the past')
