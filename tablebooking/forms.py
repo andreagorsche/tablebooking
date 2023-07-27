@@ -29,10 +29,22 @@ class ReservationForm(forms.ModelForm):
         cleaned_data = super(ReservationForm, self).clean()
         date = cleaned_data.get("date")
         number_of_guests = cleaned_data.get("number_of_guests")
+
         # Check if the date is in the past
         if date and date < date.today():
             raise forms.ValidationError("You can't book a table in the past")
+
+        # Check if the date is not a Monday (weekday number 0)
+        if date and date.weekday() == 0:
+            raise forms.ValidationError('The restaurant is closed on Mondays. Please select a different date.')
+
         # Check if number_of_guests are not None and not small or equal to null
         if number_of_guests is not None and number_of_guests <= 0:
             raise forms.ValidationError("Number of guests must be greater than 0.")
         return cleaned_data
+
+        # Check if the time is between opening times (10 am to 8 pm)
+        opening_time = time(10, 0)  # 10:00 AM
+        closing_time = time(20, 0)  # 8:00 PM
+        if time and (time < opening_time or time > closing_time):
+            raise forms.ValidationError('The restaurant is open from 10:00 AM to 8:00 PM. Please select a valid time.')
