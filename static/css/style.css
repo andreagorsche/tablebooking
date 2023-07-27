@@ -37,6 +37,10 @@ footer{
     color: cadetblue;  
     width: 100%;
     display: inline-block;
+    position: relative;
+    left:0;
+    right:0;
+    bottom:0;
 }
 
 .container {
@@ -97,6 +101,7 @@ footer{
   border-radius: 2rem;
   background-color: cadetblue;
   opacity: 0.7;
+  transition: transform 1500ms;
 }
 
 .front, .back {
@@ -105,6 +110,15 @@ footer{
 
 .front img, .back img {
   border-radius: 2rem;
+}
+
+.container: hover > .menu-card{
+  cursor: pointer;
+  transform: rotateY(180deg);
+}
+
+.back {
+  background: cadetblue;
 }
 
 
