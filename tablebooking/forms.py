@@ -1,6 +1,6 @@
 from django import forms
 from .models import Reservation, Table
-from datetime import datetime
+from datetime import date
 import arrow
 from django.core.exceptions import ValidationError
 
