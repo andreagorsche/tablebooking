@@ -48,3 +48,7 @@ class ReservationForm(forms.ModelForm):
         closing_time = time(20, 0)  # 8:00 PM
         if time and (time < opening_time or time > closing_time):
             raise forms.ValidationError('The restaurant is open from 10:00 AM to 8:00 PM. Please select a valid time.')
+        
+        # Check if the comment is not more than 300 characters
+        if comment and len(comment) > 300:
+            raise forms.ValidationError('Comment must not exceed 300 characters.')
