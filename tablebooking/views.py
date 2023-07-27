@@ -28,11 +28,21 @@ class CreateReservation(CreateView):
                 form.instance.table = tables.first()
         return super().form_valid(form)
 
-class ReservationList(generic.ListView):
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.views import generic
+from .models import Reservation
+
+class ReservationList(LoginRequiredMixin, generic.ListView):
     model = Reservation
-    queryset = Reservation.objects.all()
     template_name = "tablebooking/list_booking.html"
     paginate_by = 5
+
+# Filter reservations based on the currently logged-in user
+    def get_queryset(self):
+        user = self.request.user
+        queryset = Reservation.objects.filter(user=user)
+        return queryset
+
 
 class ReservationUpdate (generic.UpdateView):
     model = Reservation

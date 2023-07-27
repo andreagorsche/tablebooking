@@ -1,46 +1,54 @@
 {% extends 'tablebooking/base.html' %}
 
     {% block content %}
-    <div id= "reservation_list">
-        {% for reservation in reservation_list %}
-        <table class="table">
-            <thead>
-              <tr>
-                <th scope="col">Reservation Number</th>
-                <th scope="col">Date</th>
-                <th scope="col">Time</th>
-                <th scope="col">Number of guests</th>
-                <th scope="col">Number of child seats</th>
-                <th scope="col">Private Booth</th>
-                <th scope="col">Waitlisted</th>
-                <th scope="col">Comment</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>{{ reservation.id }}</td>
-                <td>{{ reservation.date }}</td>
-                <td>{{ reservation.time }}</td>
-                <td>{{ reservation.number_of_guests }}</td>
-                <td>{{ reservation.number_of_child_seats }}</td>
-                <td>{{ reservation.private_booth }}</td>
-                <td>{{ reservation.waitlisted }}</td>
-                <td>{{ reservation.comment }}</td>
-                <td>
-                  <a href="{% url 'manage_reservation' pk=reservation.pk %}">
-                      <button>Manage Reservation</button>
-                  </a>
-                </td>
-                <td>
-                  <a href="{% url 'delete_reservation' pk=reservation.pk %}">
-                      <button>Delete Reservation</button>
-                  </a>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        {% endfor %}
-    </div>
+    <div class="bg_sub container-fluid d-flex align-items-center class m-0 p-3">
+      <div class="cont_sub_fill container-fluid m-0 p-2">
+        <div id= "reservation_list">
+            {% for reservation in reservation_list %}
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Reservation Number</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Time</th>
+                    <th scope="col">Number of guests</th>
+                    <th scope="col">Number of child seats</th>
+                    <th scope="col">Private Booth</th>
+                    <th scope="col">Waitlisted</th>
+                    <th scope="col">Comment</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>{{ reservation.id }}</td>
+                    <td>{{ reservation.date }}</td>
+                    <td>{{ reservation.time }}</td>
+                    <td>{{ reservation.number_of_guests }}</td>
+                    <td>{{ reservation.number_of_child_seats }}</td>
+                    <td>{{ reservation.private_booth }}</td>
+                    <td>{{ reservation.waitlisted }}</td>
+                    <td>{{ reservation.comment }}</td>
+                    <td>
+                      <a href="{% url 'manage_reservation' pk=reservation.pk %}">
+                          <button>Manage Reservation</button>
+                      </a>
+                    </td>
+                    <td>
+                      <a href="{% url 'delete_reservation' pk=reservation.pk %}">
+                          <button>Delete Reservation</button>
+                        </a>
+                      </td>
+                    </tr>
+                  {% empty %}
+                    <tr>
+                      <td colspan="10">Sorry, currently you don't have any bookings.</td>
+                    </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
     {% if is_paginated %}
     <nav aria-label="Page navigation">
         <ul class="pagination justify-content-center">
