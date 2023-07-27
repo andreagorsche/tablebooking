@@ -20,4 +20,8 @@ html, body {
     background-color: cadetblue;
     padding: 30px; 
     max-width: 600px; 
-  }
+    }
+  
+    .cont_sub_fill h1 { 
+      text-align: center;
+      }   

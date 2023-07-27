@@ -1,8 +1,9 @@
 {% extends 'tablebooking/base.html' %}
 
 {% block content %}
-<div class="bg_sub container-fluid d-flex align-items-center">
-<div class="cont_sub_fill container">
+<div class="bg_sub container-fluid d-flex align-items-center class m-0 p-3">
+<div class="cont_sub_fill container-fluid m-0 p-2">
+  <h1>Reserve your table at Delicious Daily</h1>
   <form method="post">
     {% csrf_token %}
     {% for field in form %}
