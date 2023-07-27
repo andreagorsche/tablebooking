@@ -28,11 +28,7 @@ class CreateReservation(CreateView):
                 form.instance.table = tables.first()
         return super().form_valid(form)
 
-from django.contrib.auth.mixins import LoginRequiredMixin
-from django.views import generic
-from .models import Reservation
-
-class ReservationList(LoginRequiredMixin, generic.ListView):
+class ReservationList(generic.ListView):
     model = Reservation
     template_name = "tablebooking/list_booking.html"
     paginate_by = 5
