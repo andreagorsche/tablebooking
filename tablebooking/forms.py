@@ -52,3 +52,14 @@ class ReservationForm(forms.ModelForm):
         # Check if the comment is not more than 300 characters
         if comment and len(comment) > 300:
             raise forms.ValidationError('Comment must not exceed 300 characters.')
+        
+         # Check if the table is already booked for the selected date and time
+        if date and time:
+            overlapping_reservations = Reservation.objects.filter(
+                table=cleaned_data.get('table'),  
+                date=date,
+                time=time
+            ).exclude(id=self.instance.id)  # Exclude the current reservation if it's being updated
+
+            if overlapping_reservations.exists():
+                raise forms.ValidationError('This table is already booked for the selected date and time.')

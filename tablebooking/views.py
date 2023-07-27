@@ -19,7 +19,7 @@ class CreateReservation(CreateView):
     template_name = "tablebooking/create_booking.html"
     success_url = reverse_lazy('home')
     form_class = ReservationForm
-    
+
     def form_valid(self, form):
         data = form.cleaned_data
         form.instance.user = self.request.user
