@@ -41,6 +41,14 @@ footer{
     left:0;
     right:0;
     bottom:0;
+    padding-top: 10px;
+    padding-bottom:10px;
+}
+
+footer p {
+  margin: 0; /* Remove default margins */
+  font-size: 12px;
+  line-height: 1.5; /* Adjust the line-height as needed */
 }
 
 .container {
