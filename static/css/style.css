@@ -10,7 +10,8 @@ body{
    }
 
    h1 {
-    font-size: 3vw;
+    font-size: 2.5vw;
+    margin: 10px;
    }
 
 #logo {
@@ -47,7 +48,7 @@ footer{
 
 footer p {
   margin: 0; /* Remove default margins */
-  font-size: 12px;
+  font-size: 15px;
   line-height: 1.5; /* Adjust the line-height as needed */
 }
 
@@ -77,6 +78,10 @@ footer p {
     color: #333;
     margin-top: 3%;
     font-size: 1.5vw;
+  }
+
+  a {
+    text-decoration: none;
   }
   
 /* Style the active link differently */
@@ -145,6 +150,13 @@ footer p {
   color: white;
   transform: rotateY(180deg);
 }
+
+.table{
+  background-color: cadetblue;
+  width: 100%;
+}
+
+
 
 /* Styles for smaller screens (adjust the breakpoint as needed) */
 @media screen and (max-width: 767px) {

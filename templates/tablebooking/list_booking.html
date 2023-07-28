@@ -2,24 +2,24 @@
 
     {% block content %}
     <div class="bg_sub container-fluid d-flex align-items-center class m-0 p-3">
-      <div class="cont_sub_fill container-fluid m-0 p-2">
+      <div class="container-fluid m-0 p-2">
         <div id= "reservation_list">
             {% for reservation in reservation_list %}
             <table class="table">
-                <thead>
-                  <tr>
-                    <th scope="col">Reservation Number</th>
-                    <th scope="col">Date</th>
-                    <th scope="col">Time</th>
-                    <th scope="col">Number of guests</th>
-                    <th scope="col">Number of child seats</th>
-                    <th scope="col">Private Booth</th>
-                    <th scope="col">Waitlisted</th>
-                    <th scope="col">Comment</th>
+                <thead style="width:100%">
+                  <tr style = "background-color: white; color:cadetblue">
+                    <th scope="col" style="width: 15%;">Reservation Number</th>
+                    <th scope="col" style="width: 10%;">Date</th>
+                    <th scope="col" style="width: 10%;">Time</th>
+                    <th scope="col" style="width: 10%;">No guests</th>
+                    <th scope="col"style="width: 10%;">No child seats</th>
+                    <th scope="col" style="width: 10%;">Private Booth</th>
+                    <th scope="col" style="width: 10%;">Waitlisted</th>
+                    <th scope="col" style="width: 10%;">Comment</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
+                  <tr style = "background-color: cadetblue; color: white">
                     <td>{{ reservation.id }}</td>
                     <td>{{ reservation.date }}</td>
                     <td>{{ reservation.time }}</td>
@@ -47,19 +47,19 @@
                 </tbody>
               </table>
             </div>
-          </div>
-        </div>
     {% if is_paginated %}
     <nav aria-label="Page navigation">
         <ul class="pagination justify-content-center">
             {% if page_obj.has_previous %}
-              <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV </a></li>
+              <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link" style = "color: cadetblue">&laquo; PREV </a></li>
             {% endif %}
             {% if page_obj.has_next %}
-              <li><a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
+              <li><a href="?page={{ page_obj.next_page_number }}" class="page-link" style = "color: cadetblue"> NEXT &raquo;</a></li>
             {% endif %}
             </ul>
-            </nav>
+          </nav>
+        </div>
+      </div>
     {% endif %}
     {% endblock content %}
    
