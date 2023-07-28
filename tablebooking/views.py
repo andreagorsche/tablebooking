@@ -20,6 +20,9 @@ def confirm_reservation(request):
 def confirm_reservation_update(request):
     return render(request, 'tablebooking/reservation_confirm_update.html')
 
+def delete_confirmed(request):
+    return render(request, 'tablebooking/delete_confirmed.html')
+
 class CreateReservation(CreateView):
     model = Reservation
     template_name = "tablebooking/create_booking.html"
@@ -62,4 +65,4 @@ class ReservationUpdate (generic.UpdateView):
 
 class ReservationDelete(DeleteView):
     model = Reservation
-    success_url = reverse_lazy('list_reservation') 
+    success_url = reverse_lazy('delete_confirmed') 
