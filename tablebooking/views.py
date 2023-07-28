@@ -58,7 +58,7 @@ class ReservationUpdate (generic.UpdateView):
     model = Reservation
     fields = ('date', 'time', 'number_of_guests', 'number_of_child_seats', 'comment')
     template_name = "tablebooking/manage_booking.html"
-    success_url = reverse_lazy('list_reservation') 
+    success_url = reverse_lazy('conf_upd_reservation') 
 
 class ReservationDelete(DeleteView):
     model = Reservation
