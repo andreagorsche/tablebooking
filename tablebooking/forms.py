@@ -1,6 +1,6 @@
 from django import forms
 from .models import Reservation, Table
-from datetime import date
+from datetime import date, time as time_lib
 import arrow
 from django.core.exceptions import ValidationError
 
@@ -28,6 +28,8 @@ class ReservationForm(forms.ModelForm):
     def clean(self):
         cleaned_data = super(ReservationForm, self).clean()
         date = cleaned_data.get("date")
+        time = cleaned_data.get("time")
+        comment = cleaned_data.get("comment")
         number_of_guests = cleaned_data.get("number_of_guests")
 
         # Check if the date is in the past
@@ -41,25 +43,16 @@ class ReservationForm(forms.ModelForm):
         # Check if number_of_guests are not None and not small or equal to null
         if number_of_guests is not None and number_of_guests <= 0:
             raise forms.ValidationError("Number of guests must be greater than 0.")
-        return cleaned_data
+       
 
         # Check if the time is between opening times (10 am to 8 pm)
-        opening_time = time(10, 0)  # 10:00 AM
-        closing_time = time(20, 0)  # 8:00 PM
+        opening_time = time_lib(10, 0)  # 10:00 AM
+        closing_time = time_lib(20, 0)  # 8:00 PM
         if time and (time < opening_time or time > closing_time):
             raise forms.ValidationError('The restaurant is open from 10:00 AM to 8:00 PM. Please select a valid time.')
         
         # Check if the comment is not more than 300 characters
         if comment and len(comment) > 300:
             raise forms.ValidationError('Comment must not exceed 300 characters.')
-        
-         # Check if the table is already booked for the selected date and time
-        if date and time:
-            overlapping_reservations = Reservation.objects.filter(
-                table=cleaned_data.get('table'),  
-                date=date,
-                time=time
-            ).exclude(id=self.instance.id)  # Exclude the current reservation if it's being updated
-
-            if overlapping_reservations.exists():
-                raise forms.ValidationError('This table is already booked for the selected date and time.')
+         
+        return cleaned_data

@@ -1,9 +1,15 @@
 {% extends 'tablebooking/base.html' %}
 
 {% block content %}
-<form method="post">{% csrf_token %}
-    <p>Are you sure you want to proceed with this booking "{{ object }}"?</p>
-    {{ form }}
-    <button type="submit" class="btn btn-success">Confirm Booking</button>
-</form>
+<div class="bg_sub container-fluid d-flex align-items-center">
+    <div class="row">
+      <div class="cont_sub_fill col-md-8 mt-5 offset-md-2"> 
+        <form method="post">{% csrf_token %}
+            <p>Are you sure you want to proceed with this booking "{{ object }}"?</p>
+            {{ form }}
+            <button type="submit" class="btn btn-success">Confirm Booking</button>
+        </form>
+      </div>
+    </div>
+</div>
 {% endblock %}
