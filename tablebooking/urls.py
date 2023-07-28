@@ -4,11 +4,12 @@ from .views import CreateReservation, ReservationList, ReservationUpdate, Reserv
 
 urlpatterns = [
     path('', views.base, name='home'),
-#   path('booking_form/', views.booking_form, name='booking_form'),
     path('create_booking/', CreateReservation.as_view(), name='create_reservation'),
     path('list_booking/', ReservationList.as_view(), name='list_reservation'),
     path('manage_booking/<int:pk>/', ReservationUpdate.as_view(), name='manage_reservation'),
-    path('confirm_delete/<int:pk>/', ReservationDelete.as_view(), name='delete_reservation'),
-    path('confirm_update/<int:pk>/', ReservationUpdate.as_view(), name='upd_conf_reservation'),
     path('menu/', views.login, name='menu'),
+
+    path('reservation_confirm', views.confirm_reservation, name='confirm_reservation'),
+    path('reservation_confirm_delete/<int:pk>/', ReservationDelete.as_view(), name='delete_reservation'),
+    path('reservation_confirm_update/', views.confirm_reservation_update, name='conf_upd_reservation'),
 ]

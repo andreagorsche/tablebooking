@@ -21,7 +21,9 @@
       </div>
     </div>
     {% endfor %}
-    <button type="submit" class="btn btn-success">Save Booking</button>
+    <a href="{% url 'confirm_reservation' %}">
+    <button>Save Booking</button>
+    </a>
   </form>
 </div>
 </div>

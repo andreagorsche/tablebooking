@@ -14,10 +14,16 @@ def base(request):
 def login(request):
     return render(request, 'tablebooking/menu.html')
 
+def confirm_reservation(request):
+    return render(request, 'tablebooking/reservation_confirm.html')
+
+def confirm_reservation_update(request):
+    return render(request, 'tablebooking/reservation_confirm_update.html')
+
 class CreateReservation(CreateView):
     model = Reservation
     template_name = "tablebooking/create_booking.html"
-    success_url = reverse_lazy('home')
+    success_url = reverse_lazy('confirm_reservation')
     form_class = ReservationForm
 
     def form_valid(self, form):
@@ -31,7 +37,7 @@ class CreateReservation(CreateView):
 class ReservationList(generic.ListView):
     model = Reservation
     template_name = "tablebooking/list_booking.html"
-    paginate_by = 5
+    paginate_by = 3
 
 # Filter reservations based on the currently logged-in user
     def get_queryset(self):

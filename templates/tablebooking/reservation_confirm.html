@@ -1,0 +1,9 @@
+{% extends 'tablebooking/base.html' %}
+
+{% block content %}
+<form method="post">{% csrf_token %}
+    <p>Are you sure you want to proceed with this booking "{{ object }}"?</p>
+    {{ form }}
+    <button type="submit" class="btn btn-success">Confirm Booking</button>
+</form>
+{% endblock %}
