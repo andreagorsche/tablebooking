@@ -156,7 +156,17 @@ footer p {
   width: 100%;
 }
 
+button{
+  display:flex;
+  align-items: center;
+  background-color: cadetblue;
+  color: white;
+}
 
+.list-buttons{
+  display: flex;
+  justify-content: flex-end;
+}
 
 /* Styles for smaller screens (adjust the breakpoint as needed) */
 @media screen and (max-width: 767px) {

@@ -28,16 +28,14 @@
                     <td>{{ reservation.private_booth }}</td>
                     <td>{{ reservation.waitlisted }}</td>
                     <td>{{ reservation.comment }}</td>
-                    <td>
+                    <div class="list-buttons">
                       <a href="{% url 'manage_reservation' pk=reservation.pk %}">
                           <button>Manage Reservation</button>
                       </a>
-                    </td>
-                    <td>
                       <a href="{% url 'delete_reservation' pk=reservation.pk %}">
                           <button>Delete Reservation</button>
                         </a>
-                      </td>
+                    </div>
                     </tr>
                   {% empty %}
                     <tr>
