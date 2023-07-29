@@ -56,8 +56,6 @@ After this first draft I took on the models and decided that having the function
 
 
 
-## Status Unfinished
-Currently, the website is unfinished due to major debugs that took their time. So basically I ran out of time and had to hand in an unfinished project.
 
 ### Debugging
 
@@ -70,16 +68,69 @@ After adding AllAuth I had some troubles wiring up the Menu and Book a Table int
 The biggest issue by far was and is the wiring of the form with the database. I became aware of the issue by entering test data to the form and checking the backend for entries but not finding any. Then I started to integrate print statements into my views function to get behind the issue. I solved a minor identation problem in the settings.py file and realized that the POST request is not even started proberly, because the first print statement after the request was already completely ignored. 
 I was able to solve major issues already, like missing capitalization of POST in the HTML and views file and unaligned naming of form input fields. Currently, I am trying to figure out how to address a foreign key in a database (private_booth is part of the model Table and needs to be requested by model Reservation).
 
+# Features
+
+# Deployment
+## Initial Deployment
+The deployment was done in 2 phases. The first deployment was done when I first set up the django project and connected everything to Heroku.
+
+The steps I took were:
+
+### 1) Set up Gitpod workspace with Django
+a. Create a new repository in Github
+b. Initialize a new Gitpod workspace
+c. Install Django and gunicorn to the workspace
+d. Install supporting libraries: dj_database_url==0.5.0 and    
+   psycopg2
+e. Create requirements file
+f. Create Django project (deliciousdaily)
+g. Create App (tablebooking)
+h. Add installed App name in the installed Apps in settings.py
+i. run migrations
+j. runserver and add host name to the allowed hosts in settings.py
+
+### 2) Create Heroku App and Elephant SQL database
+a. Log in to Heroku and click button "New" and select "Create new app
+b. Name the new App and choose the region
+c. Click "Create App" button
+c. Login to Elephant SQL and click button "Create new instance"
+d. Name instance and choose region
+e. Go to the next step "Review" and Click "Create instance"
+
+### 3) Connect Django Project with Heroko and SQL
+a. Copy the database Url von Elephant SQL and insert it as a 
+    Config Var in the Heroku App and as an environmental variable in the env.py file in Gitpod
+b. Define the Secret Key in env.py and also add it to the 
+   Config Var in Heroku
+c. Reference the env.py file, the database URL and secret key 
+   in the settings.py file
+d. Save all files and migrate 
+e. Add Heroku Hostname to ALLOWED_HOSTS
+f. create the folders static and templates in the Gitpod workspace
+g. add the Procfile and add the code: web: gunicorn PROJ_NAME.wsgi
+h. save all files and Add, Commit and Push
+
+### 4) Deploy on Heroku
+a. Go to the created App and click it
+b. Go to Settings
+c. Scroll down and click deploy
+d. Click view to check the result 
 
 
-### Next steps
-The next steps of my programming will include:
-1. Fix the existing booking form bug (data is not send to database yet; inability to access foreign key)
-2. Add full CRUD functionality
-3. Adding tests
-4. Adding bootstrap, CSS and JavaScript for the looks of the website
-5. Manage Booking: to change reservations
-6. Add up on the Read me File
+## Final Deployment
+After the functionality of Delicious Daily was tested and confirmed, I re-deployed to Heroku. 
+Sadly, no pics and no css seemed to have an effect.
+
+![Deployment without whitenoise](/static/images/readme/deploymenterror_static.png "Deployment without whitenoise")
+
+# Credits
+
+#### Find out that the inner-menu-card div was missing for my flip cards to work on the front page 
+https://www.w3schools.com/howto/howto_css_flip_card.asp
+
+#### Install whitenoise and collect static files to display images and use css files when deployed to Heroku
+https://www.w3schools.com/django/django_static_whitenoise.php
+https://www.w3schools.com/django/django_collect_static_files.php
 
 
  
