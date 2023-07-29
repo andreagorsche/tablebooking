@@ -1,6 +1,6 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+![Delicious Daily](/static/images/readme/Logo.png "Restaurant Website")
 
-Welcome to Delicious Daily,
+# Welcome to Delicious Daily,
 
 The restaurant website is designed to allow registered users to book tables, delete and change bookings.
 On the admin side the same functionality applies. The front-end has 5 main pages:
@@ -14,7 +14,7 @@ The admin page has the following functionalities:
 add reservations, delete reservations
 add tables and delete tables
  
-## User Experience 
+# User Experience 
 I took the user experience (especially for the front-end) into consideration and drafted the pages I wanted to create. See below.
 
 ## Agile Developement

@@ -1,7 +1,6 @@
 from django import forms
 from .models import Reservation, Table
 from datetime import date, time as time_lib
-import arrow
 from django.core.exceptions import ValidationError
 
 class ReservationForm(forms.ModelForm):
