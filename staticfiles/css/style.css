@@ -1,0 +1,181 @@
+@import url('https://fonts.googleapis.com/css?family=Pacifico:400|Cormorant Garamond:300,400,500,600,700');
+
+body{
+    font-family: Cormorant Garamond;
+    color: aliceblue;
+    min-height: 100vh;
+    font-size: 2.5 vw;
+    display: flex;
+    flex-direction: column;
+   }
+
+   h1 {
+    font-size: 2.5vw;
+    margin: 10px;
+   }
+
+#logo {
+    text-decoration: none;    
+    font-family: Pacifico;
+    color: cadetblue;
+    font-size: 2.5vw;
+    margin:0;
+    padding:0;
+}
+
+header {
+    margin: 0;
+    padding: 0;
+    background-color: aliceblue;
+    opacity: 0.85;
+    color: cadetblue; 
+    }
+
+footer{
+    margin-top: auto;
+    background-color: aliceblue;
+    opacity: 0.85;
+    color: cadetblue;  
+    width: 100%;
+    display: inline-block;
+    position: relative;
+    left:0;
+    right:0;
+    bottom:0;
+    padding-top: 10px;
+    padding-bottom:10px;
+}
+
+footer p {
+  margin: 0; /* Remove default margins */
+  font-size: 15px;
+  line-height: 1.5; /* Adjust the line-height as needed */
+}
+
+.container {
+  background-color: cadetblue;   
+  margin: 18%; 
+  padding: 3%;
+  opacity: 95%;
+}
+
+/* remove bullets from menu display, set margin and padding to zero */
+#nav {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  /* Display the list items horizontally */
+  #nav li {
+    display: inline-block;
+    margin-right: 3vw; 
+  }
+  
+  /* Add some styling to the links */
+  #nav li a {
+    text-decoration: none;
+    color: #333;
+    margin-top: 3%;
+    font-size: 1.5vw;
+  }
+
+  a {
+    text-decoration: none;
+  }
+  
+/* Style the active link differently */
+  #nav li.active a {
+    font-weight: bold;
+  }
+
+/* Style the quote container */
+
+#quote {
+  font-family: Pacifico;
+  font-size: 3vh;
+  color: cadetblue;
+  margin: 5vh;
+}
+
+/* Style the menu container */
+
+#menu {
+  background-color: cadetblue;
+  width:100%;
+  height:100%;
+}
+
+/*  flip card container */
+.menu-card {
+  background-color: transparent;
+  width: 200px;
+  height: 300px;
+  perspective: 1000px; 
+}
+
+/* Inner container to position the front and back  */
+.menu-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+/* Horizontal flip when mouse hovers */
+.menu-card:hover .menu-card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Position of the front and back side */
+.front, .back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+/* Style the front side */
+.front {
+  background-color: cadetblue;
+  color: white;
+}
+
+/* Style the back side */
+.back {
+  background-color: cadetblue;
+  color: white;
+  transform: rotateY(180deg);
+}
+
+.table{
+  background-color: cadetblue;
+  width: 100%;
+}
+
+button{
+  display:flex;
+  align-items: center;
+  background-color: cadetblue;
+  color: white;
+}
+
+.list-buttons{
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* Styles for smaller screens (adjust the breakpoint as needed) */
+@media screen and (max-width: 767px) {
+  #quote {
+    font-size: 2vw;
+    margin: 2px;
+  }
+
+  body{
+    font-size: 2vw;
+}
+}
