@@ -123,7 +123,7 @@ Sadly, no pics and no css seemed to have an effect.
 
 ![Deployment without whitenoise](/static/images/readme/deploymenterror_static.png "Deployment without whitenoise")
 
-I could solve the issue by performing the following steps:
+I started to address the issue by following these steps:
 1) Checking Slack if anyone else ever had this problem
 2) Finding the right thread and following the steps:
     a) Delete the Config Var DISABLE_COLLECTSTATIC from Heroku
@@ -164,7 +164,11 @@ When looking at the development version as well as the deployed version - all CS
       b) Login to Heroku via the command line by running  the command 'heroku login -i' in the terminal of Gitpod
       c) Enable automatic deploy in Heroku
 
-The static files in cloudinary started to rebuild. Leading to the next issue: My relative file paths to images and css files were not funcitonal anymore. So the final step to set-up Cloudinary at the end of the project was: updating the filepaths in the base.hmtl file and the subpages.css
+The static files in cloudinary started to rebuild. Leading to the next issue: My relative file paths to images and css files were not funcitonal anymore. So the final step to set-up Cloudinary at the end of the project was: updating the filepaths in the base.html file and the subpages.css. 
+While the change of the images in the html template was not the problem, the change in the CSS file proved to be more tricky. Apparently Django-specific template tags like "{% static %}" won't work in CSS files. So checked Slack for possible solutions. Linking directly to the cloudinary URL was recommended by CI tutoring to a fellow student (see screenshot below). So I followed this approach as well.
+
+![CSS Django BG](/static/images/readme/tutor_solution_cssdjangobg.png "Backgroundimage, CSS and Django")
+
 
 
 
