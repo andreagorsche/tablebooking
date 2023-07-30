@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://kit.fontawesome.com/5b93d82091.js" type="text/css" crossorigin="anonymous"/>
-    <link rel="stylesheet" href="../../static/css/style.css">
-    <link rel="stylesheet" href="../../static/css/subpages.css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/subpages.css' %}">
 
     <title>Delicious Daily</title>
 </head>
@@ -50,7 +50,7 @@
     {% block content %}
     <div id="'intro" class= "container-fluid position-relative p-0 m-0 align-items-center d-flex">
       <div id="intro-img" class = "z-1 position-absolute">
-      <img src="../../static/images/header.png" class="img-fluid" alt="Cafe">
+      <img src="{% static 'images/header.png' %}" class="img-fluid" alt="Cafe">
       </div>
       <div class="container text-center z-0 position-relative" id="'intro-box">
         <div class="row no-gutters">
