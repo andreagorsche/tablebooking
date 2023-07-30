@@ -125,14 +125,16 @@ Sadly, no pics and no css seemed to have an effect.
 
 I could solve the issue by performing the following steps:
 1) Checking Slack if anyone else ever had this problem
-2) Finding a thread and following the steps:
-    a)
-    b)
-    c)
-3) Finding a thread and reading about the problem of Django not transfering static files to Heroku automatically
+2) Finding the right thread and following the steps:
+    a) Delete the Config Var DISABLE_COLLECTSTATIC from Heroku
+    b) Install whitenoise to gitpod
+    c) run the command python3 manage.py collectstatic
 
+This resulted in a second folder with the name 'staticfiles being created in my gitpod directory. At this point I realized that not setting up Cloudinary from the start was a mistake.
+Reading about Django not transfering static files to Heroku automatically made me realize how crucial it would have been for me to set up Cloudinary for static file storage upfront. - An important lesson learned for future projects.
+At this point, I could only do the set-up of Cloudinary at the end of the project.
 
-By finding out that Django is not transfering the static automatically, I understood that I needed to wire up Cloudinary for the staticfiles storage. Thus, I did the following steps next:
+Thus, I did the following steps next:
 1) Install the Cloudinary libraries
 2) Update the requirements.txt file
 3) Copy the URL of the cloudinary URL and insert it into the env.py file
@@ -150,7 +152,20 @@ By finding out that Django is not transfering the static automatically, I unders
       TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 9) Change the templates directory to TEMPLATES_DIR, placing the following code within the TEMPLATES array
         'DIRS': [os.path.join(BASE_DIR, 'templates')],
-10) Add, Commit and Push changes
+10) Delete the staticfiles folder created before
+11) Add, Commit and Push changes
+
+When looking at the development version as well as the deployed version - all CSS styling and all images were gone. To fix this problem I took the following steps:
+   1) checking if my Cloudinary URL was copied correctly into Heroku and env.py
+   2) if my settings.py file was set up correctly (template directory, static files directory, libraries added to the isntalled apps ...)
+   3) I also tried to rename the static root folder because I had read in a slack channel of the course that it worked for one other student - but the basic problem was a different one
+   4) Thanks to the guidance of student tutor Joshua, I then followed the following steps:
+      a) delete all folders previously created on Cloudinary
+      b) Login to Heroku via the command line by running  the command 'heroku login -i' in the terminal of Gitpod
+      c) Enable automatic deploy in Heroku
+
+The static files in cloudinary started to rebuild. Leading to the next issue: My relative file paths to images and css files were not funcitonal anymore. So the final step to set-up Cloudinary at the end of the project was: updating the filepaths in the base.hmtl file and the subpages.css
+
 
 
 # Credits
