@@ -112,7 +112,7 @@ h. save all files and Add, Commit and Push
 
 ### 4) Deploy on Heroku
 a. Go to the created App and click it
-b. Go to Settings
+b. Go to deploy section
 c. Scroll down and click deploy
 d. Click view to check the result 
 
@@ -130,6 +130,30 @@ I could solve the issue by performing the following steps:
     b)
     c)
 3) Finding a thread and reading about the problem of Django not transfering static files to Heroku automatically
+
+
+By finding out that Django is not transfering the static automatically, I understood that I needed to wire up Cloudinary for the staticfiles storage. Thus, I did the following steps next:
+1) Install the Cloudinary libraries
+2) Update the requirements.txt file
+3) Copy the URL of the cloudinary URL and insert it into the env.py file
+4) Insert the cloudinary url als Config Var in Heroku
+5) add the Config Var DISABLE_COLLECTSTATIC and set its value to 1 (temporary, will be removed again after cloudinary set up)
+6) Add cloudinary libraries to installed apps in settings.py file
+7) Tell Django to use Cloudinary to store media and static files with the following code in settings.py:
+      STATIC_URL = '/static/'
+      STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
+      STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'), ]
+      STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+      MEDIA_URL = '/media/'
+      DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
+
+8) Link the file to the templates directory in Heroku, placing the following code under the BASE_DIR line
+      TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
+
+9) Change the templates directory to TEMPLATES_DIR, placing the following code within the TEMPLATES array
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+
 
 # Credits
 
