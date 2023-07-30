@@ -123,6 +123,14 @@ Sadly, no pics and no css seemed to have an effect.
 
 ![Deployment without whitenoise](/static/images/readme/deploymenterror_static.png "Deployment without whitenoise")
 
+I could solve the issue by performing the following steps:
+1) Checking Slack if anyone else ever had this problem
+2) Finding a thread and following the steps:
+    a)
+    b)
+    c)
+3) Finding a thread and reading about the problem of Django not transfering static files to Heroku automatically
+
 # Credits
 
 #### Find out that the inner-menu-card div was missing for my flip cards to work on the front page 
