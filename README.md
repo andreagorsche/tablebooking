@@ -70,6 +70,13 @@ I was able to solve major issues already, like missing capitalization of POST in
 
 # Features
 
+# Debugging
+
+# Testing
+## Manual Testing
+
+## Validators
+
 # Deployment
 ## Initial Deployment
 The deployment was done in 2 phases. The first deployment was done when I first set up the django project and connected everything to Heroku.
