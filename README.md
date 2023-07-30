@@ -146,13 +146,11 @@ By finding out that Django is not transfering the static automatically, I unders
       STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
       MEDIA_URL = '/media/'
       DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
-
-
 8) Link the file to the templates directory in Heroku, placing the following code under the BASE_DIR line
       TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
-
 9) Change the templates directory to TEMPLATES_DIR, placing the following code within the TEMPLATES array
         'DIRS': [os.path.join(BASE_DIR, 'templates')],
+10) Add, Commit and Push changes
 
 
 # Credits
