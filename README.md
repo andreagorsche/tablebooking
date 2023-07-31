@@ -123,24 +123,55 @@ Plus 5 redirects to confirm actions have taken place:
 4. confirmation deletion
 5. asking for confirmation before sign out
 
-The typical user flow for a first-time user would look like this:
+The typical user flow for Delicious Daily looks like this:
 
-user flow graphic
+![User Flow Delicious Daily](/static/images/readme/UserFlow_deliciousdaily.png "User Flow")
 
 ## Skeleton Plane
 
-wireframes and database models
-### Sketching Database Models
-Before writing the models I drafted them and consider the relationship of the needed tables.
+To get a deeper understanding of the website I intend to build, I first sketched the database models and their according fields.
+In this design phase it was crucial for me to start thinking about concrete features because the features I had in mind would in turn define the database fields I would need.
 
-#### Reservation
-Foreign Key 	Table Nr		    integer
-Foreign Key	    User			    user model
-Many to Many	Date 			    date
-Many to Many 	Time			    time
-Many to Many 	Number of people    integer (max value 10)
+### The Database Models
 
-After this first draft I took on the models and decided that having the functionality of a child seat choice, a private booth option and an option to be waitlisted, in case the table is currently book at the desired time and date, would add value. Leading to my final version of models in the models.py file.
+For the design of the database models I had both user groups in mind: the restaurant admins and the guests of the restaurant.
+While the guests would work with data connected to their reservation only, the admins for sure would like to do table management as well. E.g. be able to adjust the number of tables available and the number of seats per table.
+
+#### Basic fields
+The reservation model would take in typical fields required for every reservation: date, time, a comment field. Since this form would be about restaurant reservations the number of people matters as well. And the table number would be connected as a foreign key.
+The table, on the other hand, would have a number and a number of guests in its basic set up. 
+But I wanted to add that little extra for both tables and considered USPs relevant in restaurant reservations.
+
+#### Adding USP
+##### The extra mile for families
+Being a mother myself, I thought it would be a convenient service to add the number of child seats to the model. This way, families booking a table would
+a)	See that there are child seats at the restaurant and
+b)	Have the security that they will actually have an available child seat with their booking
+The restaurant admins on the other hand can react in case they see a shorthand of child seats for a certain date and react accordingly. – A win-win and good service of the restaurant. Especially with very basic services like bookings at restaurants there is only so much you can do and offer. Adding little small services like the child seat options can turn in a nice little USP that lets families pick Delicious Daily over other restaurants not being so considered in their booking form.
+
+##### The extra mile for couples and small parties
+A second guest target group I had in mind were couples. They may prefer a more private setting for their lovey-dovey brunches or romantic dinners. Also people who intend to celebrate a birthday may prefer a more secluded spot in the restaurant. Thus, I added the models field private booth to the tables model.
+
+##### The extra mile to smoothen disappointment
+Sometimes it happens that you have the perfect breakfast, lunch or dinner plans and your mind is set on a certain restaurant. Thus, the disappointment is big, if there are no available tables left at the required date or time. This seems especially unfair, considering that people who actually booked sometimes don’t show up or need to cancel their plans last minute. With waiting list functionality I wanted to address this issue and provide the guest with the prospect of a potential table. This extra effort of the restaurant to make their guests wishes true will leave a positive feeling with guest and even if the desired date stays unavailable the guest is more likely to return for another booking because they see the effort.
+This feature also provides a relevant benefit for restaurant managers. After all an empty table is equal to missing revenue. So restaurant managers will appreciate the ability to fill up cancellations with waiting reservations.
+
+##### Future functionalities and the data models
+I initially planned the waiting list as its own model with the table number and reservation number as foreign keys. But my mentor advised me to add this characteristic to the reservation model directly as a Boolean field called “is_waitlisted”. My mentor also advised me to focus on basic functionality first and write this waiting list feature down for later. Still I decided to integrate this idea in my database model right away, to avoid a re-set up to add the field later.
+
+Like already described in the Scope Plane I came up with one additional feature idea about showing pictures of the available tables and letting the user pic the table themselves. Sadly, I didn’t come up with that idea in the initial design concept but later in the development process, thus an image field in the table model is not integrated in this version of the code. But it is planned for a future version.
+
+### The database model design
+Following my above description, I designed the following database model structure for my project Delicious Daily: 
+
+![Database Models](/static/images/readme/Database_Models.png "Database Models")
+
+
+### Wireframing
+
+
+wireframes
+
 
 ## Surface Plane
 Typography
