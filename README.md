@@ -2,26 +2,10 @@
 
 # Welcome to Delicious Daily,
 
+Delicious Daily is a restaurant website offering individual table bookings for their customers. Users interested in booking a table via the online form need to register for free first. Once logged in the users can book tables and manage their reservations (update information on date, time, number of guests, number of child seats, edit the comment field) and delete them if they are no longer needed.
 
+On the admin side, restaurant managers and waitresses can manage bookings (view bookings, filter bookings, change bookings) and manage tables (add tables, change number of seats, set tables to private booths whenever they are rearranged) 
  
-
-
-
-
-
-
-
-### Debugging
-
-For me the easiest parts included setting up the admin page and create the models. Troubles started with creating the views and wiring them up with the urls. The following issues came up and were solved by me:
-
-The urlspatterns were missing commas
-in the urls path the name attribute was missing, therefore the wiring was not complete
-After adding AllAuth I had some troubles wiring up the Menu and Book a Table into the nav bar (only visible if authentificated)
-
-The biggest issue by far was and is the wiring of the form with the database. I became aware of the issue by entering test data to the form and checking the backend for entries but not finding any. Then I started to integrate print statements into my views function to get behind the issue. I solved a minor identation problem in the settings.py file and realized that the POST request is not even started proberly, because the first print statement after the request was already completely ignored. 
-I was able to solve major issues already, like missing capitalization of POST in the HTML and views file and unaligned naming of form input fields. Currently, I am trying to figure out how to address a foreign key in a database (private_booth is part of the model Table and needs to be requested by model Reservation).
-
 # User Experience
 
 ## Strategy Plane
@@ -174,43 +158,125 @@ A big part of the skeleton design phase was the wireframing. I decided to do low
 
 For every page and every interaction with the user I design a separate page.
 
-In order to create a full-stack application I designed a starting page that has a delicious food pic at its center. And a note telling the user that he or she is able to book a table after free registration. Thus, advertising the main functionality of the page at first glance.
+In order to create a full-stack application I designed a **starting page** that has a delicious food pic at its center. And a note telling the user that he or she is able to book a table after free registration. Thus, advertising the main functionality of the page at first glance.
+ At the top is a header with the restaurant logo, linking back to the main page from every page, and a menu with basic functionality for checking the menu, registration and login. At the bottom is a footer with the copyright in place.
 
-A page with breakfast, lunch and dinner menus should give the user a taste of what they could get at delicious daily and motivate a table booking.
-
-The registration page for first-time users should offer a fast way to enter details and proceed to the booking features. The design of this page, as well as the login page is intentionally minimalistic. After all data entry requires focus on the entered data. Too much design or animation around the form only distracts and confuses.
-
-I  followed the same minimalist approach for user feedback pages (like e.g. your booking has been confirmed, deletion is confirmed, booking update is confirmed) and for interaction pages (e.g. please confirm deletion, do you really want to log out).
-
-The book a table page is a page of central interest to the user
-
- and booking list pages are the two main pages of interest to the user. Thus the information display is bigger (form section with green background, and list with green background and next/previous buttons) and the background picture only functions as a frame, serving visual recognition of the user.
+![Main Screen](/static/images/readme/Wireframes/MainScreen.png "Main Screen")
 
 
+A page with breakfast, lunch and dinner menus gives the user a taste of what Delicious Daily has to offer and motivate their free registration to book a table.
 
+![Menu](/static/images/readme/Wireframes/Menu.png "Menu")
 
+The registration page for first-time users should offer a fast way to enter details and proceed to the booking features. The design of this page, as well as of the login page is intentionally minimalistic. After all data entry requires focus on the entered data. Too much design or animation around the form only distracts and confuses.
 
+![Register](/static/images/readme/Wireframes/Register.png "Register")
+
+The Login page is designed in similar pattern giving the recurring user the chance to log back in.
+
+![Login](/static/images/readme/Wireframes/Login.png "Login")
+
+Once a user is registered and logged in new menu options present themselves: book a table, view bookings and logout. 
+
+![RegisteredUser](/static/images/readme/Wireframes/RegisteredUser.png "RegisteredUser")
+
+The book a table page is a page of central interest to the user. Therefore the green background of the form is bigger and the background pic is more like a frame to add some visual touch without being to distracting. 
+That way the user can focus on the data entry. Still the grey background of the cafe is a repeated image for recognition purposes.
+
+![Book a Table](/static/images/readme/Wireframes/BookATable.png "Book a Table")
+
+After clicking the Book button. The user is directed to a feedback page confirming the booking was successful.
+
+![Booking Confirmation](/static/images/readme/Wireframes/BookingConfirmation.png "Booking Confirmation")
+
+The booking list page follows the same design principle as the book a table page. A big green background highlights the information at center - the booked reservations. These are organized in a list with two possible actions "manage booking" and "delete booking". Part of the green background frame are the buttons "next" and "previous" in case the user has more than 3 bookings.
+
+![View Bookings](/static/images/readme/Wireframes/ViewBookings.png "View Bookings")
+
+When the user wants to update a table booking they press the manage booking button and are directed to the booking form to edit their reservation entry. 
+
+![Update a Table](/static/images/readme/Wireframes/UpdateATable.png "Update a Table")
+
+After making the necessary changes, by clicking the button "Update Booking" they are then directed to a page confirming the update.
+
+![Update Confirmation](/static/images/readme/Wireframes/UpdateConfirmation.png "Login")
+
+If a user clicks the "delete booking" button, they are directed to a subpage asking to confirm the deletion.
+
+![Delete Question](/static/images/readme/Wireframes/DeleteQuestion.png "Delete Question")
+
+If they confirm the deletion they are directed to user feedback page stating that the booking was deleted successfully.
+
+![Confirmation Delete](/static/images/readme/Wireframes/ConfirmationDelete.png "Confirmation Delete")
+
+Once the user wants to log out they click on Logout in the top menu and are directed to a page where they have to confirm there logout.
+
+![Logout Question](/static/images/readme/Wireframes/LogoutQuestion.png "Logout Question")
+
+In general, I followed a  minimalist approach for user feedback pages (like e.g. your booking has been confirmed, deletion is confirmed, booking update is confirmed) and for interaction pages (e.g. please confirm deletion, do you really want to log out).
 
 ### User Flow
-Wireframing is always closely linked to the user flow for me. After all, if I don't know how the user navigates to the page and which touchpoints he or she has, how should I consideratley design the wireframing?
+Wireframing is always closely linked to the user flow. After all, if I don't know how the user navigates to the page and which touchpoints he or she has, how should I consideratley design the wireframing?
 Thus, with the wireframes designed I created a typical user flow for recurring users and first time users in one graphic.
-
-#### First-time users
-#### Recurring users
-
 
 ![User Flow Delicious Daily](/static/images/readme/UserFlow_deliciousdaily.png "User Flow")
 
+#### First-time users
+
+First-time users enter the page, browse the menu, register, book a table, list their booking. They eventuelly may adapt their booking or delete it. Ultimately they log out.
+
+#### Recurring users
+
+Recurring users enter the page, browse the menu, login in, book a table and/or list their previous bookings. They might update or delete previous bookings and eventually log back out.
+
 ## Surface Plane
-Typography
-Colors
+
+Each surface design for me starts with the color scheme. After all it determines the imagery used and also the typography.
+
+### Color Scheme
+Since by definition imagery of food tends to be colorful and should be at the center of page, the color scheme I choose was subtle and down to earth. No screaming colors but colors that go well as supporting colors.
+
+#### Main color
+For the header, footer, logo as well as the background blocks of forms and lists I choose the color cadetblue to frame the rich imagery and information displayed.
+
+![Main Color - Cadet Blue](/static/images/readme/ColorScheme/cadetblue.png "Main Color - Cadet Blue")
+
+#### Supporting color
+As supporting colors I choose Alice Blue to create a nice supporting contrast to the cadetblue main color. As further supporting colors I used dark charcoal and white.
+
+![Supporting Color - Alice Blue](/static/images/readme/ColorScheme/aliceblue.png "Main Color - Alice Blue")
+![Supporting Color - Dark Charcoal](/static/images/readme/ColorScheme/dark_charcoal.png "Main Color - Dark Charcoal")
+![Supporting Color - White](/static/images/readme/ColorScheme/white.png "Main Color - White")
+
+### Typography
+
+### Imagery
+The imagery chosen show the delight and deliciousness of eating. It is more than just a process of eating to smoothen an empty stomach. It is a celebration of taste and touches all senses.
 
 # Features
 
 # Debugging
+### Debugging (old)
+
+For me the easiest parts included setting up the admin page and create the models. Troubles started with creating the views and wiring them up with the urls. The following issues came up and were solved by me:
+
+The urlspatterns were missing commas
+in the urls path the name attribute was missing, therefore the wiring was not complete
+After adding AllAuth I had some troubles wiring up the Menu and Book a Table into the nav bar (only visible if authentificated)
+
+The biggest issue by far was and is the wiring of the form with the database. I became aware of the issue by entering test data to the form and checking the backend for entries but not finding any. Then I started to integrate print statements into my views function to get behind the issue. I solved a minor identation problem in the settings.py file and realized that the POST request is not even started proberly, because the first print statement after the request was already completely ignored. 
+I was able to solve major issues already, like missing capitalization of POST in the HTML and views file and unaligned naming of form input fields. Currently, I am trying to figure out how to address a foreign key in a database (private_booth is part of the model Table and needs to be requested by model Reservation).
 
 # Testing
 ## Manual Testing
+### Test Cases
+CRUD
+   Create
+   Read
+   Update
+   Delete
+Form validation
+Double Booking
 
 ## Validators
 
