@@ -37,6 +37,9 @@ Besides adding and managing reservations, the restaurant admins have the ability
 ### Agile Development Method
 
 Following agile development practices, I created the user stories for the project in the Canban tool of Github.
+
+![Delicious Daily](/static/images/readme/AgileDevelopement.png "Restaurant Website")
+
 Thereby I followed **two-week-sprints**:
 
 Sprint 1: Designing the project (strategy, goals, user groups, user stories, wireframes)
@@ -50,7 +53,7 @@ Sprint 4: Create Login and Registration functionality
 Sprint 5: Create basic user form functionality (entered data is sent to the sql database)
 
 
-(due to my initial approach to set up a form without the use of a forms.py file and also neglecing the idea of Generic Views I soon realized the limitations I had put onto myself. As time for project submission was running out, I had to hand in an unfinished project, determined to change my approach for the second submission)
+Due to my initial approach to set up a form without the use of a forms.py file and also neglecing the idea of Generic Views I soon realized the limitations I had put onto myself. As time for project submission was running out, I had to hand in an unfinished project, determined to change my approach for the second submission.
 
 This time I followed shorter sprints of **1 week** per sprint:
 
@@ -67,6 +70,7 @@ Sprint 10: No Double Booking functionality
 Sprint 11: Debugging of form validation
 
 Sprint 12: Debugging CSS and finalizing of the project
+
 
 For me personally, it felt like a better approach to have small workpakages in a shorter amount of time. It felt more efficient and targeted than the previous sprints. 
 
@@ -123,9 +127,6 @@ Plus 5 redirects to confirm actions have taken place:
 4. confirmation deletion
 5. asking for confirmation before sign out
 
-The typical user flow for Delicious Daily looks like this:
-
-![User Flow Delicious Daily](/static/images/readme/UserFlow_deliciousdaily.png "User Flow")
 
 ## Skeleton Plane
 
@@ -169,9 +170,36 @@ Following my above description, I designed the following database model structur
 
 ### Wireframing
 
+A big part of the skeleton design phase was the wireframing. I decided to do low-fidelty wireframes in the design tool Figma. 
 
-wireframes
+For every page and every interaction with the user I design a separate page.
 
+In order to create a full-stack application I designed a starting page that has a delicious food pic at its center. And a note telling the user that he or she is able to book a table after free registration. Thus, advertising the main functionality of the page at first glance.
+
+A page with breakfast, lunch and dinner menus should give the user a taste of what they could get at delicious daily and motivate a table booking.
+
+The registration page for first-time users should offer a fast way to enter details and proceed to the booking features. The design of this page, as well as the login page is intentionally minimalistic. After all data entry requires focus on the entered data. Too much design or animation around the form only distracts and confuses.
+
+I  followed the same minimalist approach for user feedback pages (like e.g. your booking has been confirmed, deletion is confirmed, booking update is confirmed) and for interaction pages (e.g. please confirm deletion, do you really want to log out).
+
+The book a table page is a page of central interest to the user
+
+ and booking list pages are the two main pages of interest to the user. Thus the information display is bigger (form section with green background, and list with green background and next/previous buttons) and the background picture only functions as a frame, serving visual recognition of the user.
+
+
+
+
+
+
+### User Flow
+Wireframing is always closely linked to the user flow for me. After all, if I don't know how the user navigates to the page and which touchpoints he or she has, how should I consideratley design the wireframing?
+Thus, with the wireframes designed I created a typical user flow for recurring users and first time users in one graphic.
+
+#### First-time users
+#### Recurring users
+
+
+![User Flow Delicious Daily](/static/images/readme/UserFlow_deliciousdaily.png "User Flow")
 
 ## Surface Plane
 Typography
