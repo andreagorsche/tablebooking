@@ -249,11 +249,35 @@ As supporting colors I choose Alice Blue to create a nice supporting contrast to
 ![Supporting Color - White](/static/images/readme/ColorScheme/white.png "Main Color - White")
 
 ### Typography
+For the font I decided to go with Cormorant Garamond as the main font. It is very good to read and still has some unique touch to it. The font Pacifico is more playful and used for special nuances like the quote of the Chef or the logo.
 
 ### Imagery
-The imagery chosen show the delight and deliciousness of eating. It is more than just a process of eating to smoothen an empty stomach. It is a celebration of taste and touches all senses.
+The imagery chosen show the delight and deliciousness of eating. It is more than just a process of eating to fill an empty stomach. It is a celebration of taste and touches all senses.
+
+#### Key Visual
+The key visual is the picture of the restaurant from outsite. It appears to be drawn but is actually an edited picture. This effect together with the colors of the visual give a softer touch compared to a pure photograph. 
+The key visual is used in a black-and-white version as a background whenever the user has to enter information or is given information. This way a pattern is visible to the user that makes him or her recognize he is still on the right website and was not redirected somewhere else.
+Furthermore, it undermines the role of the key visual as something recurring and recognizeable, similar to the logo.
+
+![Key Visual](/static/images/readme/startingpage/starting_page_1.png "Key Visual")
+
+
+#### Food pictures
+For the menus breakfast, lunch and dinner one symbol picture each was used. Like described before with the color scheme, the food pics are supposed to look delicious and inviting to eat at the restaurant. The pics are colorful and very distinct from each other to suggest different tasts and looks depending on the time of day you eat at Delicious Daily.
+
+![Key Visual](/static/images/readme/startingpage/starting_page_4.png "Key Visual")
+
+
+#### Picture of the restaurants chef
+There is nothing more welcoming than a friendly face. So the restaurant chef himself decided to appear on the main page - doing what he does best: prepare delicious food. A quote about the joy of eating is adding to the overall feeling that eating is a delicious act. 
+
+![Key Visual](/static/images/readme/startingpage/starting_page_2.png "Key Visual")
 
 # Features
+
+## CRUD
+
+## USP
 
 # Debugging
 ### Debugging (old)
