@@ -93,6 +93,8 @@ I detailed the scope of the project by deciding on the user stories.
 
 * As a user I get a list of available tables based on my booking inquiry and can pick my favorite table according to characteristics (private booth, picture of the table).
 
+* The booking slot now is 1 hour per reservation. The user could be asked in the form how long he intends to stay approx., this could help for occations like birthday parties where longer times are usually required. The user should be given a choice of less than two hours or more than two hours and according to his answer the system blocks the alloted time.
+
 
 ## Structure Plane
 The front-end has 6 main pages:
@@ -273,11 +275,75 @@ There is nothing more welcoming than a friendly face. So the restaurant chef him
 
 ![Key Visual](/static/images/readme/startingpage/starting_page_2.png "Key Visual")
 
+
 # Features
+Like already elaborated in the Skeleton Plane the main features and functionalities revolve around the basics of a restaurant table booking system plus individual USPs added to give the user an even better experience.
 
 ## CRUD
+The main functionality I focused on in the initial developement process was the CRUD functionality:
+* Create table bookings
+* Read table bookings
+* Update table bookings and
+* Delete table bookings
+
+### Cread a booking
+In order to create a booking the user first has to register. Once logged in the user clicks on "Book a table" in the menu to get to the booking form. The user is required to enter the date, time, number of people and number of child seats required. The commed field is optional. On clicking the Book button the data entry is checked through form validation. If the data entry was correct the user is informed that the booking was successful. Otherwise error messages inform the user about the problem with the entered data.
+ 
+#### Form Validation
+The form validation checks if:
+* The date is entered in the format DD/MM/YYYY
+* The time is entered in the format HH:MM
+* The date is not in the past
+* The time is within opening hours
+* The date is not a monday
+* The number of guests is bigger than 0
+* The comment is no more than 300 characters
+
+#### Double Booking
+The user is informed in case there is no table available for the requested date, time and number of guests.
+
+### Read table booking
+When clicking the "view bookings" button the user can check all bookings they did so far. In case there aren't any bookings yet the user is informed through a message. If there are bookings listed the user is free to manage the booking or delete it through the provided buttons.
+Many table booking forms are just basic contact forms sending the restaurant email for reservation requests. But Delicious Daily offers a database-based solution that allows users to not only book but also manage and delete their bookings easily and fast.
+
+### Update and delete table booking 
+Sometimes plans change and the user needs to update or delete their booking. If the reservation request was send via a contact form the user would be required to write an email or call. If the phone is busy or the restaurant closed at the time this easy task of updating or deleting a booking can be tedious. Not with Delicious Daily. Here each customer can manage their reservations themselves giving them maximum flexibility and ease-of-access. 
+When updating the booking, the user is required to update the data he or she already entered in the form and then pressing the button update. An immediate message confirms the changes.
+When deleting a booking, the user is requried to press the according button in the actions column of the table listing all reservations. The user is then asked once more if he or she is sure they want to cancel. Then in a last step the cancellation is confirmed.
 
 ## USP
+
+### Child Seat Feature
+Families don't have to worry whether their little ones will have their own child seats available at the restaurant, because they can be booked with the table - individually and easily. The information about required child seats is also passed to the restaurant admin and therefore a shortage is made visible fast and can be acted on.
+
+### Private Booth feature
+
+
+
+
+# Technologies Used
+To reach the functionalities described above in the features section, I worked with the MTV (Model-Template-Views) framework Django. For the models, views and form I used Python. To create my templates I used HTML. And to style it I used CSS and Bootstrap.
+For file storage cloudinary was used, to store the database Elephant SQL was used. Whitenoise was installed to handle the transfer of the static files between Django, Cloudinary and Heroku.
+
+A full list of libraries used you can find in the list below.
+
+asgiref==3.6.0
+cloudinary==1.33.0
+dj-database-url==0.5.0
+dj3-cloudinary-storage==0.0.6
+Django==3.2.18
+django-allauth==0.52.0
+django-summernote==0.8.20.0
+gunicorn==20.1.0
+oauthlib==3.2.2
+psycopg2==2.9.5
+PyJWT==2.6.0
+python3-openid==3.2.0
+pytz==2022.7.1
+requests-oauthlib==1.3.1
+sqlparse==0.4.3
+urllib3==1.26.15
+whitenoise==6.5.0
 
 # Debugging
 ### Debugging (old)
