@@ -1,18 +1,16 @@
-/*@import url('https://fonts.googleapis.com/css?family=Pacifico:400|Cormorant Garamond:300,400,500,600,700');*/
-@import url('https://fonts.googleapis.com/css2?family=Pacifico|Cormorant+Garamond:wght@300,400,500,600,700&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond&family=Pacifico&display=swap');
 
 body{
     font-family: Cormorant Garamond;
     color: aliceblue;
     min-height: 100vh;
-    font-size: 2.5 vw;
+    font-size: 1.5rem;
     display: flex;
     flex-direction: column;
    }
 
    h1 {
-    font-size: 2.5vw;
+    font-size: 2.5rem;
     margin: 10px;
    }
 
@@ -95,7 +93,7 @@ footer p {
 
 #quote {
   font-family: Pacifico;
-  font-size: 3vh;
+  font-size: 2.5rem;
   color: cadetblue;
   margin: 5vh;
 }
@@ -178,13 +176,17 @@ footer p {
 }
 
 /* Styles for smaller screens (adjust the breakpoint as needed) */
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 1270px) {
   #quote {
-    font-size: 2vw;
+    font-size: 1rem;
     margin: 2px;
   }
 
+  h1{
+    font-size: 1rem;
+  }
+
   body{
-    font-size: 2vw;
+    font-size: 0.8rem;
 }
 }
