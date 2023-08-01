@@ -4,7 +4,13 @@
 
 Delicious Daily is a restaurant website offering individual table bookings for their customers. Users interested in booking a table via the online form need to register for free first. Once logged in the users can book tables and manage their reservations (update information on date, time, number of guests, number of child seats, edit the comment field) and delete them if they are no longer needed.
 
+![Delicious Daily Screens](/static/images/responsive.png "Responsive Screens")
+
+
 On the admin side, restaurant managers and waitresses can manage bookings (view bookings, filter bookings, change bookings) and manage tables (add tables, change number of seats, set tables to private booths whenever they are rearranged) 
+
+![Admin Screen](/static/images/admin_side.png "Admin Screen")
+
  
 # User Experience
 
