@@ -372,6 +372,20 @@ Double Booking
 
 ## Validators
 
+For HTML and CSS the W3 Validators were used. In the first instance there were still bugs showing that are eloborated about in the section above "Debugging". After the debugging was finished no further Validation errors showed.
+
+![HTML Validator](/static/images/readme/validators/HTMLValidator.png "HTML Validator")
+
+The above picture is one example of this website passing the HTML validator. The validations were done for all subpages. Since the screens would all look the same, I decided to not copy them all in here.
+
+![CSS Validator](/static/images/readme/validators/CSSValidation.png "CSS Validator")
+
+For the Python files the Pep8 install was used to ensure the code is according to PEP 8 conventions.
+
+To test the overall performance of the website Lighthouse was used:
+
+![Lighthouse](/static/images/readme/validators/Lighthouse.png "Lighthouse")
+
 
 
 # Deployment
@@ -805,10 +819,6 @@ When deleting a booking, the user is requried to press the according button in t
 
 ### Child Seat Feature
 Families don't have to worry whether their little ones will have their own child seats available at the restaurant, because they can be booked with the table - individually and easily. The information about required child seats is also passed to the restaurant admin and therefore a shortage is made visible fast and can be acted on.
-
-### Private Booth feature
-
-
 
 
 # Technologies Used
