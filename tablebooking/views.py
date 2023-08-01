@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from .models import Table, Reservation
 from django.http import HttpResponse
-from datetime import datetime
+from datetime import datetime, date
 from django.views.generic.edit import CreateView, DeleteView
 from django.views import generic
 from django.urls import reverse_lazy
@@ -55,10 +55,11 @@ class ReservationList(generic.ListView):
     template_name = "tablebooking/list_booking.html"
     paginate_by = 3
 
-# Filter reservations based on the currently logged-in user
+# Filter reservations based on the currently logged-in user and that are not in the past
     def get_queryset(self):
         user = self.request.user
-        queryset = Reservation.objects.filter(user=user)
+        d_today = datetime.today().date()
+        queryset = Reservation.objects.filter(user=user,date__gte=d_today)
         return queryset
 
 
