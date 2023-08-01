@@ -4,13 +4,13 @@ body{
     font-family: Cormorant Garamond;
     color: aliceblue;
     min-height: 100vh;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     display: flex;
     flex-direction: column;
    }
 
    h1 {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
     margin: 10px;
    }
 
@@ -178,7 +178,7 @@ footer p {
 /* Styles for smaller screens (adjust the breakpoint as needed) */
 @media screen and (max-width: 1270px) {
   #quote {
-    font-size: 1rem;
+    font-size: 0.8rem;
     margin: 2px;
   }
 
