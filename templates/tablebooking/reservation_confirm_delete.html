@@ -2,14 +2,14 @@
 
 {% block content %}
 <div class="bg_sub container-fluid d-flex align-items-center">
-    <div class="row">
-      <div class="cont_sub_fill col-md-8 mt-5 offset-md-2"> 
-        <form method="post">{% csrf_token %}
-            <p>Are you sure you want to delete "{{ object }}"?</p>
-            {{ form }}
-            <input type="submit" value="Confirm">
-        </form>
-      </div>
+  <div class="row">
+    <div class="cont_sub_fill col-md-8 mt-5 offset-md-2">
+      <form method="post">{% csrf_token %}
+        <p>Are you sure you want to delete "{{ object }}"?</p>
+        {{ form }}
+        <input type="submit" value="Confirm">
+      </form>
     </div>
+  </div>
 </div>
 {% endblock %}

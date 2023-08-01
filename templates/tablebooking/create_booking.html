@@ -2,29 +2,29 @@
 
 {% block content %}
 <div class="bg_sub container-fluid d-flex align-items-center class m-0 p-3">
-<div class="cont_sub_fill container-fluid m-0 p-2">
-  <h1>Reserve your table at Delicious Daily</h1>
-  <form method="post">
-    {% csrf_token %}
-    {% for field, errors in form.errors.items %}
+  <div class="cont_sub_fill container-fluid m-0 p-2">
+    <h1>Reserve your table at Delicious Daily</h1>
+    <form method="post">
+      {% csrf_token %}
+      {% for field, errors in form.errors.items %}
       {% for error in errors %}
-        <p> {{ error }} </p>
+      <p> {{ error }} </p>
       {% endfor %}
-    {% endfor %}
-    {% for field in form %}
-    <div class="row mb-3">
-      <div class="col-sm-3">
-        {{ field.label_tag }}
+      {% endfor %}
+      {% for field in form %}
+      <div class="row mb-3">
+        <div class="col-sm-3">
+          {{ field.label_tag }}
+        </div>
+        <div class="col-sm-9">
+          {{ field }}
+        </div>
       </div>
-      <div class="col-sm-9">
-        {{ field }}
-      </div>
-    </div>
-    {% endfor %}
-    <a href="{% url 'confirm_reservation' %}">
-    <button>Save Booking</button>
-    </a>
-  </form>
-</div>
+      {% endfor %}
+      <a href="{% url 'confirm_reservation' %}">
+        <button>Save Booking</button>
+      </a>
+    </form>
+  </div>
 </div>
 {% endblock %}
