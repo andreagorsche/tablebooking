@@ -25,3 +25,10 @@ html, body {
 .cont_sub_fill h1 { 
   text-align: center;
   } 
+
+  @media screen and (max-width: 1270px) {
+    .cont_sub_fill {
+      padding: 5px; 
+      max-width: 400px;
+      }
+  }

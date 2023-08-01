@@ -178,7 +178,7 @@ footer p {
   justify-content: flex-end;
 }
 
-/* Styles for smaller screens (adjust the breakpoint as needed) */
+/* Styles for smaller screens */
 @media screen and (max-width: 1270px) {
   #quote {
     font-size: 0.8rem;
@@ -193,8 +193,16 @@ footer p {
     font-size: 0.8rem;
 }
 
+#menu {
+  min-height: 1300px;
+}
 .menu-pic{
-  height:50px;
+  height:150px;
   margin-top: 5px;
+  padding:0;
+}
+
+footer{
+  font-size: 0.5rem;
 }
 }
