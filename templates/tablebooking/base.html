@@ -61,7 +61,7 @@
   {% block content %}
   <div class="container-fluid position-relative p-0 m-0 align-items-center d-flex">
     <div class="z-1 position-absolute">
-      <img src="{% static 'images/header.png' %}" class="img-fluid" style="width: 100%" ; alt="Cafe">
+      <img src="{% static 'images/header.png' %}" class="img-fluid"; alt="Cafe">
     </div>
     <div class="container text-center z-0 position-relative">
       <div class="row no-gutters">
@@ -77,7 +77,7 @@
 
   <div id='quote' class="container-fluid p-0 m-0">
     <div class="row d-flex justify-content-center align-items-center">
-      <div class="col-12 col-md-4 m-5">
+      <div class="col-12 col-md-4 m-5" id="writing">
         <p> "Food is more than just filling the stomach. Food is there to be fully enjoyed." </p>
         <p>Louis, Chef at Delicious Daily.</p>
       </div>
@@ -87,16 +87,17 @@
     </div>
 
   </div>
-  <div id='menu' class="container-fluid p-5 text-center">
+  <div id='menu' class="container-fluid text-center">
     <h1>MENU</h1>
-    <div class="row align-items-start justify-content-center p-5">
+    <div class="row align-items-start justify-content-center">
       <div class="col-12 col-md-4 menu-card">
         <div class="menu-card-inner">
-          <div class="front" id="breakfast-bg">
+          <div class="front">
             <img src="{% static 'images/breakfast.png' %}" alt="Breakfast" class="menu-pic">
             <h1>Breakfast</h1>
           </div>
           <div class="back">
+            <p>Breakfast</p>
             <p>Coffee, tea or drink of choice</p>
             <p>and</p>
             <p>Scrambled Eggs with ham and toast</p>
@@ -109,11 +110,12 @@
       </div>
       <div class="col-12 col-md-4 menu-card">
         <div class="menu-card-inner">
-          <div class="front" id="lunch-bg">
+          <div class="front">
             <img src="{% static 'images/lunch.png' %}" alt="Lunch" class="menu-pic">
             <h1>Lunch</h1>
           </div>
           <div class="back">
+            <p>Lunch</p>
             <p>Soup of the day</p>
             <p>and</p>
             <p>Veggie Wok with gluten-free noodles</p>
@@ -126,11 +128,12 @@
       </div>
       <div class="col-12 col-md-4 menu-card">
         <div class="menu-card-inner">
-          <div class="front" id="dinner-bg">
+          <div class="front">
             <img src="{% static 'images/dinner.png' %}" alt="Dinner" class="menu-pic">
             <h1>Dinner</h1>
           </div>
           <div class="back">
+            <p>Dinner</p>
             <p>Soup of the day</p>
             <p>and</p>
             <p>Fresh Fish of the day with veggies and rice</p>

@@ -1,93 +1,95 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond&family=Pacifico&display=swap');
 
-body{
-    font-family: Cormorant Garamond;
-    color: aliceblue;
-    min-height: 100vh;
-    font-size: 1.2rem;
-    display: flex;
-    flex-direction: column;
-   }
+body {
+  font-family: Cormorant Garamond;
+  color: aliceblue;
+  min-height: 100vh;
+  font-size: 1.2rem;
+  display: flex;
+  flex-direction: column;
+}
 
-   h1 {
-    font-size: 2.2rem;
-    margin: 10px;
-   }
+h1 {
+  font-size: 2.2rem;
+  margin: 10px;
+}
 
 #logo {
-    text-decoration: none;    
-    font-family: Pacifico;
-    color: cadetblue;
-    font-size: 2.5vw;
-    margin:0;
-    padding:0;
+  text-decoration: none;
+  font-family: Pacifico;
+  color: cadetblue;
+  font-size: 2.5vw;
+  margin: 0;
+  padding: 0;
 }
 
 header {
-    margin: 0;
-    padding: 0;
-    background-color: #f0f8ff;
-    opacity: 0.85;
-    color: cadetblue; 
-    }
+  margin: 0;
+  padding: 0;
+  background-color: #f0f8ff;
+  opacity: 0.85;
+  color: cadetblue;
+}
 
-footer{
-    margin-top: auto;
-    background-color: aliceblue;
-    opacity: 0.85;
-    color: cadetblue;  
-    width: 100%;
-    display: inline-block;
-    position: relative;
-    left:0;
-    right:0;
-    bottom:0;
-    padding-top: 10px;
-    padding-bottom:10px;
+footer {
+  margin-top: auto;
+  background-color: aliceblue;
+  opacity: 0.85;
+  color: cadetblue;
+  width: 100%;
+  display: inline-block;
+  position: relative;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 footer p {
-  margin: 0; /* Remove default margins */
+  margin: 0;
+  /* Remove default margins */
   font-size: 15px;
-  line-height: 1.5; /* Adjust the line-height as needed */
+  line-height: 1.5;
+  /* Adjust the line-height as needed */
 }
 
 .container {
-  background-color: cadetblue;   
-  margin: 18%; 
+  background-color: cadetblue;
+  margin: 18%;
   padding: 3%;
   opacity: 95%;
 }
 
 /* remove bullets from menu display, set margin and padding to zero */
 #nav {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  /* Display the list items horizontally */
-  #nav li {
-    display: inline-block;
-    margin-right: 3vw; 
-  }
-  
-  /* Add some styling to the links */
-  #nav li a {
-    text-decoration: none;
-    color: #333;
-    margin-top: 3%;
-    font-size: 1.5vw;
-  }
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
 
-  a {
-    text-decoration: none;
-  }
-  
+/* Display the list items horizontally */
+#nav li {
+  display: inline-block;
+  margin-right: 3vw;
+}
+
+/* Add some styling to the links */
+#nav li a {
+  text-decoration: none;
+  color: #333;
+  margin-top: 3%;
+  font-size: 1.5vw;
+}
+
+a {
+  text-decoration: none;
+}
+
 /* Style the active link differently */
-  #nav li.active a {
-    font-weight: bold;
-  }
+#nav li.active a {
+  font-weight: bold;
+}
 
 /* Style the quote container */
 
@@ -96,25 +98,29 @@ footer p {
   font-size: 2rem;
   color: cadetblue;
   margin: 5vh;
+  padding-left: 3%;
 }
 
 /* Style the menu container */
-
-#menu {
+¸ #menu {
   background-color: cadetblue;
-  width:100%;
-  height:100%;
+  width: 100%;
+  height: 100%;
+  padding: 2% 2% 5% 2%;
 }
 
-.menu-pic{
-  height:300px;
+.menu-pic {
+  height: 300px;
 }
+
 /*  flip card container */
 .menu-card {
   background-color: transparent;
   width: 200px;
   height: 300px;
-  perspective: 1000px; 
+  perspective: 1000px;
+  margin: 0;
+  padding: 0;
 }
 
 /* Inner container to position the front and back  */
@@ -125,6 +131,8 @@ footer p {
   text-align: center;
   transition: transform 0.8s;
   transform-style: preserve-3d;
+  margin: 0;
+  padding: 0;
 }
 
 /* Horizontal flip when mouse hovers */
@@ -133,7 +141,8 @@ footer p {
 }
 
 /* Position of the front and back side */
-.front, .back {
+.front,
+.back {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -145,6 +154,9 @@ footer p {
 .front {
   background-color: cadetblue;
   color: white;
+  margin: 0;
+  padding: 0;
+  border: 0;
 }
 
 /* Style the back side */
@@ -152,9 +164,18 @@ footer p {
   background-color: cadetblue;
   color: white;
   transform: rotateY(180deg);
+  margin: 0;
+  padding: 0;
+  border: 0;
 }
 
-.table{
+/* Ensure images inside .front div maintain aspect ratio and fit within the div */
+.front img {
+  height: 100%;
+  width: auto;
+}
+
+.table {
   background-color: cadetblue;
   width: 100%;
 }
@@ -162,7 +183,7 @@ footer p {
 .button {
   display: flex;
   align-items: center;
-  justify-content: center; 
+  justify-content: center;
   background-color: white;
   color: cadetblue;
   text-decoration: none;
@@ -173,7 +194,7 @@ footer p {
 }
 
 
-.list-buttons{
+.list-buttons {
   display: flex;
   justify-content: flex-end;
 }
@@ -185,24 +206,60 @@ footer p {
     margin: 2px;
   }
 
-  h1{
+  h1 {
     font-size: 1rem;
   }
 
-  body{
+  body {
     font-size: 0.8rem;
+  }
+
+  #menu {
+    background-color: cadetblue;
+    padding: 0;
+    margin: 0;
+  }
+
+  .menu-card {
+    background-color: transparent;
+    width: 100px;
+    height: 150px;
+  }
+
+  .menu-pic {
+    height: 150px;
+    margin-top: 5px;
+    padding: 0;
+  }
+
+  footer {
+    font-size: 0.5rem;
+  }
 }
 
-#menu {
-  min-height: 1300px;
-}
-.menu-pic{
-  height:150px;
-  margin-top: 5px;
-  padding:0;
-}
+@media screen and (max-width: 550px) {
+  h1 {
+    font-size: 0.7rem;
+  }
 
-footer{
-  font-size: 0.5rem;
-}
+  body {
+    font-size: 0.5rem;
+  }
+
+  #menu {
+    background-color: cadetblue;
+    padding: 0;
+    margin: 0;
+  }
+
+  .menu-card {
+    background-color: transparent;
+    width: 150px;
+    height: 200px;
+  }
+
+  #quote {
+    font-size: 0.5rem;
+    margin-left: 3px;
+  }
 }

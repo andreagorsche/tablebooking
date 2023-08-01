@@ -1,34 +1,35 @@
-html, body {
+html,
+body {
   height: 100%;
   margin: 0;
   padding: 0;
-  }
+}
 
-.bg_sub{
-  display: flex; 
-  justify-content: center; 
-  align-items: center; 
+.bg_sub {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-image: url("https://res.cloudinary.com/dywlergeu/image/upload/v1690722409/static/images/header_sw.0fbacd69d7d5.png");
   background-size: cover;
   background-repeat: no-repeat;
   height: 100%;
   width: 100%;
   padding: 0;
-  }
+}
 
 .cont_sub_fill {
   background-color: cadetblue;
-  padding: 30px; 
-  max-width: 600px; 
-  }
-  
-.cont_sub_fill h1 { 
-  text-align: center;
-  } 
+  padding: 30px;
+  max-width: 600px;
+}
 
-  @media screen and (max-width: 1270px) {
-    .cont_sub_fill {
-      padding: 5px; 
-      max-width: 400px;
-      }
+.cont_sub_fill h1 {
+  text-align: center;
+}
+
+@media screen and (max-width: 1270px) {
+  .cont_sub_fill {
+    padding: 5px;
+    max-width: 400px;
   }
+}

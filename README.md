@@ -316,10 +316,6 @@ When deleting a booking, the user is requried to press the according button in t
 ### Child Seat Feature
 Families don't have to worry whether their little ones will have their own child seats available at the restaurant, because they can be booked with the table - individually and easily. The information about required child seats is also passed to the restaurant admin and therefore a shortage is made visible fast and can be acted on.
 
-### Private Booth feature
-
-
-
 
 # Technologies Used
 To reach the functionalities described above in the features section, I worked with the MTV (Model-Template-Views) framework Django. For the models, views and form I used Python. To create my templates I used HTML. And to style it I used CSS and Bootstrap.
@@ -346,8 +342,6 @@ urllib3==1.26.15
 whitenoise==6.5.0
 
 # Debugging
-### Debugging (old)
-
 For me the easiest parts included setting up the admin page and create the models. Troubles started with creating the views and wiring them up with the urls. The following issues came up and were solved by me:
 
 The urlspatterns were missing commas
@@ -368,7 +362,11 @@ CRUD
 Form validation
 Double Booking
 
+## Debugging
+
 ## Validators
+
+
 
 # Deployment
 ## Initial Deployment
