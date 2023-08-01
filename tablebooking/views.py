@@ -11,17 +11,22 @@ from .forms import ReservationForm
 def base(request):
     return render(request, 'tablebooking/base.html')
 
+
 def login(request):
     return render(request, 'tablebooking/menu.html')
+
 
 def confirm_reservation(request):
     return render(request, 'tablebooking/reservation_confirm.html')
 
+
 def confirm_reservation_update(request):
     return render(request, 'tablebooking/reservation_confirm_update.html')
 
+
 def delete_confirmed(request):
     return render(request, 'tablebooking/delete_confirmed.html')
+
 
 class CreateReservation(CreateView):
     model = Reservation
@@ -40,10 +45,10 @@ class CreateReservation(CreateView):
             form.add_error('date', "This table is already booked for the selected date and time.")
             return super().form_invalid(form)
 
-
         if tables.exists():
             form.instance.table = tables.first()
         return super().form_valid(form)
+
 
 class ReservationList(generic.ListView):
     model = Reservation
@@ -61,8 +66,9 @@ class ReservationUpdate (generic.UpdateView):
     model = Reservation
     fields = ('date', 'time', 'number_of_guests', 'number_of_child_seats', 'comment')
     template_name = "tablebooking/manage_booking.html"
-    success_url = reverse_lazy('conf_upd_reservation') 
+    success_url = reverse_lazy('conf_upd_reservation')
+
 
 class ReservationDelete(DeleteView):
     model = Reservation
-    success_url = reverse_lazy('delete_confirmed') 
+    success_url = reverse_lazy('delete_confirmed')
