@@ -7,9 +7,9 @@
     <form method="post">
       {% csrf_token %}
       {{ form }}
-      <a href="{% url 'conf_upd_reservation' %}">
-        <button>Update Booking</button>
-      </a>
+      <a class = "button" href="{% url 'conf_upd_reservation' %}">
+        Update Reservation
+    </a>
     </form>
   </div>
 </div>

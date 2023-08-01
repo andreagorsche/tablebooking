@@ -31,11 +31,11 @@
                         <td>{{ reservation.comment }}</td>
                         <td>
                             <div class="list-buttons">
-                                <a href="{% url 'manage_reservation' pk=reservation.pk %}">
-                                    <button>Manage Reservation</button>
+                                <a class = "button" href="{% url 'manage_reservation' pk=reservation.pk %}">
+                                    Manage Reservation
                                 </a>
-                                <a href="{% url 'delete_reservation' pk=reservation.pk %}">
-                                    <button>Delete Reservation</button>
+                                <a class = "button" href="{% url 'delete_reservation' pk=reservation.pk %}">
+                                    Delete Reservation
                                 </a>
                             </div>
                         </td>
