@@ -8,7 +8,6 @@ from django.urls import reverse_lazy
 from .forms import ReservationForm
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
-from django.http import Http404
 
 def base(request):
     return render(request, 'tablebooking/base.html')

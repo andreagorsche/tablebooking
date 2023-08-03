@@ -359,7 +359,7 @@ I was able to solve major issues already, like missing capitalization of POST in
 
 # Testing
 ## Manual Testing
-With every sprint manual tests of the intendent funcitonalities and design features were done. These tests were documented in test cases stated below.
+With every sprint manual tests of the intendent funcitonalities and design features were done. These tests were documented in test cases stated in the file [Testing.md](Testing.md).
 
 ### Test Cases
 
@@ -1007,8 +1007,17 @@ While the change of the images in the html template was not the problem, the cha
 # Credits
 
 #### Using the Django authentication system (to restrict access for not logged in users)
+https://docs.djangoproject.com/en/dev/topics/http/views/#the-404-page-not-found-view
 https://docs.djangoproject.com/en/1.11/topics/auth/default/#the-loginrequired-mixin
 https://stackoverflow.com/questions/34217400/function-object-has-no-attribute-as-view
+https://stackoverflow.com/questions/17662928/django-creating-a-custom-500-404-error-page
+https://stackoverflow.com/questions/60507625/django-wrong-amount-of-arguments-in-custom-handler
+https://stackoverflow.com/questions/60507625/django-wrong-amount-of-arguments-in-custom-handler
+
+#### error pages set up
+https://www.w3schools.com/django/django_404.php
+https://studygyaan.com/django/built-in-error-views-in-django
+
 
 #### Find out that the inner-menu-card div was missing for my flip cards to work on the front page 
 https://www.w3schools.com/howto/howto_css_flip_card.asp
