@@ -13,11 +13,17 @@ from django.http import Http404
 def base(request):
     return render(request, 'tablebooking/base.html')
 
+def error_400(request, exception):
+        return render(request,'400.html')
+
+def error_403(request, exception):
+        return render(request,'403.html')
+
 def error_404(request, exception):
-    return render(request,'tablebooking/404.html')
+    return render(request,'404.html')
 
 def error_500(request, exception):
-    return render(request,'tablebooking/500.html')
+    return render(request,'500.html')
 
 @login_required
 def confirm_reservation(request):
