@@ -8,9 +8,13 @@ from django.urls import reverse_lazy
 from .forms import ReservationForm
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
+from django.http import Http404
 
 def base(request):
     return render(request, 'tablebooking/base.html')
+
+def error_404(request, exception):
+    return render(request,'404.html')
 
 @login_required
 def confirm_reservation(request):
@@ -70,3 +74,4 @@ class ReservationUpdate (generic.UpdateView):
 class ReservationDelete(DeleteView):
     model = Reservation
     success_url = reverse_lazy('delete_confirmed')
+

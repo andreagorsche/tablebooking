@@ -13,3 +13,5 @@ urlpatterns = [
     path('reservation_confirm_update/', views.confirm_reservation_update, name='conf_upd_reservation'),
     path('delete_confirmed/', views.delete_confirmed, name='delete_confirmed'),
 ]
+
+handler404 = 'tablebooking.views.error_404'
