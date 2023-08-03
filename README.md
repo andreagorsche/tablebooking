@@ -1010,13 +1010,13 @@ While the change of the images in the html template was not the problem, the cha
 https://docs.djangoproject.com/en/dev/topics/http/views/#the-404-page-not-found-view
 https://docs.djangoproject.com/en/1.11/topics/auth/default/#the-loginrequired-mixin
 https://stackoverflow.com/questions/34217400/function-object-has-no-attribute-as-view
-https://stackoverflow.com/questions/17662928/django-creating-a-custom-500-404-error-page
-https://stackoverflow.com/questions/60507625/django-wrong-amount-of-arguments-in-custom-handler
-https://stackoverflow.com/questions/60507625/django-wrong-amount-of-arguments-in-custom-handler
-
+https://stackoverflow.com/questions/17662928/
 #### error pages set up
 https://www.w3schools.com/django/django_404.php
 https://studygyaan.com/django/built-in-error-views-in-django
+django-creating-a-custom-500-404-error-page
+https://stackoverflow.com/questions/60507625/django-wrong-amount-of-arguments-in-custom-handler
+https://stackoverflow.com/questions/60507625/django-wrong-amount-of-arguments-in-custom-handler
 
 
 #### Find out that the inner-menu-card div was missing for my flip cards to work on the front page 

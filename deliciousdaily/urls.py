@@ -23,7 +23,7 @@ urlpatterns = [
     path('accounts/', include('allauth.urls')),
 ]
 
-handler400 = 'tablebooking.views.error_400'
-handler403 = 'tablebooking.views.error_403'
-handler404 = 'tablebooking.views.error_404'
-handler500 = 'tablebooking.views.error_500'
+handler400 = 'deliciousdaily.views.error_400'
+handler403 = 'deliciousdaily.views.error_403'
+handler404 = 'deliciousdaily.views.error_404'
+handler500 = 'deliciousdaily.views.error_500'
