@@ -6,28 +6,28 @@ from django.views.generic.edit import CreateView, DeleteView
 from django.views import generic
 from django.urls import reverse_lazy
 from .forms import ReservationForm
-
+from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
 
 def base(request):
     return render(request, 'tablebooking/base.html')
 
-
-def login(request):
-    return render(request, 'tablebooking/menu.html')
-
-
+@login_required
 def confirm_reservation(request):
     return render(request, 'tablebooking/reservation_confirm.html')
 
-
+@login_required
 def confirm_reservation_update(request):
     return render(request, 'tablebooking/reservation_confirm_update.html')
 
-
+@login_required
 def delete_confirmed(request):
     return render(request, 'tablebooking/delete_confirmed.html')
 
-
+def login(request):
+    return render(request, 'account/login.html')
+    
+@method_decorator(login_required, name='dispatch')
 class CreateReservation(CreateView):
     model = Reservation
     template_name = "tablebooking/create_booking.html"
@@ -49,27 +49,27 @@ class CreateReservation(CreateView):
             form.instance.table = tables.first()
         return super().form_valid(form)
 
-
+@method_decorator(login_required, name='dispatch')
 class ReservationList(generic.ListView):
     model = Reservation
     template_name = "tablebooking/list_booking.html"
     paginate_by = 3
 
-# Filter reservations based on the currently logged-in user and that are not in the past
+    # Filter reservations based on the currently logged-in user and that are not in the past
     def get_queryset(self):
         user = self.request.user
         d_today = datetime.today().date()
         queryset = Reservation.objects.filter(user=user,date__gte=d_today)
         return queryset
 
-
+@method_decorator(login_required, name='dispatch')
 class ReservationUpdate (generic.UpdateView):
     model = Reservation
     fields = ('date', 'time', 'number_of_guests', 'number_of_child_seats', 'comment')
     template_name = "tablebooking/manage_booking.html"
     success_url = reverse_lazy('conf_upd_reservation')
 
-
+@method_decorator(login_required, name='dispatch')
 class ReservationDelete(DeleteView):
     model = Reservation
     success_url = reverse_lazy('delete_confirmed')
