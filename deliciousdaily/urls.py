@@ -22,3 +22,6 @@ urlpatterns = [
     path('', include('tablebooking.urls')),
     path('accounts/', include('allauth.urls')),
 ]
+
+handler404 = 'tablebooking.views.error_404'
+handler500 = 'tablebooking.views.error_500'
