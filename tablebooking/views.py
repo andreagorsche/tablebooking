@@ -23,9 +23,6 @@ def confirm_reservation_update(request):
 @login_required
 def delete_confirmed(request):
     return render(request, 'tablebooking/delete_confirmed.html')
-
-def login(request):
-    return render(request, 'account/login.html')
     
 @method_decorator(login_required, name='dispatch')
 class CreateReservation(CreateView):

@@ -1006,6 +1006,10 @@ While the change of the images in the html template was not the problem, the cha
 
 # Credits
 
+#### Using the Django authentication system (to restrict access for not logged in users)
+https://docs.djangoproject.com/en/1.11/topics/auth/default/#the-loginrequired-mixin
+https://stackoverflow.com/questions/34217400/function-object-has-no-attribute-as-view
+
 #### Find out that the inner-menu-card div was missing for my flip cards to work on the front page 
 https://www.w3schools.com/howto/howto_css_flip_card.asp
 
