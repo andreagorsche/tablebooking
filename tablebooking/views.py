@@ -67,6 +67,21 @@ class ReservationUpdate (generic.UpdateView):
     fields = ('date', 'time', 'number_of_guests', 'number_of_child_seats', 'comment')
     template_name = "tablebooking/manage_booking.html"
     success_url = reverse_lazy('conf_upd_reservation')
+    
+    def form_valid(self, form):
+        data = form.cleaned_data
+        form.instance.user = self.request.user
+        tables = Table.objects.filter(number_of_seats__gte=form.instance.number_of_guests)
+        overlapping_reservations = Reservation.objects.filter(table__in=tables, date=data.get("date"), time=data.get("time"))  # Exclude the current reservation if it's being updated
+        print(overlapping_reservations)
+
+        if overlapping_reservations.exists():
+            form.add_error('date', "This table is already booked for the selected date and time.")
+            return super().form_invalid(form)
+
+        if tables.exists():
+            form.instance.table = tables.first()
+        return super().form_valid(form)
 
 @method_decorator(login_required, name='dispatch')
 class ReservationDelete(DeleteView):

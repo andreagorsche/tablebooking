@@ -179,13 +179,13 @@ a {
   background-color: cadetblue;
   width: 100%;
 }
-
-.button {
+.btn-success,.button {
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: white;
   color: cadetblue;
+  font-weight: bold;
   text-decoration: none;
   width: 110px;
   padding: 5px;

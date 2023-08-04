@@ -6,6 +6,12 @@
     <h1>Manage your reservation</h1>
     <form method="post">
       {% csrf_token %}
+      {% for field, errors in form.errors.items %}
+        {% for error in errors %}
+          <p> {{ error }} </p>
+        {% endfor %}
+      {% endfor %}
+
       {{ form }}
       <button type="submit" class="btn btn-success">Update Booking</button>
     </form>
