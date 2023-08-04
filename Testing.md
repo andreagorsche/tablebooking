@@ -1,6 +1,8 @@
 # Testing
 ## Manual Testing
-With every sprint manual tests of the intendent funcitonalities and design features were done. These tests were documented in test cases stated below.
+With every sprint manual tests of the intendent funcitonalities and design features were done. The tests were based on acceptance criteria directly derived from the user stories. For documentation an excel sheet was used addressing each user story with according acceptance criteria, tasks and bug fixes.
+
+
 
 ### Test Cases
 To test the **login and registration** functionalities, the following test cases were tested:
