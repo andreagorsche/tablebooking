@@ -60,19 +60,15 @@
     </div>
     {% endif %}
   </header>
-   <!-- Message alert - login successful -->
-   <div>
-    <div class="row">
-        <div class="col-md-8 offset-md-2">
-            {% for message in messages %}
-            <div class="alert {{ message.tags }} alert-dismissible fade show" id="msg" role="alert">
-                {{ message | safe }}
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-            {% endfor %}
-        </div>
-    </div>
-</div>
+      <!-- MESSAGES --> 
+      {% if messages %} 
+      {% for message in messages %} 
+      <div class="alert alert-success" id="message" data="modal" data-toggle="modal" role="alert">
+       {{ message }}
+      </div> 
+      {% endfor %} 
+      {% endif %}
+   
   {% block content %}
   {% if user.is_authenticated %}
     <div class="container-fluid position-relative p-0 m-0 align-items-center d-flex">
@@ -268,15 +264,13 @@
     </div>
   </footer>
   </body>
-  <script
-  src="https://code.jquery.com/jquery-3.4.1.min.js"
-  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-  crossorigin="anonymous"></script>
-
-<script text="javascript">
-    setTimeout(fade_out, 3000);
-    function fade_out() {
-        $(".messages").fadeOut().empty();
-    }
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
+  
+<script>
+// status messages to users disappear after 3 seconds
+let message = document.getElementById("message");
+setTimeout(function() {
+  message.style.display = "none";
+}, 3000);
 </script>
 </html>
