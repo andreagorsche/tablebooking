@@ -59,22 +59,18 @@
   </header>
 
   {% block content %}
+  {% if user.is_authenticated %}
   <div class="container-fluid position-relative p-0 m-0 align-items-center d-flex">
     <div class="z-1 position-absolute">
       <img src="{% static 'images/header.png' %}" class="img-fluid" alt="Cafe">
     </div>
     <div class="container text-center z-0 position-relative">
       <div class="row no-gutters">
-        <h1>Welcome to Delicious Daily!</h1>
-        <p> At Delicious Daily you will get served with delicous meals on a daily basis. Our Chef Louis handpicks the
-          fresh ingredients on our closeby food market. Guaranteeing you only get the best of the best on your plate.
-          Due to our high demand, it is recommended to book a table in advance. You can book tables with us online. All
-          you need to do is register for free!
-        </p>
+        <h1>Welcome, you are in the world of Delicious Daily now!</h1>
+        <p>Feel free to book reservations, list or change your existing reservations. We are delighted to call you our guest.</p>
       </div>
     </div>
   </div>
-
   <div id='quote' class="container-fluid p-0 m-0">
     <div class="row d-flex justify-content-center align-items-center">
       <div class="col-12 col-md-4 m-5" id="writing">
@@ -146,6 +142,93 @@
       </div>
     </div>
   </div>
+  {% else %}
+  <div class="container-fluid position-relative p-0 m-0 align-items-center d-flex">
+    <div class="z-1 position-absolute">
+      <img src="{% static 'images/header.png' %}" class="img-fluid" alt="Cafe">
+    </div>
+    <div class="container text-center z-0 position-relative">
+      <div class="row no-gutters">
+        <h1>Welcome to Delicious Daily!</h1>
+        <p> At Delicious Daily you will get served with delicous meals on a daily basis.
+          Due to our high demand, it is recommended to book a table in advance. You can <strong>book tables online</strong>. All
+          you need to do is <strong>register for free</strong>!
+        </p>
+      </div>
+    </div>
+  </div>
+  <div id='quote' class="container-fluid p-0 m-0">
+    <div class="row d-flex justify-content-center align-items-center">
+      <div class="col-12 col-md-4 m-5" id="writing">
+        <p> "Food is more than just filling the stomach. Food is there to be fully enjoyed." </p>
+        <p>Louis, Chef at Delicious Daily.</p>
+      </div>
+      <div class="col-12 col-md-4 ">
+        <img src="{% static 'images/chef.jpg' %}" class="img-fluid" alt="Chef">
+      </div>
+    </div>
+
+  </div>
+  <div id='menu' class="container-fluid text-center">
+    <h1>MENU</h1>
+    <div class="row align-items-start justify-content-center">
+      <div class="col-12 col-md-4 menu-card">
+        <div class="menu-card-inner">
+          <div class="front">
+            <img src="{% static 'images/breakfast.png' %}" alt="Breakfast" class="menu-pic">
+            <h1>Breakfast</h1>
+          </div>
+          <div class="back">
+            <p>Breakfast</p>
+            <p>Coffee, tea or drink of choice</p>
+            <p>and</p>
+            <p>Scrambled Eggs with ham and toast</p>
+            <p>or</p>
+            <p>Porridge with fresh seasonal fruits</p>
+            <p>or</p>
+            <p>Pancakes with home-made jam</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-4 menu-card">
+        <div class="menu-card-inner">
+          <div class="front">
+            <img src="{% static 'images/lunch.png' %}" alt="Lunch" class="menu-pic">
+            <h1>Lunch</h1>
+          </div>
+          <div class="back">
+            <p>Lunch</p>
+            <p>Soup of the day</p>
+            <p>and</p>
+            <p>Veggie Wok with gluten-free noodles</p>
+            <p>or</p>
+            <p>Beef Steak in red-wine-sauce and potatoes</p>
+            <p>and</p>
+            <p>Desert of the Day</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-4 menu-card">
+        <div class="menu-card-inner">
+          <div class="front">
+            <img src="{% static 'images/dinner.png' %}" alt="Dinner" class="menu-pic">
+            <h1>Dinner</h1>
+          </div>
+          <div class="back">
+            <p>Dinner</p>
+            <p>Soup of the day</p>
+            <p>and</p>
+            <p>Fresh Fish of the day with veggies and rice</p>
+            <p>or</p>
+            <p>Vegetarian Jambalaya</p>
+            <p>and</p>
+            <p>Desert of the Day</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> 
+  {% endif %}
   {% endblock content %}
 
   <footer>
