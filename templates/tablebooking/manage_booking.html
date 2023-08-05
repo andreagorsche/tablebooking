@@ -11,7 +11,52 @@
           <p> {{ error }} </p>
         {% endfor %}
       {% endfor %}
-      {{ form }}
+
+      <div class="row mb-3">
+        <div class="col-sm-3">
+          {{ form.date.label_tag }}
+        </div>
+        <div class="col-sm-9">
+          {{ form.date }}
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-sm-3">
+          {{ form.time.label_tag }}
+        </div>
+        <div class="col-sm-9">
+          {{ form.time }}
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-sm-3">
+          {{ form.number_of_guests.label_tag }}
+        </div>
+        <div class="col-sm-9">
+          {{ form.number_of_guests }}
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-sm-3">
+          {{ form.number_of_child_seats.label_tag }}
+        </div>
+        <div class="col-sm-9">
+          {{ form.number_of_child_seats }}
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-sm-3">
+          {{ form.comment.label_tag }}
+        </div>
+        <div class="col-sm-9">
+          {{ form.comment }}
+        </div>
+      </div>
+
       <button type="submit" class="btn btn-success">Update Booking</button>
     </form>
   </div>
