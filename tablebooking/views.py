@@ -12,8 +12,6 @@ from django.utils.decorators import method_decorator
 def base(request):
     return render(request, 'tablebooking/base.html')
 
-
-
 @login_required
 def confirm_reservation(request):
     return render(request, 'tablebooking/reservation_confirm.html')
@@ -52,7 +50,7 @@ class CreateReservation(CreateView):
 class ReservationList(generic.ListView):
     model = Reservation
     template_name = "tablebooking/list_booking.html"
-    paginate_by = 3
+    paginate_by = 1
 
     # Filter reservations based on the currently logged-in user and that are not in the past
     def get_queryset(self):
