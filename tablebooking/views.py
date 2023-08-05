@@ -62,12 +62,27 @@ class ReservationList(generic.ListView):
         return queryset
 
 @method_decorator(login_required, name='dispatch')
-class ReservationUpdate (generic.UpdateView):
+class ReservationUpdate(generic.UpdateView):
     form_class = ReservationForm
     model = Reservation
     template_name = "tablebooking/manage_booking.html"
     success_url = reverse_lazy('conf_upd_reservation')
-    
+
+    def get_form(self, form_class=None):
+        form = super().get_form(form_class)
+
+        # Set the initial data for the form fields
+        initial_data = {
+            'date': self.object.date,
+            'time': self.object.time,
+            'number_of_guests': self.object.number_of_guests,
+            'number_of_child_seats' : self.object.number_of_child_seats,
+            'comment' : self.object.comment,
+        }
+
+        form.initial = initial_data
+        return form
+
 @method_decorator(login_required, name='dispatch')
 class ReservationDelete(DeleteView):
     model = Reservation
