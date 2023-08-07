@@ -102,7 +102,7 @@ a {
 }
 
 /* Style the menu container */
-¸ #menu {
+ #menu {
   background-color: cadetblue;
   width: 100%;
   height: 100%;
@@ -235,6 +235,10 @@ a {
   footer {
     font-size: 0.5rem;
   }
+}
+
+#reservation_list{
+  width: 600px;
 }
 
 @media screen and (max-width: 550px) {
