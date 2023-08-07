@@ -1,52 +1,60 @@
 {% extends 'tablebooking/base.html' %}
 
 {% block content %}
-<div class="bg_sub container-fluid d-flex align-items-center class m-0 p-3">
-    <div class="container-fluid m-0 p-2" style="background-color: cadetblue">
-        <div id="reservation_list">
+<div class="bg_sub container-fluid d-flex justify-content-center align-items-center m-0 p-3">
+    <div class="container-fluid m-0 p-3">
+        <div id="reservation_list" style="background-color: cadetblue">
             {% for reservation in reservation_list %}
-            <table class="responsive-table">
-                <thead style="width:100%">
-                    <tr style="background-color: white; color: cadetblue">
-                        <th scope="col" style="width: 15%;">Reservation Number</th>
-                        <th scope="col" style="width: 10%;">Date</th>
-                        <th scope="col" style="width: 10%;">Time</th>
-                        <th scope="col" style="width: 10%;">No guests</th>
-                        <th scope="col" style="width: 10%;">No child seats</th>
-                        <th scope="col" style="width: 10%;">Private Booth</th>
-                        <th scope="col" style="width: 10%;">Waitlisted</th>
-                        <th scope="col" style="width: 10%;">Comment</th>
-                        <th scope="col" style="width: 15%;">Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr style="background-color: cadetblue; color: white">
-                        <td>{{ reservation.id }}</td>
-                        <td>{{ reservation.date }}</td>
-                        <td>{{ reservation.time }}</td>
-                        <td>{{ reservation.number_of_guests }}</td>
-                        <td>{{ reservation.number_of_child_seats }}</td>
-                        <td>{{ reservation.private_booth }}</td>
-                        <td>{{ reservation.waitlisted }}</td>
-                        <td>{{ reservation.comment }}</td>
-                        <td>
-                            <div class="list-buttons">
-                                <a class = "button" href="{% url 'manage_reservation' pk=reservation.pk %}">
-                                    Manage Reservation
-                                </a>
-                                <a class = "button" href="{% url 'delete_reservation' pk=reservation.pk %}">
-                                    Delete Reservation
-                                </a>
-                            </div>
-                        </td>
-                    </tr>
+            <div class="row mb-2" style="color: white">
+                <div class="col-6 d-flex justify-content-end">Reservation Number:</div>
+                <div class="col-6 d-flex align-items-center">{{ reservation.id }}</div>
+            </div>
+            <div class="row mb-2" style="color: white">
+                <div class="col-6 d-flex d-flex justify-content-end">Date:</div>
+                <div class="col-6 d-flex align-items-center">{{ reservation.date }}</div>
+            </div>
+            <div class="row mb-2" style="color: white">
+                <div class="col-6 d-flex d-flex justify-content-end">Time:</div>
+                <div class="col-6 d-flex align-items-center">{{ reservation.time }}</div>
+            </div>
+            <div class="row mb-2" style="color: white">
+                <div class="col-6 d-flex d-flex justify-content-end">No. of Guests:</div>
+                <div class="col-6 d-flex align-items-center">{{ reservation.number_of_guests }}</div>
+            </div>
+            <div class="row mb-2" style="color: white">
+                <div class="col-6 d-flex d-flex justify-content-end">No. of Child Seats:</div>
+                <div class="col-6 d-flex align-items-center">{{ reservation.number_of_child_seats }}</div>
+            </div>
+            <div class="row mb-2" style="color: white">
+                <div class="col-6 d-flex d-flex justify-content-end">Private Booth:</div>
+                <div class="col-6 d-flex align-items-center">{{ reservation.private_booth }}</div>
+            </div>
+            <div class="row mb-2" style="color: white">
+                <div class="col-6 d-flex d-flex justify-content-end">Waitlisted:</div>
+                <div class="col-6 d-flex align-items-center">{{ reservation.waitlisted }}</div>
+            </div>
+            <div class="row mb-2" style="color: white">
+                <div class="col-6 d-flex d-flex justify-content-end">Comment:</div>
+                <div class="col-6 d-flex align-items-center">{{ reservation.comment }}</div>
+            </div>
+            <div class="row mb-2" style="color: white">
+                <div class="col-12 d-flex d-flex justify-content-center">Actions:</div>
+            </div>
+            <div class="row mb-2" style="color: white">
+                <div class="col-12 list-buttons justify-content-center">
+                    <a class = "button d-flex justify-content-center m-1" href="{% url 'manage_reservation' pk=reservation.pk %}">
+                        Manage Reservation
+                    </a>
+                    <a class = "button d-flex justify-content-center m-1" href="{% url 'delete_reservation' pk=reservation.pk %}">
+                        Delete Reservation
+                    </a>
+                </div>
+            </div>
                     {% empty %}
                     <tr>
                         <td colspan="10">Sorry, currently you don't have any bookings.</td>
                     </tr>
                     {% endfor %}
-                </tbody>
-            </table>
         </div>
         {% if is_paginated %}
         <nav aria-label="Page navigation">
@@ -63,5 +71,6 @@
         </nav>
         {% endif %}
     </div>
+</div>
 </div>
 {% endblock content %}
