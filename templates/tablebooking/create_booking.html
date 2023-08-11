@@ -4,7 +4,7 @@
 <div class="bg_sub container-fluid d-flex align-items-center class m-0 p-3">
 <div class="cont_sub_fill container-fluid m-0 p-2">
   <h1>Reserve your table at Delicious Daily</h1>
-  <form method="post">
+  <form method="post" id="reservation-form">
     {% csrf_token %}
     {% for field, errors in form.errors.items %}
       {% for error in errors %}
@@ -25,4 +25,27 @@
   </form>
 </div>
 </div>
+
+<!-- Import jQuery library -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+document.getElementById("reservation-form").addEventListener("submit", function(event) {
+  if (!checkOverlappingReservations()) {
+      event.preventDefault();  // Prevent form submission if checkOverlappingReservations returns false
+  }
+});
+
+function checkOverlappingReservations(overlapping_Reservations) {
+  var hasOverlappingReservations = {{ overlapping_Reservations|yesno:"true,false" }};
+
+  if (hasOverlappingReservations) {
+      var is_waitlisted = window.confirm("There are overlapping reservations. Do you want to be waitlisted?");
+      return is_waitlisted;  // Allow form submission if user confirms
+  } else {
+      return true;  // No overlapping reservations, allow form submission
+  }
+}
+</script>
+
 {% endblock %}
