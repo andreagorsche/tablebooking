@@ -132,39 +132,39 @@ The check for double bookings was written in the forms.py instead of the views f
 
 The overview table for user story three sums up the tested acceptance criteria, the performed tasks and the bug fixes that took place.
 
-![User Story 3](/static/images/readme/Testing/1_UserStory/UserStory1WithAcceptanceCriteria.png "User Story 3, with Acceptance Criteria, Tasks and Debug Fixes")
+![User Story 3](/static/images/readme/Testing/3_UserStory/UserStory3WithAcceptanceCriteria.png "User Story 3, with Acceptance Criteria, Tasks and Debug Fixes")
 
 Acceptance Criteria 3_1: User can navigate to the booking form.
 
-![AC 3_1](/static/images/readme/Testing/1_UserStory/Testing/AC1_1.PNG "User Story 3, AC 3_1")
+![AC 3_1](/static/images/readme/Testing/3_UserStory/A3_1.PNG "User Story 3, AC 3_1")
 
 Acceptance Criteria 3_2: User can enter data into the form.
 
-![AC 3_2](/static/images/readme/Testing/1_UserStory/Testing/AC1_1.PNG "User Story 3, AC 3_2")
+![AC 3_2](/static/images/readme/Testing/3_UserStory/A3_2.PNG "User Story 3, AC 3_2")
 
 Acceptance Criteria 3_3: User can sent data.
 
-![AC 3_3](/static/images/readme/Testing/1_UserStory/Testing/AC1_1.PNG "User Story 3, AC 3_3")
+![AC 3_3](/static/images/readme/Testing/3_UserStory/A3_3.PNG "User Story 3, AC 3_3")
 
 Acceptance Criteria 3_4-3_6: User is informed if they enter the wrong date format. User is informed if they enter the wrong time format. User is informed if number of guests is not >0.
 
-![AC 3_4](/static/images/readme/Testing/1_UserStory/Testing/AC1_1.PNG "User Story 3, AC 3_4")
+![AC 3_4](/static/images/readme/Testing/3_UserStory/A3_4.PNG "User Story 3, AC 3_4")
 
 Acceptance Criteria 3_7: User is informed if the date they choose is in the past.
 
-![AC 3_5](/static/images/readme/Testing/1_UserStory/Testing/AC1_1.PNG "User Story 3, AC 3_5")
+![AC 3_5](/static/images/readme/Testing/3_UserStory/A3_5.PNG "User Story 3, AC 3_5")
 
 Acceptance Criteria 3_8: User is informed if they enter a date that is a monday, because Monday the restaurant is closed.
 
-![AC 3_6](/static/images/readme/Testing/1_UserStory/Testing/AC1_1.PNG "User Story 3, AC 3_6")
+![AC 3_6](/static/images/readme/Testing/3_UserStory/A3_6.PNG "User Story 3, AC 3_6")
 
 Acceptance Criteria 3_9: User is informed if they try to book outside of opening hours.
 
-![AC 3_7](/static/images/readme/Testing/1_UserStory/Testing/AC1_1.PNG "User Story 3, AC 3_7")
+![AC 3_7](/static/images/readme/Testing/3_UserStory/A3_7.PNG "User Story 3, AC 3_7")
 
 Acceptance Criteria 3_10: User is informed if comment has more than 300 characters.
 
-![AC 3_8](/static/images/readme/Testing/1_UserStory/Testing/AC1_1.PNG "User Story 3, AC 3_8")
+![AC 3_8](/static/images/readme/Testing/3_UserStory/A3_8.PNG "User Story 3, AC 3_8")
 
 ## Debugging in context with User Story 3
 The following bug occured while working on the tasks for user story 3:
@@ -175,7 +175,31 @@ Bug 1: In a second iteration, the error messages regarding form validation didn'
 
 Fix for Bug 1: This time the issue was due to a change I made while testing my code with the html validator. There it stayed that nesting button tags in anchor tags is bad practice. Although shown in class, I decided to change it. Thereby I created a logic error in the code. On button click I linked to the confirmation page directly instead of submitting the form data and the success url being the confirmation page. - This case showed me that features that already worked, can stop working, if code is altered and that causes are sometimes very hidden and not in the obvious context (e.g. form validation does not work, so form validation logic is wrong - sometimes it is some html template error that causes the problem.)
 
+### User Story 4
 
+**As a user I can select the number of seats at the table.**
+
+The overview table for user story four sums up the tested acceptance criteria, the performed tasks and the bug fixes that took place.
+
+
+![User Story 4](/static/images/readme/4_UserStory/UserStory4WithAcceptanceCriteria.png "User Story 1, with Acceptance Criteria, Tasks and Debug Fixes")
+
+Acceptance Criteria 4_1:
+User can enter the number of seats he or she wishes to occupy with the booking.
+
+![AC 4_1](/static/images/readme/Testing/4_UserStory/AC4_1.PNG "User Story 4, AC 4_1")
+
+Acceptance Criteria 4_2:
+User is informed if number of guests is <=0
+
+![AC 4_2](/static/images/readme/Testing/4_UserStory/AC4_2.PNG "User Story 4, AC 4_2")
+
+## Debugging in context with User Story 4
+The following bug occured while working on the tasks for user story 4:
+
+Bug 1: Error messages not showing when wrong data is entered into the form.
+
+Fix for Bug 1: This bug occured in 2 iternations. The first time the issue was due to the error messages not being integrated in the html template. And the second time the html template of the create booking were altered wrongly (nested button within link tag) --> see Bug 1 in User Story 2 and 3.
 
 ### Test Cases
 To test the **login and registration** functionalities, the following test cases were tested:
