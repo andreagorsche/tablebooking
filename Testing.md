@@ -72,31 +72,60 @@ User sees when password is not the same while registering
 The following bugs occured while working on the tasks for user story 1:
 
 Bug 1: tablebooking.views has no attribute login
-![Delicious Daily](/static/images/readme/Testing/1_UserStory/Debug/D1_1.PNG "Starting Page")
+![User Story 1, Bug 1](/static/images/readme/Testing/1_UserStory/Debug/D1_1.PNG "User Story 1, Bug 1")
 
 Fix for Bug 1:
 In the urls.py file the path for the menu had the views.login instead of views.base, so I canged it to views.base.
 
 Bug 2: When a user tries to access a URL that requires a login, the redirection leads to a sign in page without the according form, leading to one extra click for the user (bad user experience)
-![Delicious Daily](/static/images/readme/Testing/1_UserStory/Debug/D1_2.PNG "Starting Page")
+![User Story 1, Bug 2](/static/images/readme/Testing/1_UserStory/Debug/D1_2.PNG "User Story 1, Bug 2")
 
 Fix for Bug 2: I had created a custom login view thus overwriting the Django sign in page. The bug was fixed as soon as I deleted the custom login page and  wired up with Django login in page instead.
 
 Bug 3: When the user authentificated, the content was not displayed, instead a Template Syntax Error showed. 
 
-![Delicious Daily](/static/images/readme/Testing/1_UserStory/Debug/D1_3.PNG "Starting Page")
+![User Story 1, Bug 3](/static/images/readme/Testing/1_UserStory/Debug/D1_3.PNG "User Story 1, Bug 3")
 
 Fix for Bug 3: There was an end if missing in the template code.
 
 Bug 4: When adding the Django status messages, to the code, the div for django message stayed displayed after the message was already disolved.
 
-![Delicious Daily](/static/images/readme/Testing/1_UserStory/Debug/D1_4.PNG "Starting Page")
+![User Story 1, Bug 4](/static/images/readme/Testing/1_UserStory/Debug/D1_4.PNG "User Story 1, Bug 4")
 
 Fix for Bug 4: Javascript needed to be properly imported and code had typos. 
 
+### User Story 2 
 
+**As a user I can check if my table is available on my desired date and time.**
 
+The overview table for user story two sums up the tested acceptance criteria, the performed tasks and the bug fixes that took place.
 
+![User Story 2](/static/images/readme/Testing/2_UserStory/UserStory2WithAcceptanceCriteria.png "User Story 1, with Acceptance Criteria, Tasks and Debug Fixes")
+
+Acceptance Criteria 2_1: The user is getting a confirmation if the booking at the desired date and time was possible.
+
+![AC 2_1](/static/images/readme/Testing/1_UserStory/Testing/AC1_1.PNG "User Story 2, AC 2_1")
+
+Acceptance Criteria 2_2: The user gets an error message if there is no table available at the desired date and time.
+
+![AC 2_2](/static/images/readme/Testing/1_UserStory/Testing/AC1_1.PNG "User Story 2, AC 2_2")
+
+## Debugging in context with User Story 2
+The following bugs occured while working on the tasks for user story 2:
+
+Bug 1: When entering wrong data in the booking form, error messages were not showing.
+
+![User Story 2, Bug 1](/static/images/readme/Testing/2_UserStory/D2_1.png "User Story 2, Bug 1")
+
+Fix for Bug 1:
+The displaying of errors in the html template was missing.
+
+Bug 2: Double booking is possible despite a check in the code that should forbid a double booking.
+
+![User Story 2, Bug 2](/static/images/readme/Testing/2_UserStory/D2_2.png "User Story 2, Bug 2")
+
+Fix for Bug 2:
+The check for double bookings was written in the forms.py instead of the views file. Once the code was transfered it worked properly.
 
 ### Test Cases
 To test the **login and registration** functionalities, the following test cases were tested:
