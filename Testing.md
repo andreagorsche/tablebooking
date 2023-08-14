@@ -271,6 +271,27 @@ User is informed about successful deletion.
 
 ![AC 5_11](/static/images/readme/Testing/5_UserStory/A5.11.PNG "User Story 5, AC 5_11")
 
+### User Story 6
+
+**As an admin I can check the tables booked online and get a quick overview.**
+
+The overview table for user story six sums up the tested acceptance criteria, the performed tasks and the bug fixes that took place.
+
+
+![User Story 6](/static/images/readme/6_UserStory/UserStory6WithAcceptanceCriteria.png "User Story 6, with Acceptance Criteria, Tasks and Debug Fixes")
+
+Acceptance Criteria 6_1:
+Admin can access a list of all bookings/reservations.
+
+![AC 6_1](/static/images/readme/Testing/6_UserStory/A6_1.PNG "User Story 6, AC 6_1")
+
+Acceptance Criteria 6_2:
+Admin can filter the reservations by characteristics like table, date, number of guests.
+
+![AC 6_2](/static/images/readme/Testing/6_UserStory/A6_2.PNG "User Story 6, AC 6_2")
+
+
+
 ### Test Cases
 To test the **login and registration** functionalities, the following test cases were tested:
 
