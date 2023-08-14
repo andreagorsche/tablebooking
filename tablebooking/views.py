@@ -43,19 +43,14 @@ class CreateReservation(CreateView):
         data = form.cleaned_data
         form.instance.user = self.request.user
         tables = Table.objects.filter(number_of_seats__gte=form.instance.number_of_guests)
-        overlapping_Reservations = Reservation.objects.filter(table__in=tables, date=data.get("date"), time=data.get("time"))
-
-        if overlapping_Reservations.exists():
-            is_waitlisted = self.request.POST.get("is_waitlisted")  # Get the user's choice from the form data
-            if is_waitlisted:
-                form.instance.is_waitlisted = True  # Mark the reservation as waitlisted
-                return super().form_valid(form)
-            else:
-                return self.form_invalid(form)  # Return form invalid without rendering
+        overlapping_reservations = Reservation.objects.filter(table__in=tables, date=data.get("date"), time=data.get("time"))  # Exclude the current reservation if it's being updated
+        if overlapping_reservations.exists():
+            form.add_error('date', "This table is already booked for the selected date and time.")
+            return super().form_invalid(form)
 
         if tables.exists():
             form.instance.table = tables.first()
-            return super().form_valid(form)
+        return super().form_valid(form)
 
 @method_decorator(login_required, name='dispatch')
 class ReservationList(generic.ListView):

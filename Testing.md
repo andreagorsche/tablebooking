@@ -199,6 +199,8 @@ The following bug occured while working on the tasks for user story 4:
 
 Bug 1: Error messages not showing when wrong data is entered into the form.
 
+![User Story 3, Bug 1](/static/images/readme/Testing/3_UserStory/D3_1.png "User Story 3, Bug 1")
+
 Fix for Bug 1: This bug occured in 2 iternations. The first time the issue was due to the error messages not being integrated in the html template. And the second time the html template of the create booking were altered wrongly (nested button within link tag) --> see Bug 1 in User Story 2 and 3.
 
 ### Test Cases
