@@ -100,7 +100,7 @@ Fix for Bug 4: Javascript needed to be properly imported and code had typos.
 
 The overview table for user story two sums up the tested acceptance criteria, the performed tasks and the bug fixes that took place.
 
-![User Story 2](/static/images/readme/Testing/2_UserStory/UserStory2WithAcceptanceCriteria.png "User Story 1, with Acceptance Criteria, Tasks and Debug Fixes")
+![User Story 2](/static/images/readme/Testing/2_UserStory/UserStory2WithAcceptanceCriteria.png "User Story 2, with Acceptance Criteria, Tasks and Debug Fixes")
 
 Acceptance Criteria 2_1: The user is getting a confirmation if the booking at the desired date and time was possible.
 
@@ -182,7 +182,7 @@ Fix for Bug 1: This time the issue was due to a change I made while testing my c
 The overview table for user story four sums up the tested acceptance criteria, the performed tasks and the bug fixes that took place.
 
 
-![User Story 4](/static/images/readme/4_UserStory/UserStory4WithAcceptanceCriteria.png "User Story 1, with Acceptance Criteria, Tasks and Debug Fixes")
+![User Story 4](/static/images/readme/4_UserStory/UserStory4WithAcceptanceCriteria.png "User Story 4, with Acceptance Criteria, Tasks and Debug Fixes")
 
 Acceptance Criteria 4_1:
 User can enter the number of seats he or she wishes to occupy with the booking.
@@ -199,9 +199,77 @@ The following bug occured while working on the tasks for user story 4:
 
 Bug 1: Error messages not showing when wrong data is entered into the form.
 
-![User Story 3, Bug 1](/static/images/readme/Testing/3_UserStory/D3_1.png "User Story 3, Bug 1")
+![User Story 4, Bug 1](/static/images/readme/Testing/3_UserStory/D3_1.png "User Story 4, Bug 1")
 
 Fix for Bug 1: This bug occured in 2 iternations. The first time the issue was due to the error messages not being integrated in the html template. And the second time the html template of the create booking were altered wrongly (nested button within link tag) --> see Bug 1 in User Story 2 and 3.
+
+### User Story 5
+
+**As a registered user I can change or cancel my booking online saving me the hazzle of calling or writing emails.**
+
+The overview table for user story five sums up the tested acceptance criteria, the performed tasks and the bug fixes that took place.
+
+
+![User Story 5](/static/images/readme/4_UserStory/UserStory5WithAcceptanceCriteria.png "User Story 5, with Acceptance Criteria, Tasks and Debug Fixes")
+
+Acceptance Criteria 5_1:
+User can navigate to the existing bookings.
+
+![AC 5_1](/static/images/readme/Testing/5_UserStory/A5.1.PNG "User Story 5, AC 5_1")
+
+Acceptance Criteria 5_2:
+User is informed if there are no current bookings available.
+
+![AC 5_2](/static/images/readme/Testing/5_UserStory/A5.2.PNG "User Story 5, AC 5_2")
+
+Acceptance Criteria 5_3:
+User is shown a list of current bookings, if they exist.
+
+![AC 5_3](/static/images/readme/Testing/5_UserStory/A5.1.PNG "User Story 5, AC 5_3")
+
+Acceptance Criteria 5_4:
+User can navigate between the bookings.
+
+Previous:
+![AC 5_4_1](/static/images/readme/Testing/5_UserStory/A5.4_1.PNG "User Story 5, AC 5_4_1")
+
+Next:
+![AC 5_4_2](/static/images/readme/Testing/5_UserStory/A5.4_2.PNG "User Story 5, AC 5_4_2")
+
+Acceptance Criteria 5_5:
+User can navigate to the update booking form.
+
+![AC 5_5](/static/images/readme/Testing/5_UserStory/A5.5.PNG "User Story 5, AC 5_5")
+
+Acceptance Criteria 5_6:
+User is informed if the update is not possible (error messages according to form validation - see user story 3).
+
+![AC 5_6](/static/images/readme/Testing/5_UserStory/A5.6.PNG "User Story 5, AC 5_6")
+
+Acceptance Criteria 5_7:
+User is informed if the booking update at the selected time and date is not possible anymore (avoid double booking).
+
+![AC 5_7](/static/images/readme/Testing/5_UserStory/A5.7.PNG "User Story 5, AC 5_7")
+
+Acceptance Criteria 5_8:
+User is informed that update was successful.
+
+![AC 5_8](/static/images/readme/Testing/5_UserStory/A5.8.PNG "User Story 5, AC 5_8")
+
+Acceptance Criteria 5_9:
+User can navigate to delete a booking on mouse-click.
+
+![AC 5_9](/static/images/readme/Testing/5_UserStory/A5.1.PNG "User Story 5, AC 5_9")
+
+Acceptance Criteria 5_10:
+User is asked to confirm deletion.
+
+![AC 5_10](/static/images/readme/Testing/5_UserStory/A5.10.PNG "User Story 5, AC 5_10")
+
+Acceptance Criteria 5_11:
+User is informed about successful deletion.
+
+![AC 5_11](/static/images/readme/Testing/5_UserStory/A5.11.PNG "User Story 5, AC 5_11")
 
 ### Test Cases
 To test the **login and registration** functionalities, the following test cases were tested:

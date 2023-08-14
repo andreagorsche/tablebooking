@@ -75,17 +75,32 @@ class ReservationUpdate(generic.UpdateView):
     def get_form(self, form_class=None):
         form = super().get_form(form_class)
 
+        # Parse the date from the object and set it in the desired format
+        formatted_date = self.object.date.strftime('%d/%m/%Y')
+
         # Set the initial data for the form fields
         initial_data = {
-            'date': self.object.date,
+            'date': formatted_date,
             'time': self.object.time,
             'number_of_guests': self.object.number_of_guests,
             'number_of_child_seats' : self.object.number_of_child_seats,
             'comment' : self.object.comment,
         }
-
         form.initial = initial_data
         return form
+    
+    def form_valid(self, form):
+        data = form.cleaned_data
+        form.instance.user = self.request.user
+        tables = Table.objects.filter(number_of_seats__gte=form.instance.number_of_guests)
+        overlapping_reservations = Reservation.objects.filter(table__in=tables, date=data.get("date"), time=data.get("time"))  # Exclude the current reservation if it's being updated
+        if overlapping_reservations.exists():
+            form.add_error('date', "This table is already booked for the selected date and time.")
+            return super().form_invalid(form)
+
+        if tables.exists():
+            form.instance.table = tables.first()
+        return super().form_valid(form)
 
 @method_decorator(login_required, name='dispatch')
 class ReservationDelete(DeleteView):
