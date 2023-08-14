@@ -291,6 +291,38 @@ Admin can filter the reservations by characteristics like table, date, number of
 ![AC 6_2](/static/images/readme/Testing/6_UserStory/A6_2.PNG "User Story 6, AC 6_2")
 
 
+### User Story 7
+
+**As an admin I can manually change bookings (date, time, number of seats) to serve customer requests received via phone or email.**
+
+The overview table for user story seven sums up the tested acceptance criteria, the performed tasks and the bug fixes that took place.
+
+![User Story 7](/static/images/readme/7_UserStory/UserStory7WithAcceptanceCriteria.png "User Story 7, with Acceptance Criteria, Tasks and Debug Fixes")
+
+Acceptance Criteria 7_1:
+Admin is able to access and edit reservations.
+
+![AC 7_1](/static/images/readme/Testing/7_UserStory/A7_1.PNG "User Story 7, AC 7_1")
+
+Acceptance Criteria 7_2:
+Admin is able to delete reservations.
+
+![AC 7_2](/static/images/readme/Testing/7_UserStory/A7_2.PNG "User Story 7, AC 7_2")
+
+Acceptance Criteria 7_3:
+Admin is able to add tables.
+
+![AC 7_3](/static/images/readme/Testing/7_UserStory/A7_3.PNG "User Story 7, AC 7_3")
+
+Acceptance Criteria 7_4:
+Admin is able to delete tables.
+
+![AC 7_4](/static/images/readme/Testing/7_UserStory/A7_4.PNG "User Story 7, AC 7_4")
+
+Acceptance Criteria 7_5:
+Admin is able to edit tables.
+
+![AC 7_5](/static/images/readme/Testing/7_UserStory/A7_5.PNG "User Story 7, AC 7_5")
 
 ### Test Cases
 To test the **login and registration** functionalities, the following test cases were tested:
