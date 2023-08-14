@@ -324,6 +324,19 @@ Admin is able to edit tables.
 
 ![AC 7_5](/static/images/readme/Testing/7_UserStory/A7_5.PNG "User Story 7, AC 7_5")
 
+### User Story 8
+
+**As an admin I can administrate the waiting list for reserved tables to balance out cancelled bookings.**
+
+The overview table for user story eight sums up the tested acceptance criteria, the performed tasks and the bug fixes that took place.
+
+![User Story 8](/static/images/readme/8_UserStory/UserStory8WithAcceptanceCriteria.png "User Story 8, with Acceptance Criteria, Tasks and Debug Fixes")
+
+Acceptance Criteria 8_1:
+Admin can tick waitlisted on and off in reservation.
+
+![AC 8_1](/static/images/readme/Testing/8_UserStory/A8_1.PNG "User Story 8, AC 8_1")
+
 ### Test Cases
 To test the **login and registration** functionalities, the following test cases were tested:
 
