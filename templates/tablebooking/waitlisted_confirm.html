@@ -1,0 +1,14 @@
+{% extends 'tablebooking/base.html' %}
+
+{% block content %}
+<div class="bg_sub container-fluid d-flex align-items-center">
+  <div class="row">
+    <div class="cont_sub_fill col-md-8 mt-5 offset-md-2">
+      <form method="post">{% csrf_token %}
+        <p>Thank you for booking with us. We are happy to confirm that you have been waitlisted.</p>
+        {{ form }}
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

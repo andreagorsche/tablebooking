@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Table, Reservation
 from django.http import HttpResponse
 from datetime import datetime, date
@@ -11,6 +11,34 @@ from django.utils.decorators import method_decorator
 
 def base(request):
     return render(request, 'tablebooking/base.html')
+
+@login_required
+def reservation_confirm_waitlisted(request):
+    if request.method == 'POST':
+        form = ReservationForm(request.POST)
+        if form.is_valid():
+            data = form.cleaned_data
+            tables = Table.objects.filter(number_of_seats__gte=form.instance.number_of_guests)
+            overlapping_reservations = Reservation.objects.filter(table__in=tables, date=data.get("date"), time=data.get("time"))
+            
+            if overlapping_reservations.exists():
+                return redirect('waitlisted_confirmed')  # Display waitlist confirmation page
+            else:
+                reservation = form.save(commit=False)
+                reservation.is_waitlisted = False  # Mark reservation as not waitlisted
+                reservation.table = tables.first() if tables.exists() else None
+                reservation.user = request.user if request.user.is_authenticated else None
+                reservation.save()
+                return redirect('confirm_reservation')  # Redirect to reservation confirmation page
+    else:
+        form = ReservationForm()
+
+     # Render the template with the form
+    return render(request, 'tablebooking/reservation_confirm_waitlisted.html')
+    
+@login_required
+def confirm_waitlisted(request):
+    return render(request, 'tablebooking/waitlisted_confirm.html')
 
 @login_required
 def confirm_reservation(request):
@@ -45,9 +73,7 @@ class CreateReservation(CreateView):
         tables = Table.objects.filter(number_of_seats__gte=form.instance.number_of_guests)
         overlapping_reservations = Reservation.objects.filter(table__in=tables, date=data.get("date"), time=data.get("time"))  # Exclude the current reservation if it's being updated
         if overlapping_reservations.exists():
-            form.add_error('date', "This table is already booked for the selected date and time.")
-            return super().form_invalid(form)
-
+            return redirect('waitinglist_confirm')
         if tables.exists():
             form.instance.table = tables.first()
         return super().form_valid(form)
