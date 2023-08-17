@@ -29,12 +29,14 @@
                 <div class="col-6 d-flex align-items-center">{{ reservation.number_of_child_seats }}</div>
             </div>
             <div class="row mb-2" style="color: white">
-                <div class="col-6 d-flex justify-content-end">Private Booth:</div>
-                <div class="col-6 d-flex align-items-center">{{ reservation.private_booth }}</div>
-            </div>
-            <div class="row mb-2" style="color: white">
                 <div class="col-6 d-flex justify-content-end">Waitlisted:</div>
-                <div class="col-6 d-flex align-items-center">{{ reservation.waitlisted }}</div>
+                <div class="col-6 d-flex align-items-center">
+                    {% if reservation.is_waitlisted %}
+                        Yes
+                    {% else %}
+                        No
+                    {% endif %}
+                </div>
             </div>
             <div class="row mb-2" style="color: white">
                 <div class="col-6 d-flex justify-content-end">Comment:</div>

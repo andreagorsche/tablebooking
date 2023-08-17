@@ -12,8 +12,5 @@ urlpatterns = [
     path('reservation_confirm_delete/<int:pk>/', ReservationDelete.as_view(), name='delete_reservation'),
     path('reservation_confirm_update/', views.confirm_reservation_update, name='conf_upd_reservation'),
     path('delete_confirmed/', views.delete_confirmed, name='delete_confirmed'),
-    path('reservation_confirm_waitlisted/', views.reservation_confirm_waitlisted, name='waitinglist_confirm'),
-    path('waitlisted_confirm/', views.confirm_waitlisted, name='waitlisted_confirmed'),
-
-
+    path('confirm_waitlist/', views.waitlist_confirmed, name='confirm_waitlist'),
 ]

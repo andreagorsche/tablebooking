@@ -4,6 +4,20 @@ from datetime import date, time as time_lib
 from django.core.exceptions import ValidationError
 
 class ReservationForm(forms.ModelForm):
+    from django import forms
+from .models import Reservation, Table
+from datetime import date, time as time_lib
+from django.core.exceptions import ValidationError
+
+class ReservationForm(forms.ModelForm):
+    is_waitlisted = forms.BooleanField(
+        required=False,
+        widget=forms.CheckboxInput(attrs={
+            "class": "form-check-input",
+        }),
+        label="Waitlist" 
+    )
+    
     # Check if the date is in the correct format: dd/mm/yyyy
     date = forms.DateField(
         input_formats=["%d/%m/%Y"],
@@ -11,10 +25,12 @@ class ReservationForm(forms.ModelForm):
             "invalid": "Please enter a valid date in the format DD/MM/YYYY."
         },
     )
+    
     # Check if the time is in the correct format: hh:mm
     time = forms.TimeField(
         error_messages={"invalid": "Please enter a valid time in the format HH:MM."}
     )
+    
     class Meta:
         model = Reservation
         fields = (
@@ -23,7 +39,9 @@ class ReservationForm(forms.ModelForm):
             "number_of_guests",
             "number_of_child_seats",
             "comment",
+            "is_waitlisted",
             )
+            
         
         widgets = {
             "comment": forms.Textarea(attrs={
@@ -39,6 +57,7 @@ class ReservationForm(forms.ModelForm):
         time = cleaned_data.get("time")
         comment = cleaned_data.get("comment")
         number_of_guests = cleaned_data.get("number_of_guests")
+        is_waitlisted = cleaned_data.get("is_waitlisted")
 
         # Check if the date is in the past
         if date and date < date.today():
