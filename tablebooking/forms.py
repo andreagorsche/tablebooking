@@ -23,7 +23,16 @@ class ReservationForm(forms.ModelForm):
             "number_of_guests",
             "number_of_child_seats",
             "comment",
-        )
+            )
+        
+        widgets = {
+            "comment": forms.Textarea(attrs={
+                "rows": 4, 
+                "placeholder": "If you want to reserve a private booth, please state so in the comment "
+                               "and we will arrange your table accordingly. Comment must not exceed 300 characters."
+            }),
+        }
+
     def clean(self):
         cleaned_data = super(ReservationForm, self).clean()
         date = cleaned_data.get("date")
