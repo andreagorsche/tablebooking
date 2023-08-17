@@ -26,6 +26,7 @@ h1 {
 header {
   margin: 0;
   padding: 0;
+  height: 60px;
   background-color: #f0f8ff;
   opacity: 0.85;
   color: cadetblue;
@@ -33,6 +34,7 @@ header {
 
 footer {
   margin-top: auto;
+  height: 40px;
   background-color: aliceblue;
   opacity: 0.85;
   color: cadetblue;
@@ -179,6 +181,7 @@ a {
   background-color: cadetblue;
   width: 100%;
 }
+
 .btn-success,.button {
   display: flex;
   align-items: center;
