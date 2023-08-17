@@ -13,30 +13,6 @@ def base(request):
     return render(request, 'tablebooking/base.html')
 
 @login_required
-def reservation_confirm_waitlisted(request):
-    if request.method == 'POST':
-        form = ReservationForm(request.POST)
-        if form.is_valid():
-            data = form.cleaned_data
-            tables = Table.objects.filter(number_of_seats__gte=form.instance.number_of_guests)
-            overlapping_reservations = Reservation.objects.filter(table__in=tables, date=data.get("date"), time=data.get("time"))
-            
-            if overlapping_reservations.exists():
-                return redirect('waitlisted_confirmed')  # Display waitlist confirmation page
-            else:
-                reservation = form.save(commit=False)
-                reservation.is_waitlisted = False  # Mark reservation as not waitlisted
-                reservation.table = tables.first() if tables.exists() else None
-                reservation.user = request.user if request.user.is_authenticated else None
-                reservation.save()
-                return redirect('confirm_reservation')  # Redirect to reservation confirmation page
-    else:
-        form = ReservationForm()
-
-     # Render the template with the form
-    return render(request, 'tablebooking/reservation_confirm_waitlisted.html')
-    
-@login_required
 def confirm_waitlisted(request):
     return render(request, 'tablebooking/waitlisted_confirm.html')
 
