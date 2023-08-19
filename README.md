@@ -1,4 +1,4 @@
-![Delicious Daily](/static/images/readme/Logo.png "Restaurant Website")
+![Delicious Daily](/static/images/readme/logo.png "Restaurant Website")
 
 # Welcome to Delicious Daily,
 
@@ -28,7 +28,7 @@ Besides adding and managing reservations, the restaurant admins have the ability
 
 Following agile development practices, I created the user stories for the project in the Canban tool of Github.
 
-![Delicious Daily](/static/images/readme/AgileDevelopement.png "Restaurant Website")
+![Delicious Daily](/static/images/readme/agiledevelopement.png "Restaurant Website")
 
 Thereby I followed **two-week-sprints**:
 
@@ -157,7 +157,7 @@ Like already described in the Scope Plane I came up with one additional feature 
 ### The database model design
 Following my above description, I designed the following database model structure for my project Delicious Daily: 
 
-![Database Models](/static/images/readme/Database_Models.png "Database Models")
+![Database Models](/static/images/readme/database_models.png "Database Models")
 
 
 ### Wireframing
@@ -169,57 +169,57 @@ For every page and every interaction with the user I design a separate page.
 In order to create a full-stack application I designed a **starting page** that has a delicious food pic at its center. And a note telling the user that he or she is able to book a table after free registration. Thus, advertising the main functionality of the page at first glance.
  At the top is a header with the restaurant logo, linking back to the main page from every page, and a menu with basic functionality for checking the menu, registration and login. At the bottom is a footer with the copyright in place.
 
-![Main Screen](/static/images/readme/Wireframes/MainScreen.png "Main Screen")
+![Main Screen](/static/images/readme/Wireframes/mainscreen.png "Main Screen")
 
 
 A page with breakfast, lunch and dinner menus gives the user a taste of what Delicious Daily has to offer and motivate their free registration to book a table.
 
-![Menu](/static/images/readme/Wireframes/Menu.png "Menu")
+![Menu](/static/images/readme/wireframes/menu.png "Menu")
 
 The registration page for first-time users should offer a fast way to enter details and proceed to the booking features. The design of this page, as well as of the login page is intentionally minimalistic. After all data entry requires focus on the entered data. Too much design or animation around the form only distracts and confuses.
 
-![Register](/static/images/readme/Wireframes/Register.png "Register")
+![Register](/static/images/readme/wireframes/register.png "Register")
 
 The Login page is designed in similar pattern giving the recurring user the chance to log back in.
 
-![Login](/static/images/readme/Wireframes/Login.png "Login")
+![Login](/static/images/readme/wireframes/login.png "Login")
 
 Once a user is registered and logged in new menu options present themselves: book a table, view bookings and logout. 
 
-![RegisteredUser](/static/images/readme/Wireframes/RegisteredUser.png "RegisteredUser")
+![RegisteredUser](/static/images/readme/wireframes/registereduser.png "RegisteredUser")
 
 The book a table page is a page of central interest to the user. Therefore the green background of the form is bigger and the background pic is more like a frame to add some visual touch without being to distracting. 
 That way the user can focus on the data entry. Still the grey background of the cafe is a repeated image for recognition purposes.
 
-![Book a Table](/static/images/readme/Wireframes/BookATable.png "Book a Table")
+![Book a Table](/static/images/readme/wireframes/bookatable.png "Book a Table")
 
 After clicking the Book button. The user is directed to a feedback page confirming the booking was successful.
 
-![Booking Confirmation](/static/images/readme/Wireframes/BookingConfirmation.png "Booking Confirmation")
+![Booking Confirmation](/static/images/readme/wireframes/bookingconfirmation.png "Booking Confirmation")
 
 The booking list page follows the same design principle as the book a table page. A big green background highlights the information at center - the booked reservations. These are organized in a list with two possible actions "manage booking" and "delete booking". Part of the green background frame are the buttons "next" and "previous" in case the user has more than 3 bookings.
 
-![View Bookings](/static/images/readme/Wireframes/ViewBookings.png "View Bookings")
+![View Bookings](/static/images/readme/wireframes/viewbookings.png "View Bookings")
 
 When the user wants to update a table booking they press the manage booking button and are directed to the booking form to edit their reservation entry. 
 
-![Update a Table](/static/images/readme/Wireframes/UpdateATable.png "Update a Table")
+![Update a Table](/static/images/readme/wireframes/updateatable.png "Update a Table")
 
 After making the necessary changes, by clicking the button "Update Booking" they are then directed to a page confirming the update.
 
-![Update Confirmation](/static/images/readme/Wireframes/UpdateConfirmation.png "Login")
+![Update Confirmation](/static/images/readme/wireframes/updateconfirmation.png "Login")
 
 If a user clicks the "delete booking" button, they are directed to a subpage asking to confirm the deletion.
 
-![Delete Question](/static/images/readme/Wireframes/DeleteQuestion.png "Delete Question")
+![Delete Question](/static/images/readme/wireframes/deletequestion.png "Delete Question")
 
 If they confirm the deletion they are directed to user feedback page stating that the booking was deleted successfully.
 
-![Confirmation Delete](/static/images/readme/Wireframes/ConfirmationDelete.png "Confirmation Delete")
+![Confirmation Delete](/static/images/readme/wireframes/confirmationdelete.png "Confirmation Delete")
 
 Once the user wants to log out they click on Logout in the top menu and are directed to a page where they have to confirm there logout.
 
-![Logout Question](/static/images/readme/Wireframes/LogoutQuestion.png "Logout Question")
+![Logout Question](/static/images/readme/wireframes/logoutquestion.png "Logout Question")
 
 In general, I followed a  minimalist approach for user feedback pages (like e.g. your booking has been confirmed, deletion is confirmed, booking update is confirmed) and for interaction pages (e.g. please confirm deletion, do you really want to log out).
 
@@ -227,7 +227,7 @@ In general, I followed a  minimalist approach for user feedback pages (like e.g.
 Wireframing is always closely linked to the user flow. After all, if I don't know how the user navigates to the page and which touchpoints he or she has, how should I consideratley design the wireframing?
 Thus, with the wireframes designed I created a typical user flow for recurring users and first time users in one graphic.
 
-![User Flow Delicious Daily](/static/images/readme/UserFlow_deliciousdaily.png "User Flow")
+![User Flow Delicious Daily](/static/images/readme/userflow_deliciousdaily.png "User Flow")
 
 #### First-time users
 
@@ -247,14 +247,14 @@ Since by definition imagery of food tends to be colorful and should be at the ce
 #### Main color
 For the header, footer, logo as well as the background blocks of forms and lists I choose the color cadetblue to frame the rich imagery and information displayed.
 
-![Main Color - Cadet Blue](/static/images/readme/ColorScheme/cadetblue.png "Main Color - Cadet Blue")
+![Main Color - Cadet Blue](/static/images/readme/colorscheme/cadetblue.png "Main Color - Cadet Blue")
 
 #### Supporting color
 As supporting colors I choose Alice Blue to create a nice supporting contrast to the cadetblue main color. As further supporting colors I used dark charcoal and white.
 
-![Supporting Color - Alice Blue](/static/images/readme/ColorScheme/aliceblue.png "Main Color - Alice Blue")
-![Supporting Color - Dark Charcoal](/static/images/readme/ColorScheme/dark_charcoal.png "Main Color - Dark Charcoal")
-![Supporting Color - White](/static/images/readme/ColorScheme/white.png "Main Color - White")
+![Supporting Color - Alice Blue](/static/images/readme/colorscheme/aliceblue.png "Main Color - Alice Blue")
+![Supporting Color - Dark Charcoal](/static/images/readme/colorscheme/dark_charcoal.png "Main Color - Dark Charcoal")
+![Supporting Color - White](/static/images/readme/colorscheme/white.png "Main Color - White")
 
 ### Typography
 For the font I decided to go with Cormorant Garamond as the main font. It is very good to read and still has some unique touch to it. The font Pacifico is more playful and used for special nuances like the quote of the Chef or the logo.
@@ -406,17 +406,17 @@ To test the functionalities of the admin side the following test cases were look
 
 For HTML and CSS the W3 Validators were used. In the first instance there were still bugs showing that are eloborated about in the section above "Debugging". After the debugging was finished no further Validation errors showed.
 
-![HTML Validator](/static/images/readme/validators/HTMLValidator.png "HTML Validator")
+![HTML Validator](/static/images/readme/validators/htmlvalidation.png "HTML Validator")
 
 The above picture is one example of this website passing the HTML validator. The validations were done for all subpages. Since the screens would all look the same, I decided to not copy them all in here.
 
-![CSS Validator](/static/images/readme/validators/CSSValidation.png "CSS Validator")
+![CSS Validator](/static/images/readme/validators/cssvalidation.png "CSS Validator")
 
 For the Python files the Pep8 install was used to ensure the code is according to PEP 8 conventions.
 
 To test the overall performance of the website Lighthouse was used:
 
-![Lighthouse](/static/images/readme/validators/Lighthouse.png "Lighthouse")
+![Lighthouse](/static/images/readme/validators/lighthouse.png "Lighthouse")
 
 
 
@@ -534,7 +534,7 @@ https://www.w3schools.com/django/django_collect_static_files.php
 
  
 
-![Delicious Daily](/static/images/readme/Logo.png "Restaurant Website")
+![Delicious Daily](/static/images/readme/logo.png "Restaurant Website")
 
 # Welcome to Delicious Daily,
 
@@ -777,14 +777,14 @@ Since by definition imagery of food tends to be colorful and should be at the ce
 #### Main color
 For the header, footer, logo as well as the background blocks of forms and lists I choose the color cadetblue to frame the rich imagery and information displayed.
 
-![Main Color - Cadet Blue](/static/images/readme/ColorScheme/cadetblue.png "Main Color - Cadet Blue")
+![Main Color - Cadet Blue](/static/images/readme/colorscheme/cadetblue.png "Main Color - Cadet Blue")
 
 #### Supporting color
 As supporting colors I choose Alice Blue to create a nice supporting contrast to the cadetblue main color. As further supporting colors I used dark charcoal and white.
 
-![Supporting Color - Alice Blue](/static/images/readme/ColorScheme/aliceblue.png "Main Color - Alice Blue")
-![Supporting Color - Dark Charcoal](/static/images/readme/ColorScheme/dark_charcoal.png "Main Color - Dark Charcoal")
-![Supporting Color - White](/static/images/readme/ColorScheme/white.png "Main Color - White")
+![Supporting Color - Alice Blue](/static/images/readme/colorscheme/aliceblue.png "Main Color - Alice Blue")
+![Supporting Color - Dark Charcoal](/static/images/readme/colorscheme/dark_charcoal.png "Main Color - Dark Charcoal")
+![Supporting Color - White](/static/images/readme/colorscheme/white.png "Main Color - White")
 
 ### Typography
 For the font I decided to go with Cormorant Garamond as the main font. It is very good to read and still has some unique touch to it. The font Pacifico is more playful and used for special nuances like the quote of the Chef or the logo.

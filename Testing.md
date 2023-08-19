@@ -8,89 +8,89 @@ With every sprint manual tests of the intendent funcitonalities and design featu
 
 The overview table for user story one sums up the tested acceptance criteria, the performed tasks and the bug fixes that took place.
 
-![User Story 1](/static/images/readme/Testing/1_UserStory/UserStory1WithAcceptanceCriteria.png "User Story 1, with Acceptance Criteria, Tasks and Debug Fixes")
+![User Story 1](/static/images/readme/testing/1_userstory/userstory1withacceptancecriteria.png "User Story 1, with Acceptance Criteria, Tasks and Debug Fixes")
 
 Starting Page of Delicious Daily, Starting Point of Manual Testing:
-![Start Manual Testing](/static/images/readme/Testing/1_UserStory/Testing/1_Start.PNG "Starting Page for Manual Testing")
+![Start Manual Testing](/static/images/readme/testing/1_userstory/testing/1_start.PNG "Starting Page for Manual Testing")
 
 Acceptance Criteria 1_1:
 Navigation leads first-time user to the registration form.
 
-![AC 1_1](/static/images/readme/Testing/1_UserStory/Testing/AC1_1.PNG "User Story 1, AC 1_1")
+![AC 1_1](/static/images/readme/testing/1_userstory/testing/ac1_1.PNG "User Story 1, AC 1_1")
 
 Acceptance Criteria 1_2:
 Navigation leads recurring user to the login form.
 
-![AC 1_2](/static/images/readme/Testing/1_UserStory/Testing/AC1_2.PNG "User Story 1, AC 1_2")
+![AC 1_2](/static/images/readme/testing/1_userstory/testing/ac1_2.PNG "User Story 1, AC 1_2")
 
 Acceptance Criteria 1_3:
 User can fill the registration form with data.
 
-![AC 1_3](/static/images/readme/Testing/1_UserStory/Testing/AC1_3.PNG "User Story 1, AC 1_3")
+![AC 1_3](/static/images/readme/testing/1_userstory/testing/ac1_3.PNG "User Story 1, AC 1_3")
 
 Acceptance Criteria 1_4:
 User can fill the login form with data.
 
-![AC 1_4](/static/images/readme/Testing/1_UserStory/Testing/AC1_4.PNG "User Story 1, AC 1_4")
+![AC 1_4](/static/images/readme/testing/1_userstory/testing/ac1_4.PNG "User Story 1, AC 1_4")
 
 Acceptance Criteria 1_5:
 User gets feedback if email does not fulfill required format.
 
-![AC 1_5](/static/images/readme/Testing/1_UserStory/Testing/AC1_5.PNG "User Story 1, AC 1_5")
+![AC 1_5](/static/images/readme/testing/1_userstory/testing/ac1_5.PNG "User Story 1, AC 1_5")
 
 Acceptance Criteria 1_6:
 User gets feedback if password fulfills requirements
 
-![AC 1_6](/static/images/readme/Testing/1_UserStory/Testing/AC1_6.PNG "User Story 1, AC 1_6")
+![AC 1_6](/static/images/readme/testing/1_userstory/testing/ac1_6.PNG "User Story 1, AC 1_6")
 
 Acceptance Criteria 1_6b:
 User gets feedback if password is too common
 
-![AC 1_6b](/static/images/readme/Testing/1_UserStory/Testing/AC1_6b.PNG "User Story 1, AC 1_6b")
+![AC 1_6b](/static/images/readme/testing/1_userstory/testing/ac1_6b.PNG "User Story 1, AC 1_6b")
 
 Acceptance Criteria 1_6c:
 User sees that username and/or password are not correct.
 
-![AC 1_6c](/static/images/readme/Testing/1_UserStory/Testing/AC1_6c.PNG "User Story 1, AC 1_6c")
+![AC 1_6c](/static/images/readme/testing/1_userstory/testing/ac1_6c.PNG "User Story 1, AC 1_6c")
 
 Acceptance Criteria 1_7:
 User sees that login was successful.
 
-![AC 1_7](/static/images/readme/Testing/1_UserStory/Testing/AC1_7.PNG "User Story 1, AC 1_7")
+![AC 1_7](/static/images/readme/testing/1_userstory/testing/ac1_7.PNG "User Story 1, AC 1_7")
 
 Acceptance Criteria 1_8:
 User sees that logout was successful.
 
-![AC 1_8](/static/images/readme/Testing/1_UserStory/Testing/AC1_8.PNG "User Story 1, AC 1_8")
+![AC 1_8](/static/images/readme/testing/1_userstory/testing/ac1_8.PNG "User Story 1, AC 1_8")
 
 Acceptance Criteria 1_9:
 User sees when password is not the same while registering
 
-![AC 1_9](/static/images/readme/Testing/1_UserStory/Testing/AC1_9.PNG "User Story 1, AC 1_9")
+![AC 1_9](/static/images/readme/testing/1_userstory/testing/ac1_9.PNG "User Story 1, AC 1_9")
 
 ## Debugging in context with User Story 1
 The following bugs occured while working on the tasks for user story 1:
 
 Bug 1: tablebooking.views has no attribute login
-![User Story 1, Bug 1](/static/images/readme/Testing/1_UserStory/Debug/D1_1.PNG "User Story 1, Bug 1")
+![User Story 1, Bug 1](/static/images/readme/testing/1_userstory/debug/d1_1.PNG "User Story 1, Bug 1")
 
 Fix for Bug 1:
 In the urls.py file the path for the menu had the views.login instead of views.base, so I canged it to views.base.
 
 Bug 2: When a user tries to access a URL that requires a login, the redirection leads to a sign in page without the according form, leading to one extra click for the user (bad user experience)
-![User Story 1, Bug 2](/static/images/readme/Testing/1_UserStory/Debug/D1_2.PNG "User Story 1, Bug 2")
+![User Story 1, Bug 2](/static/images/readme/testing/1_userstory/debug/d1_2.PNG "User Story 1, Bug 2")
 
 Fix for Bug 2: I had created a custom login view thus overwriting the Django sign in page. The bug was fixed as soon as I deleted the custom login page and  wired up with Django login in page instead.
 
 Bug 3: When the user authentificated, the content was not displayed, instead a Template Syntax Error showed. 
 
-![User Story 1, Bug 3](/static/images/readme/Testing/1_UserStory/Debug/D1_3.PNG "User Story 1, Bug 3")
+![User Story 1, Bug 3](/static/images/readme/testing/1_userstory/debug/d1_3.PNG "User Story 1, Bug 3")
 
 Fix for Bug 3: There was an end if missing in the template code.
 
 Bug 4: When adding the Django status messages, to the code, the div for django message stayed displayed after the message was already disolved.
 
-![User Story 1, Bug 4](/static/images/readme/Testing/1_UserStory/Debug/D1_4.PNG "User Story 1, Bug 4")
+![User Story 1, Bug 4](/static/images/readme/testing/1_userstory/debug/d1_4.PNG "User Story 1, Bug 4")
 
 Fix for Bug 4: Javascript needed to be properly imported and code had typos. 
 
@@ -100,29 +100,29 @@ Fix for Bug 4: Javascript needed to be properly imported and code had typos.
 
 The overview table for user story two sums up the tested acceptance criteria, the performed tasks and the bug fixes that took place.
 
-![User Story 2](/static/images/readme/Testing/2_UserStory/UserStory2WithAcceptanceCriteria.png "User Story 2, with Acceptance Criteria, Tasks and Debug Fixes")
+![User Story 2](/static/images/readme/testing/2_userstory/userstory2withacceptancecriteria.png "User Story 2, with Acceptance Criteria, Tasks and Debug Fixes")
 
 Acceptance Criteria 2_1: The user is getting a confirmation if the booking at the desired date and time was possible.
 
-![AC 2_1](/static/images/readme/Testing/1_UserStory/Testing/AC1_1.PNG "User Story 2, AC 2_1")
+![AC 2_1](/static/images/readme/testing/1_userstory/testing/ac1_1.PNG "User Story 2, AC 2_1")
 
 Acceptance Criteria 2_2: The user gets an error message if there is no table available at the desired date and time.
 
-![AC 2_2](/static/images/readme/Testing/1_UserStory/Testing/AC1_1.PNG "User Story 2, AC 2_2")
+![AC 2_2](/static/images/readme/testing/1_userstory/testing/ac1_1.PNG "User Story 2, AC 2_2")
 
 ## Debugging in context with User Story 2
 The following bugs occured while working on the tasks for user story 2:
 
 Bug 1: When entering wrong data in the booking form, error messages were not showing.
 
-![User Story 2, Bug 1](/static/images/readme/Testing/2_UserStory/D2_1.png "User Story 2, Bug 1")
+![User Story 2, Bug 1](/static/images/readme/testing/2_userstory/d2_1.png "User Story 2, Bug 1")
 
 Fix for Bug 1:
 The displaying of errors in the html template was missing.
 
 Bug 2: Double booking is possible despite a check in the code that should forbid a double booking.
 
-![User Story 2, Bug 2](/static/images/readme/Testing/2_UserStory/D2_2.png "User Story 2, Bug 2")
+![User Story 2, Bug 2](/static/images/readme/testing/2_userstory/d2_2.png "User Story 2, Bug 2")
 
 Fix for Bug 2:
 The check for double bookings was written in the forms.py instead of the views file. Once the code was transfered it worked properly.
@@ -132,46 +132,46 @@ The check for double bookings was written in the forms.py instead of the views f
 
 The overview table for user story three sums up the tested acceptance criteria, the performed tasks and the bug fixes that took place.
 
-![User Story 3](/static/images/readme/Testing/3_UserStory/UserStory3WithAcceptanceCriteria.png "User Story 3, with Acceptance Criteria, Tasks and Debug Fixes")
+![User Story 3](/static/images/readme/testing/3_userstory/userstory3withacceptancecriteria.png "User Story 3, with Acceptance Criteria, Tasks and Debug Fixes")
 
 Acceptance Criteria 3_1: User can navigate to the booking form.
 
-![AC 3_1](/static/images/readme/Testing/3_UserStory/A3_1.PNG "User Story 3, AC 3_1")
+![AC 3_1](/static/images/readme/testing/3_userstory/a3_1.PNG "User Story 3, AC 3_1")
 
 Acceptance Criteria 3_2: User can enter data into the form.
 
-![AC 3_2](/static/images/readme/Testing/3_UserStory/A3_2.PNG "User Story 3, AC 3_2")
+![AC 3_2](/static/images/readme/testing/3_userstory/a3_2.PNG "User Story 3, AC 3_2")
 
 Acceptance Criteria 3_3: User can sent data.
 
-![AC 3_3](/static/images/readme/Testing/3_UserStory/A3_3.PNG "User Story 3, AC 3_3")
+![AC 3_3](/static/images/readme/testing/3_userstory/a3_3.PNG "User Story 3, AC 3_3")
 
 Acceptance Criteria 3_4-3_6: User is informed if they enter the wrong date format. User is informed if they enter the wrong time format. User is informed if number of guests is not >0.
 
-![AC 3_4](/static/images/readme/Testing/3_UserStory/A3_4.PNG "User Story 3, AC 3_4")
+![AC 3_4](/static/images/readme/testing/3_userstory/a3_4.PNG "User Story 3, AC 3_4")
 
 Acceptance Criteria 3_7: User is informed if the date they choose is in the past.
 
-![AC 3_5](/static/images/readme/Testing/3_UserStory/A3_5.PNG "User Story 3, AC 3_5")
+![AC 3_5](/static/images/readme/testing/3_userstory/a3_5.PNG "User Story 3, AC 3_5")
 
 Acceptance Criteria 3_8: User is informed if they enter a date that is a monday, because Monday the restaurant is closed.
 
-![AC 3_6](/static/images/readme/Testing/3_UserStory/A3_6.PNG "User Story 3, AC 3_6")
+![AC 3_6](/static/images/readme/testing/3_userstory/a3_6.PNG "User Story 3, AC 3_6")
 
 Acceptance Criteria 3_9: User is informed if they try to book outside of opening hours.
 
-![AC 3_7](/static/images/readme/Testing/3_UserStory/A3_7.PNG "User Story 3, AC 3_7")
+![AC 3_7](/static/images/readme/testing/3_userstory/a3_7.PNG "User Story 3, AC 3_7")
 
 Acceptance Criteria 3_10: User is informed if comment has more than 300 characters.
 
-![AC 3_8](/static/images/readme/Testing/3_UserStory/A3_8.PNG "User Story 3, AC 3_8")
+![AC 3_8](/static/images/readme/testing/3_userstory/a3_8.PNG "User Story 3, AC 3_8")
 
 ## Debugging in context with User Story 3
 The following bug occured while working on the tasks for user story 3:
 
 Bug 1: In a second iteration, the error messages regarding form validation didn't work AGAIN. 
 
-![User Story 3, Bug 1](/static/images/readme/Testing/3_UserStory/D3_1.png "User Story 3, Bug 1")
+![User Story 3, Bug 1](/static/images/readme/testing/3_userstory/d3_1.png "User Story 3, Bug 1")
 
 Fix for Bug 1: This time the issue was due to a change I made while testing my code with the html validator. There it stayed that nesting button tags in anchor tags is bad practice. Although shown in class, I decided to change it. Thereby I created a logic error in the code. On button click I linked to the confirmation page directly instead of submitting the form data and the success url being the confirmation page. - This case showed me that features that already worked, can stop working, if code is altered and that causes are sometimes very hidden and not in the obvious context (e.g. form validation does not work, so form validation logic is wrong - sometimes it is some html template error that causes the problem.)
 
@@ -182,24 +182,24 @@ Fix for Bug 1: This time the issue was due to a change I made while testing my c
 The overview table for user story four sums up the tested acceptance criteria, the performed tasks and the bug fixes that took place.
 
 
-![User Story 4](/static/images/readme/4_UserStory/UserStory4WithAcceptanceCriteria.png "User Story 4, with Acceptance Criteria, Tasks and Debug Fixes")
+![User Story 4](/static/images/readme/4_userstory/userstory4withacceptancecriteria.png "User Story 4, with Acceptance Criteria, Tasks and Debug Fixes")
 
 Acceptance Criteria 4_1:
 User can enter the number of seats he or she wishes to occupy with the booking.
 
-![AC 4_1](/static/images/readme/Testing/4_UserStory/AC4_1.PNG "User Story 4, AC 4_1")
+![AC 4_1](/static/images/readme/testing/4_userstory/ac4_1.PNG "User Story 4, AC 4_1")
 
 Acceptance Criteria 4_2:
 User is informed if number of guests is <=0
 
-![AC 4_2](/static/images/readme/Testing/4_UserStory/AC4_2.PNG "User Story 4, AC 4_2")
+![AC 4_2](/static/images/readme/testing/4_userstory/ac4_2.PNG "User Story 4, AC 4_2")
 
 ## Debugging in context with User Story 4
 The following bug occured while working on the tasks for user story 4:
 
 Bug 1: Error messages not showing when wrong data is entered into the form.
 
-![User Story 4, Bug 1](/static/images/readme/Testing/3_UserStory/D3_1.png "User Story 4, Bug 1")
+![User Story 4, Bug 1](/static/images/readme/testing/3_userstory/d3_1.png "User Story 4, Bug 1")
 
 Fix for Bug 1: This bug occured in 2 iternations. The first time the issue was due to the error messages not being integrated in the html template. And the second time the html template of the create booking were altered wrongly (nested button within link tag) --> see Bug 1 in User Story 2 and 3.
 
@@ -210,66 +210,66 @@ Fix for Bug 1: This bug occured in 2 iternations. The first time the issue was d
 The overview table for user story five sums up the tested acceptance criteria, the performed tasks and the bug fixes that took place.
 
 
-![User Story 5](/static/images/readme/4_UserStory/UserStory5WithAcceptanceCriteria.png "User Story 5, with Acceptance Criteria, Tasks and Debug Fixes")
+![User Story 5](/static/images/readme/4_userstory/userstory5withacceptancecriteria.png "User Story 5, with Acceptance Criteria, Tasks and Debug Fixes")
 
 Acceptance Criteria 5_1:
 User can navigate to the existing bookings.
 
-![AC 5_1](/static/images/readme/Testing/5_UserStory/A5.1.PNG "User Story 5, AC 5_1")
+![AC 5_1](/static/images/readme/testing/5_userstory/a5.1.PNG "User Story 5, AC 5_1")
 
 Acceptance Criteria 5_2:
 User is informed if there are no current bookings available.
 
-![AC 5_2](/static/images/readme/Testing/5_UserStory/A5.2.PNG "User Story 5, AC 5_2")
+![AC 5_2](/static/images/readme/testing/5_userstory/a5.2.PNG "User Story 5, AC 5_2")
 
 Acceptance Criteria 5_3:
 User is shown a list of current bookings, if they exist.
 
-![AC 5_3](/static/images/readme/Testing/5_UserStory/A5.1.PNG "User Story 5, AC 5_3")
+![AC 5_3](/static/images/readme/testing/5_userstory/a5.1.PNG "User Story 5, AC 5_3")
 
 Acceptance Criteria 5_4:
 User can navigate between the bookings.
 
 Previous:
-![AC 5_4_1](/static/images/readme/Testing/5_UserStory/A5.4_1.PNG "User Story 5, AC 5_4_1")
+![AC 5_4_1](/static/images/readme/testing/5_userstory/a5.4_1.PNG "User Story 5, AC 5_4_1")
 
 Next:
-![AC 5_4_2](/static/images/readme/Testing/5_UserStory/A5.4_2.PNG "User Story 5, AC 5_4_2")
+![AC 5_4_2](/static/images/readme/testing/5_userstory/a5.4_2.PNG "User Story 5, AC 5_4_2")
 
 Acceptance Criteria 5_5:
 User can navigate to the update booking form.
 
-![AC 5_5](/static/images/readme/Testing/5_UserStory/A5.5.PNG "User Story 5, AC 5_5")
+![AC 5_5](/static/images/readme/testing/5_userstory/a5.5.PNG "User Story 5, AC 5_5")
 
 Acceptance Criteria 5_6:
 User is informed if the update is not possible (error messages according to form validation - see user story 3).
 
-![AC 5_6](/static/images/readme/Testing/5_UserStory/A5.6.PNG "User Story 5, AC 5_6")
+![AC 5_6](/static/images/readme/testing/5_userstory/a5.6.PNG "User Story 5, AC 5_6")
 
 Acceptance Criteria 5_7:
 User is informed if the booking update at the selected time and date is not possible anymore (avoid double booking).
 
-![AC 5_7](/static/images/readme/Testing/5_UserStory/A5.7.PNG "User Story 5, AC 5_7")
+![AC 5_7](/static/images/readme/testing/5_userstory/a5.7.PNG "User Story 5, AC 5_7")
 
 Acceptance Criteria 5_8:
 User is informed that update was successful.
 
-![AC 5_8](/static/images/readme/Testing/5_UserStory/A5.8.PNG "User Story 5, AC 5_8")
+![AC 5_8](/static/images/readme/testing/5_userstory/a5.8.PNG "User Story 5, AC 5_8")
 
 Acceptance Criteria 5_9:
 User can navigate to delete a booking on mouse-click.
 
-![AC 5_9](/static/images/readme/Testing/5_UserStory/A5.1.PNG "User Story 5, AC 5_9")
+![AC 5_9](/static/images/readme/testing/5_userstory/a5.1.PNG "User Story 5, AC 5_9")
 
 Acceptance Criteria 5_10:
 User is asked to confirm deletion.
 
-![AC 5_10](/static/images/readme/Testing/5_UserStory/A5.10.PNG "User Story 5, AC 5_10")
+![AC 5_10](/static/images/readme/testing/5_userstory/a5.10.PNG "User Story 5, AC 5_10")
 
 Acceptance Criteria 5_11:
 User is informed about successful deletion.
 
-![AC 5_11](/static/images/readme/Testing/5_UserStory/A5.11.PNG "User Story 5, AC 5_11")
+![AC 5_11](/static/images/readme/testing/5_userstory/a5.11.PNG "User Story 5, AC 5_11")
 
 ### User Story 6
 
@@ -278,17 +278,17 @@ User is informed about successful deletion.
 The overview table for user story six sums up the tested acceptance criteria, the performed tasks and the bug fixes that took place.
 
 
-![User Story 6](/static/images/readme/6_UserStory/UserStory6WithAcceptanceCriteria.png "User Story 6, with Acceptance Criteria, Tasks and Debug Fixes")
+![User Story 6](/static/images/readme/6_userstory/userstory6withacceptancecriteria.png "User Story 6, with Acceptance Criteria, Tasks and Debug Fixes")
 
 Acceptance Criteria 6_1:
 Admin can access a list of all bookings/reservations.
 
-![AC 6_1](/static/images/readme/Testing/6_UserStory/A6_1.PNG "User Story 6, AC 6_1")
+![AC 6_1](/static/images/readme/testing/6_userstory/a6_1.PNG "User Story 6, AC 6_1")
 
 Acceptance Criteria 6_2:
 Admin can filter the reservations by characteristics like table, date, number of guests.
 
-![AC 6_2](/static/images/readme/Testing/6_UserStory/A6_2.PNG "User Story 6, AC 6_2")
+![AC 6_2](/static/images/readme/testing/6_userstory/a6_2.PNG "User Story 6, AC 6_2")
 
 
 ### User Story 7
@@ -297,32 +297,32 @@ Admin can filter the reservations by characteristics like table, date, number of
 
 The overview table for user story seven sums up the tested acceptance criteria, the performed tasks and the bug fixes that took place.
 
-![User Story 7](/static/images/readme/7_UserStory/UserStory7WithAcceptanceCriteria.png "User Story 7, with Acceptance Criteria, Tasks and Debug Fixes")
+![User Story 7](/static/images/readme/7_userstory/userstory7withacceptancecriteria.png "User Story 7, with Acceptance Criteria, Tasks and Debug Fixes")
 
 Acceptance Criteria 7_1:
 Admin is able to access and edit reservations.
 
-![AC 7_1](/static/images/readme/Testing/7_UserStory/A7_1.PNG "User Story 7, AC 7_1")
+![AC 7_1](/static/images/readme/testing/7_userstory/a7_1.PNG "User Story 7, AC 7_1")
 
 Acceptance Criteria 7_2:
 Admin is able to delete reservations.
 
-![AC 7_2](/static/images/readme/Testing/7_UserStory/A7_2.PNG "User Story 7, AC 7_2")
+![AC 7_2](/static/images/readme/testing/7_userstory/a7_2.PNG "User Story 7, AC 7_2")
 
 Acceptance Criteria 7_3:
 Admin is able to add tables.
 
-![AC 7_3](/static/images/readme/Testing/7_UserStory/A7_3.PNG "User Story 7, AC 7_3")
+![AC 7_3](/static/images/readme/testing/7_userstory/a7_3.PNG "User Story 7, AC 7_3")
 
 Acceptance Criteria 7_4:
 Admin is able to delete tables.
 
-![AC 7_4](/static/images/readme/Testing/7_UserStory/A7_4.PNG "User Story 7, AC 7_4")
+![AC 7_4](/static/images/readme/testing/7_userstory/a7_4.PNG "User Story 7, AC 7_4")
 
 Acceptance Criteria 7_5:
 Admin is able to edit tables.
 
-![AC 7_5](/static/images/readme/Testing/7_UserStory/A7_5.PNG "User Story 7, AC 7_5")
+![AC 7_5](/static/images/readme/testing/7_userstory/a7_5.PNG "User Story 7, AC 7_5")
 
 ### User Story 8
 
@@ -330,12 +330,12 @@ Admin is able to edit tables.
 
 The overview table for user story eight sums up the tested acceptance criteria, the performed tasks and the bug fixes that took place.
 
-![User Story 8](/static/images/readme/8_UserStory/UserStory8WithAcceptanceCriteria.png "User Story 8, with Acceptance Criteria, Tasks and Debug Fixes")
+![User Story 8](/static/images/readme/8_userstory/userstory8withacceptancecriteria.png "User Story 8, with Acceptance Criteria, Tasks and Debug Fixes")
 
 Acceptance Criteria 8_1:
 Admin can tick waitlisted on and off in reservation.
 
-![AC 8_1](/static/images/readme/Testing/8_UserStory/A8_1.PNG "User Story 8, AC 8_1")
+![AC 8_1](/static/images/readme/testing/8_userstory/a8_1.PNG "User Story 8, AC 8_1")
 
 ### Test Cases
 To test the **login and registration** functionalities, the following test cases were tested:
@@ -395,13 +395,13 @@ For HTML and CSS the W3 Validators were used. In the first instance there were s
 
 ## HTML Validator
 
-![HTML Validator](/static/images/readme/validators/HTMLValidator.png "HTML Validation")
+![HTML Validator](/static/images/readme/validators/htmlvalidation.png "HTML Validation")
 
 The above picture is one example of this website passing the HTML validator. The validations were done for all subpages. Since the screens would all look the same, I decided to not copy them all in here.
 
 ## CSS Validator
 
-![CSS Validator](/static/images/readme/validators/CSSValidator.png "CSS Validation")
+![CSS Validator](/static/images/readme/validators/cssvalidation.png "CSS Validation")
 
 ### Pep 8
 For the Python files the Pep8 install was used to ensure the code is according to PEP 8 conventions.
@@ -409,4 +409,4 @@ For the Python files the Pep8 install was used to ensure the code is according t
 ## Lighthouse
 To test the overall performance of the website Lighthouse was used:
 
-![Lighthouse](/static/images/readme/validators/Lighthouse.png "Lighthouse")
+![Lighthouse](/static/images/readme/validators/lighthouse.png "Lighthouse")
