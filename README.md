@@ -1011,6 +1011,7 @@ https://docs.djangoproject.com/en/dev/topics/http/views/#the-404-page-not-found-
 https://docs.djangoproject.com/en/1.11/topics/auth/default/#the-loginrequired-mixin
 https://stackoverflow.com/questions/34217400/function-object-has-no-attribute-as-view
 https://stackoverflow.com/questions/17662928/
+
 #### error pages set up
 https://www.w3schools.com/django/django_404.php
 https://studygyaan.com/django/built-in-error-views-in-django
@@ -1018,9 +1019,11 @@ django-creating-a-custom-500-404-error-page
 https://stackoverflow.com/questions/60507625/django-wrong-amount-of-arguments-in-custom-handler
 https://stackoverflow.com/questions/60507625/django-wrong-amount-of-arguments-in-custom-handler
 
-
 #### Find out that the inner-menu-card div was missing for my flip cards to work on the front page 
 https://www.w3schools.com/howto/howto_css_flip_card.asp
+
+#### Read more about and follow PEP 8 conventions
+https://www.datacamp.com/tutorial/pep8-tutorial-python-code?utm_source=google&utm_medium=paid_search&utm_campaignid=19589720818&utm_adgroupid=143216588777&utm_device=c&utm_keyword=&utm_matchtype=&utm_network=g&utm_adpostion=&utm_creative=661628555465&utm_targetid=dsa-1947282172981&utm_loc_interest_ms=&utm_loc_physical_ms=20047&utm_content=dsa~page~community-tuto&utm_campaign=230119_1-sea~dsa~tutorials_2-b2c_3-n-eu_4-prc_5-na_6-na_7-le_8-pdsh-go_9-na_10-na_11-na&gclid=Cj0KCQjw0IGnBhDUARIsAMwFDLlIxFR_fPQKt4TkcMKSAowINprSfDHmO2iF59yPWU06ECHlYAR5dNEaAuh3EALw_wcB
 
 #### Install whitenoise and collect static files to display images and use css files when deployed to Heroku
 https://www.w3schools.com/django/django_static_whitenoise.php

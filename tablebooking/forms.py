@@ -5,6 +5,10 @@ from django.core.exceptions import ValidationError
 
 
 class ReservationForm(forms.ModelForm):
+    """
+    Defining the ReservationForm as Model Form
+    with according validations and meta class.
+    """
     is_waitlisted = forms.BooleanField(
         required=False,
         widget=forms.CheckboxInput(attrs={
@@ -29,6 +33,11 @@ class ReservationForm(forms.ModelForm):
     )
 
     class Meta:
+        """
+        Meta class to define the model and the fields for the ReservationForm.
+        The widget defines that the comment has 4 rows displayed in the form
+        and that the comment field comes with the stated placeholder text.
+        """
         model = Reservation
         fields = (
             "date",
@@ -49,6 +58,9 @@ class ReservationForm(forms.ModelForm):
         }
 
     def clean(self):
+        """
+        Form validation for the ReservationForm defined above
+        """
         cleaned_data = super(ReservationForm, self).clean()
         date = cleaned_data.get("date")
         time = cleaned_data.get("time")

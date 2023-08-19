@@ -3,17 +3,27 @@ from django.contrib.auth.models import User
 
 
 class Table (models.Model):
+    """
+    Model defining the restaurant table and its fields.
+    Asigning a table number, the number of possible seats
+    and the option to set the table up as a private booth
+    on customer request.
+    """
     table_no = models.PositiveIntegerField(unique=True)
     number_of_seats = models.PositiveIntegerField()
     private_booth = models.BooleanField(default=False)
 
+    class Meta:
+        """
+        Meta class defining that tables should be ordered in descending order
+        """
+        ordering = ['-table_no']
 
-class Meta:
-    ordering = ['-table_no']
-
-
-def __str__(self):
-    return self.table_no
+    def __str__(self):
+        """
+        String method returning the table number
+        """
+        return self.table_no
 
 
 class Reservation (models.Model):
@@ -26,6 +36,8 @@ class Reservation (models.Model):
     comment = models.TextField(blank=True)
     is_waitlisted = models.BooleanField(default=False)
 
-
-def __str__(self):
-    return self.table
+    def __str__(self):
+        """
+        String method returning the table
+        """
+        return self.table
