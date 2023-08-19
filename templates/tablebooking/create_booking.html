@@ -1,16 +1,24 @@
 {% extends 'tablebooking/base.html' %}
 
 {% block content %}
+<!-- divs for background image and container with background color, h1 --> 
+
 <div class="bg_sub container-fluid d-flex align-items-center class m-0 p-3">
-<div class="cont_sub_fill container-fluid m-0 p-2">
+  <div class="cont_sub_fill container-fluid m-0 p-2">
   <h1>Reserve your table at Delicious Daily</h1>
+
+  <!-- Reservation form --> 
   <form method="post" id="reservation-form">
     {% csrf_token %}
+
+    <!-- Error messages --> 
     {% for field, errors in form.errors.items %}
       {% for error in errors %}
         <p> {{ error }} </p>
       {% endfor %}
     {% endfor %}
+
+    <!-- Form fields --> 
     {% for field in form %}
     <div class="row mb-3">
       <div class="col-sm-6">
@@ -23,7 +31,7 @@
     {% endfor %}
     <button type="submit" class="btn btn-success">Save Booking</button>
   </form>
-</div>
+  </div>
 </div>
 
 {% endblock %}

@@ -60,7 +60,7 @@
     </div>
     {% endif %}
   </header>
-      <!-- MESSAGES --> 
+      <!-- Status messages to user --> 
       {% if messages %} 
       {% for message in messages %} 
       <div class="alert alert-success" id="message" data="modal" data-toggle="modal" role="alert">
@@ -70,6 +70,8 @@
       {% endif %}
    
   {% block content %}
+  
+  <!-- Content if user is authenticated --> 
   {% if user.is_authenticated %}
     <div class="container-fluid position-relative p-0 m-0 align-items-center d-flex">
     <div class="z-1 position-absolute">
@@ -154,6 +156,7 @@
     </div>
   </div>
   {% else %}
+  <!-- Content if user is not authenticated --> 
   <div class="container-fluid position-relative p-0 m-0 align-items-center d-flex">
     <div class="z-1 position-absolute">
       <img src="{% static 'images/header.png' %}" class="img-fluid" alt="Cafe">
@@ -242,6 +245,7 @@
   {% endif %}
   {% endblock content %}
 
+  <!-- Footer content --> 
   <footer>
     <div class="container-fluid">
       <div class="row">
@@ -262,10 +266,12 @@
     </div>
   </footer>
   </body>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
-  
+
+<!-- Javascript integration --> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
+
+<!-- status messages to users disappear after 3 seconds--> 
 <script>
-// status messages to users disappear after 3 seconds
 let message = document.getElementById("message");
 setTimeout(function() {
   message.style.display = "none";

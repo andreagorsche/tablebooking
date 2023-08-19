@@ -1,8 +1,10 @@
 {% extends 'tablebooking/base.html' %}
 
 {% block content %}
+<!-- divs for background image and container with background color --> 
 <div class="bg_sub container-fluid d-flex justify-content-center align-items-center m-0 p-3">
     <div class="container-fluid m-0 p-3 d-flex justify-content-center">
+        <!-- reservation list --> 
         <div id="reservation_list" style="background-color: cadetblue">
             {% for reservation in reservation_list %}
             <div class="row mb-2 col-12 d-flex justify-content-center" style="color: white">
@@ -31,6 +33,7 @@
             <div class="row mb-2" style="color: white">
                 <div class="col-6 d-flex justify-content-end">Waitlisted:</div>
                 <div class="col-6 d-flex align-items-center">
+                    <!-- Show if reservation is waitlisted --> 
                     {% if reservation.is_waitlisted %}
                         Yes
                     {% else %}
@@ -43,6 +46,7 @@
                 <div class="col-6 d-flex align-items-center">{{ reservation.comment }}</div>
             </div>
             <div class="row mb-2" style="color: white">
+                <!-- User actions with two button options, manage or delete reservation --> 
                 <div class="col-12 d-flex justify-content-center">Actions:</div>
             </div>
             <div class="row mb-2" style="color: white">
@@ -55,11 +59,13 @@
                     </a>
                 </div>
             </div>
+                    <!-- If there are currently no bookings for this logged in user, show this information --> 
                     {% empty %}
                     <tr>
                         <td colspan="10">Sorry, currently you don't have any bookings.</td>
                     </tr>
                     {% endfor %}
+                    <!-- If more than one page exist, show the buttons next and previous --> 
                     {% if is_paginated %}
                     <nav aria-label="Page navigation">
                         <ul class="pagination justify-content-center">

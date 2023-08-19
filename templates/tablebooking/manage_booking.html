@@ -1,17 +1,25 @@
 {% extends 'tablebooking/base.html' %}
 
 {% block content %}
+<!-- divs for background image and container with background color, h1 --> 
+
 <div class="bg_sub container-fluid d-flex align-items-center class m-0 p-3">
   <div class="cont_sub_fill container-fluid m-0 p-2">
     <h1>Manage your reservation</h1>
+    <!-- divs for background image and container with background color --> 
+
+    <!-- Reservation form to manage --> 
     <form method="post">
       {% csrf_token %}
+      
+      <!-- Error messages --> 
       {% for field, errors in form.errors.items %}
         {% for error in errors %}
           <p> {{ error }} </p>
         {% endfor %}
       {% endfor %}
 
+      <!-- Address each label and form field separately to align nicely with bootstrap --> 
       <div class="row mb-3">
         <div class="col-sm-3">
           {{ form.date.label_tag }}

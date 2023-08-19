@@ -1,9 +1,11 @@
 {% extends 'tablebooking/base.html' %}
 
 {% block content %}
+<!-- divs for background image and container with background color --> 
 <div class="bg_sub container-fluid d-flex align-items-center">
   <div class="row">
     <div class="cont_sub_fill col-md-8 mt-5 offset-md-2">
+      <!-- User is informed that the booking was successful --> 
       <form method="post">{% csrf_token %}
         <p>Thank you for booking with us. We are happy to confirm your reservation.</p>
         {{ form }}
