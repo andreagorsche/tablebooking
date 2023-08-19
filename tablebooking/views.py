@@ -99,8 +99,9 @@ class CreateReservation(CreateView):
                     )
             else:
                 form.add_error(
+                    'date',
                     "This table is already booked"
-                    "for the selected date and time."
+                    " for the selected date and time."
                     "Check the box to be waitlisted."
                     )
                 return super().form_invalid(form)
@@ -184,7 +185,7 @@ class ReservationUpdate(generic.UpdateView):
             table__in=tables, date=data.get("date"), time=data.get("time")
             )
         # Set the is_waitlisted value
-        is_waitlisted = self.request.POST.get("is_waitlisted") == 'on'
+        is_waitlisted = self.request.POST.get("is_waitlisted") == "on"
         form.instance.is_waitlisted = is_waitlisted
         if overlapping_reservations.exists():
             if is_waitlisted:
@@ -195,8 +196,9 @@ class ReservationUpdate(generic.UpdateView):
                     )
             else:
                 form.add_error(
+                    'date',
                     "This table is already booked"
-                    "for the selected date and time."
+                    " for the selected date and time."
                     "Check the box to be waitlisted."
                     )
                 return super().form_invalid(form)

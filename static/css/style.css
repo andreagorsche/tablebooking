@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond&family=Pacifico&display=swap');
 
+/* CSS for body, h1, logo */
+
 body {
   font-family: Cormorant Garamond;
   color: aliceblue;
@@ -23,6 +25,8 @@ h1 {
   padding: 0;
 }
 
+/* CSS for header and footer */
+
 header {
   margin: 0;
   padding: 0;
@@ -33,8 +37,8 @@ header {
 }
 
 footer {
-  margin-top: auto;
-  height: 40px;
+  margin-top: 0;
+  height: 100px;
   background-color: aliceblue;
   opacity: 0.85;
   color: cadetblue;
@@ -50,11 +54,18 @@ footer {
 
 footer p {
   margin: 0;
-  /* Remove default margins */
   font-size: 15px;
   line-height: 1.5;
-  /* Adjust the line-height as needed */
 }
+
+/* CSS for aligning copyright text vertically center */
+.align-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* CSS for the container boxes of the website */
 
 .container {
   background-color: cadetblue;
@@ -88,13 +99,8 @@ a {
   text-decoration: none;
 }
 
-/* Style the active link differently */
-#nav li.active a {
-  font-weight: bold;
-}
 
 /* Style the quote container */
-
 #quote {
   font-family: Pacifico;
   font-size: 2rem;
@@ -115,7 +121,7 @@ a {
   height: 300px;
 }
 
-/*  flip card container */
+/*  Style the flip card container */
 .menu-card {
   background-color: transparent;
   width: 200px;
@@ -125,7 +131,7 @@ a {
   padding: 0;
 }
 
-/* Inner container to position the front and back  */
+/* Inner flip card container to position the front and back  */
 .menu-card-inner {
   position: relative;
   width: 100%;
@@ -152,7 +158,7 @@ a {
   backface-visibility: hidden;
 }
 
-/* Style the front side */
+/* Style the front side of the flip cards */
 .front {
   background-color: cadetblue;
   color: white;
@@ -161,7 +167,7 @@ a {
   border: 0;
 }
 
-/* Style the back side */
+/* Style the back side of the flip cards */
 .back {
   background-color: cadetblue;
   color: white;
@@ -177,12 +183,14 @@ a {
   width: auto;
 }
 
+/* table styling */
+
 .table {
   background-color: cadetblue;
   width: 100%;
 }
 
-.btn-success,.button {
+.btn-success,.btn {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -190,32 +198,47 @@ a {
   color: cadetblue;
   font-weight: bold;
   text-decoration: none;
-  width: 110px;
+  font-size: 18px;
+  width: 130px;
   padding: 5px;
   border: 5px;
   margin: 0 auto;
 }
 
+#reservation_list{
+  width: 600px;
+}
 
 .list-buttons {
   display: flex;
   justify-content: flex-end;
 }
 
-/* Styles for smaller screens */
+#id_is_waitlisted {
+  margin-left: 5px;
+}
+
+
+/* Additional styling for screens of a max width 1270px*/
 @media screen and (max-width: 1270px) {
-  #quote {
+
+  body {
     font-size: 0.8rem;
-    margin: 2px;
   }
 
   h1 {
     font-size: 1rem;
   }
 
-  body {
+  #quote {
     font-size: 0.8rem;
+    margin: 2px;
   }
+
+  .button-success,.btn {
+    font-size: 8px; 
+    padding: 3px 8px; 
+    }
 
   #menu {
     background-color: cadetblue;
@@ -240,9 +263,8 @@ a {
   }
 }
 
-#reservation_list{
-  width: 600px;
-}
+
+/* Additional styles for screens of a max-width 550px*/
 
 @media screen and (max-width: 550px) {
   h1 {
@@ -267,6 +289,12 @@ a {
 
   #quote {
     font-size: 0.5rem;
-    margin-left: 3px;
-  }
+    margin-left: 3px;  
+}
+
+    footer p {
+      margin: 0;
+      font-size: 10px;
+      line-height: 1.1;
+    }
 }

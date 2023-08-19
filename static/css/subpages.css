@@ -1,25 +1,30 @@
+/* CSS for body the body */
+
 body {
   min-height: 100vh;
   margin: 0;
   padding: 0;
 }
 
+/* CSS for the background image of the subpages */
+
 .bg_sub {
+  min-height: calc(100vh - 150px);
   display: flex;
   justify-content: center;
   align-items: center;
   background-image: url("https://res.cloudinary.com/dywlergeu/image/upload/v1690722409/static/images/header_sw.0fbacd69d7d5.png");
   background-size: cover;
   background-repeat: no-repeat;
-  height: 100%;
   width: 100%;
   padding: 0;
 }
 
+/* CSS for the container of subpages */
+
 .cont_sub_fill {
-  max-height: calc(100vh - 100px);
   background-color: cadetblue;
-  padding: 30px;
+  padding: 20px;
   max-width: 650px;
 }
 
@@ -27,6 +32,7 @@ body {
   text-align: center;
 }
 
+/* CSS for screens with a max-width of 1270px */
 
 @media screen and (max-width: 1270px) {
   .cont_sub_fill {
