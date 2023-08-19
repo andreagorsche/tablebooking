@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond&family=Pacifico&display=swap');
 
 /* CSS for body, h1, logo */
-
 body {
   font-family: Cormorant Garamond;
   color: aliceblue;
@@ -26,7 +25,6 @@ h1 {
 }
 
 /* CSS for header and footer */
-
 header {
   margin: 0;
   padding: 0;
@@ -58,7 +56,7 @@ footer p {
   line-height: 1.5;
 }
 
-/* CSS for aligning copyright text vertically center */
+/* CSS for aligning copyright text vertically center in footer */
 .align-center {
   display: flex;
   flex-direction: column;
@@ -66,7 +64,6 @@ footer p {
 }
 
 /* CSS for the container boxes of the website */
-
 .container {
   background-color: cadetblue;
   margin: 18%;
@@ -74,7 +71,7 @@ footer p {
   opacity: 95%;
 }
 
-/* remove bullets from menu display, set margin and padding to zero */
+/* Remove bullets from menu display, set margin and padding to zero */
 #nav {
   list-style: none;
   padding: 0;
@@ -183,8 +180,7 @@ a {
   width: auto;
 }
 
-/* table styling */
-
+/* table styling */ 
 .table {
   background-color: cadetblue;
   width: 100%;
@@ -265,7 +261,6 @@ a {
 
 
 /* Additional styles for screens of a max-width 550px*/
-
 @media screen and (max-width: 550px) {
   h1 {
     font-size: 0.7rem;

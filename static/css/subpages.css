@@ -1,5 +1,4 @@
-/* CSS for body the body */
-
+/* CSS for the body of the subpages */
 body {
   min-height: 100vh;
   margin: 0;
@@ -7,7 +6,6 @@ body {
 }
 
 /* CSS for the background image of the subpages */
-
 .bg_sub {
   min-height: calc(100vh - 150px);
   display: flex;
@@ -21,7 +19,6 @@ body {
 }
 
 /* CSS for the container of subpages */
-
 .cont_sub_fill {
   background-color: cadetblue;
   padding: 20px;
@@ -33,7 +30,6 @@ body {
 }
 
 /* CSS for screens with a max-width of 1270px */
-
 @media screen and (max-width: 1270px) {
   .cont_sub_fill {
     padding: 5px;
