@@ -364,29 +364,44 @@ The form validation checks if:
 * The number of guests is bigger than 0
 * The comment is no more than 300 characters
 
-![Signup Form](/static/images/readme/features/data_validation_form.png "Sign up")
+![Data Validation Form](/static/images/readme/features/data_validation_form.png "Data Validation form")
 
 #### Double Booking
 The user is informed in case there is no table available for the requested date, time and number of guests.
 
 In case there is no free table the user can optionally tick the waitlist checkbox, to be waitlisted. The user is then directed to the waitlisted confirmation page. This feature was not included in the initial wireframing, because my mentor advised me to add this feature only if there is time for it. (as already eleborated above.)
 
+![Double Booking Check](/static/images/readme/features/double_booking.png "Double Booking Check")
+
 ### Read table booking
-When clicking the "view bookings" button the user can check all bookings for future dates and today they did (past reservations are filtered and not shown). In case there aren't any bookings yet the user is informed through a message. If there are bookings listed the user is free to manage the booking or delete it through the provided buttons.
+When clicking the "view bookings" button the user can check all their future bookings from today (past reservations are filtered and not shown). In case there aren't any bookings yet, the user is informed through a message. If there are bookings listed the user is free to manage the booking or delete it through the provided buttons.
 Many table booking forms are just basic contact forms sending the restaurant email for reservation requests. But Delicious Daily offers a database-based solution that allows users to not only book but also manage and delete their bookings easily and fast.
 
-
+![List table bookings new design](/static/images/readme/testing/5_userstory/a5.1.png "List table bookings new design")
 
 
 ### Update and delete table booking 
-Sometimes plans change and the user needs to update or delete their booking. If the reservation request was send via a contact form the user would be required to write an email or call. If the phone is busy or the restaurant closed at the time this easy task of updating or deleting a booking can be tedious. Not with Delicious Daily. Here each customer can manage their reservations themselves giving them maximum flexibility and ease-of-access. 
-When updating the booking, the user is required to update the data he or she already entered in the form and then pressing the button update. An immediate message confirms the changes.
-When deleting a booking, the user is requried to press the according button in the actions column of the table listing all reservations. The user is then asked once more if he or she is sure they want to cancel. Then in a last step the cancellation is confirmed.
+Sometimes plans change and the user needs to update or delete their booking. If the reservation request was send via a contact form the user would be required to write an email or call. If the phone is busy or the restaurant is closed at the time this easy task of updating or deleting a booking can be tedious. 
+
+Not with Delicious Daily. Here each customer can manage their reservations themselves giving them maximum flexibility and ease-of-access. 
+When updating the booking, the user is required to update the input data in the form and then pressing the button update. An immediate message confirms the changes.
+
+When deleting a booking, the user is requried to press the according button in the actions row of the table. The user is then asked once more if he or she is sure they want to cancel. Then in a last step the cancellation is confirmed.
+
+![Are you sure you want to delete?](/static/images/readme/features/sure_you_want_to_delete.png "Are you sure you want to delete?")
+
+![Delted successfully](/static/images/readme/features/delete_confirm.png "Delted successfully")
 
 ## USP
 
 ### Child Seat Feature
 Families don't have to worry whether their little ones will have their own child seats available at the restaurant, because they can be booked with the table - individually and easily. The information about required child seats is also passed to the restaurant admin and therefore a shortage is made visible fast and can be acted on.
+
+### Private Booth
+In the comments section the user can ask for a private then the restaurant manager can arrange a more secluded spot for the reserved table.
+
+### Waitlisted
+In case there are no free tables for a certain date and time, the user is informated about the option of a waiting list. By tickng waitlist in the reservation form, the reservation is saved with the addtional information "waitlisted yes". This information the user can see in his reservation list. This way the user still has the chance of getting a table in case somebody else cancels.
 
 
 # Technologies Used
