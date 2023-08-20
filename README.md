@@ -390,12 +390,14 @@ When deleting a booking, the user is requried to press the according button in t
 
 ![Are you sure you want to delete?](/static/images/readme/features/sure_you_want_to_delete.png "Are you sure you want to delete?")
 
-![Delted successfully](/static/images/readme/features/delete_confirm.png "Delted successfully")
+![Deleted successfully](/static/images/readme/features/delete_confirm.png "Delted successfully")
 
 ## USP
 
 ### Child Seat Feature
 Families don't have to worry whether their little ones will have their own child seats available at the restaurant, because they can be booked with the table - individually and easily. The information about required child seats is also passed to the restaurant admin and therefore a shortage is made visible fast and can be acted on.
+
+![Child Seats and Private Booth](/static/images/readme/features/childseat_privatebooth.png "Child Seats and Private Booth")
 
 ### Private Booth
 In the comments section the user can ask for a private then the restaurant manager can arrange a more secluded spot for the reserved table.
@@ -403,44 +405,78 @@ In the comments section the user can ask for a private then the restaurant manag
 ### Waitlisted
 In case there are no free tables for a certain date and time, the user is informated about the option of a waiting list. By tickng waitlist in the reservation form, the reservation is saved with the addtional information "waitlisted yes". This information the user can see in his reservation list. This way the user still has the chance of getting a table in case somebody else cancels.
 
+![Waitlisted 24 hrs](/static/images/readme/features/waitlisted24hrs.png "Waitlisted 24 hrs")
+
 
 # Technologies Used
-To reach the functionalities described above in the features section, I worked with the MTV (Model-Template-Views) framework Django. For the models, views and form I used Python. To create my templates I used HTML. And to style it I used CSS and Bootstrap.
+To reach the functionalities described above in the features section, I worked with the MTV (Model-Template-Views) framework Django. For the models, views and form I used Python. To create my templates I used HTML. And to style it all I used CSS and Bootstrap.
+A little Javascript was added in the base.html to handle the timeout of the django status messages.
 For file storage cloudinary was used, to store the database Elephant SQL was used. Whitenoise was installed to handle the transfer of the static files between Django, Cloudinary and Heroku.
 
 A full list of libraries used you can find in the list below.
 
 asgiref==3.6.0
+
 cloudinary==1.33.0
+
 dj-database-url==0.5.0
+
 dj3-cloudinary-storage==0.0.6
+
 Django==3.2.18
+
 django-allauth==0.52.0
+
 django-summernote==0.8.20.0
+
 gunicorn==20.1.0
+
 oauthlib==3.2.2
+
 psycopg2==2.9.5
+
 PyJWT==2.6.0
+
 python3-openid==3.2.0
+
 pytz==2022.7.1
+
 requests-oauthlib==1.3.1
+
 sqlparse==0.4.3
+
 urllib3==1.26.15
+
 whitenoise==6.5.0
 
 # Debugging
-For me the easiest parts included setting up the admin page and create the models. Troubles started with creating the views and wiring them up with the urls. The following issues came up and were solved by me:
+
+## Debugging for 1st submission
+
+For the first submission, the easiest parts included setting up the admin page and create the models. Troubles started with creating the views and wiring them up with the urls. The following issues came up and were solved by me:
 
 The urlspatterns were missing commas
-in the urls path the name attribute was missing, therefore the wiring was not complete
+in the urls path, the name attribute was missing, therefore the wiring was not complete
 After adding AllAuth I had some troubles wiring up the Menu and Book a Table into the nav bar (only visible if authentificated)
 
-The biggest issue by far was and is the wiring of the form with the database. I became aware of the issue by entering test data to the form and checking the backend for entries but not finding any. Then I started to integrate print statements into my views function to get behind the issue. I solved a minor identation problem in the settings.py file and realized that the POST request is not even started proberly, because the first print statement after the request was already completely ignored. 
-I was able to solve major issues already, like missing capitalization of POST in the HTML and views file and unaligned naming of form input fields. Currently, I am trying to figure out how to address a foreign key in a database (private_booth is part of the model Table and needs to be requested by model Reservation).
+The biggest issue by far was the wiring of the form with the database. I became aware of the issue by entering test data to the form and checking the backend for entries but not finding any. Then I started to integrate print statements into my views function to get behind the issue. I solved a minor identation problem in the settings.py file and realized that the POST request is not even started proberly, because the first print statement after the request was already completely ignored. 
+I was able to solve major issues already, like missing capitalization of POST in the HTML and views file and unaligned naming of form input fields.
+
+The main conclusion with handing in my first submission is: Changing the code to use a form.py for better data handling and validation, and using Generic views to optimize and simplify the code.
+
+## Debugging for 2st submission
+
+For the 2nd submission I followed the assessment recommendations of the 1st submission and added significant acceptance criteria to each user story. As the tool of choice I used a simple excel sheet having a sheet for each user story with according:
+
+* acceptance criteria
+* tasks 
+* debugs
+
+This form of documentation was very helpful to for the process of testing and debugging the final application. Screenshots and explanations of done testing and debugging can be found in the file [Testing.md](Testing.md). 
 
 # Testing
 ## Manual Testing
-With every sprint manual tests of the intendent funcitonalities and design features were done. These tests were documented in test cases stated in the file [Testing.md](Testing.md).
+With every sprint, manual tests of the intendent funcitonalities and design features were done. These tests were documented in test cases stated below.The testing was further documented in the file [Testing.md](Testing.md). There acceptance criteria were tested and bugs documented with screenshots and descriptions.
 
 ### Test Cases
 
@@ -449,7 +485,7 @@ To test the **login and registration** functionalities, the following test cases
 * The registered user can re-login with the same credentials
 * The user can't get past the registration by entering the URL
 
-To test the **CRUD functionalites** of the application the follwoing test cases were looked at:
+To test the **CRUD functionalites** of the application the following test cases were looked at:
 * Users can create a booking
 * Users can list (read) their bookings - only theirs and not that of other users. 
 * Users can update their booking
@@ -460,8 +496,9 @@ To test the **form validation** functionality wrong data was entered intentional
 * Users enter strings instead of time or date
 * Users enter past date
 * Users enter a date that is a monday (closed on mondays)
-* Users enter a date outside of opening times
+* Users enter a time outside of opening times
 * Users don't enter number of guests
+* Users don't enter number of child seats
 * Users enter more than 300 characters of text in the comments field
 
 To test that users **can't book the same date and time twice** the following tests were performed:
@@ -479,19 +516,23 @@ To test the functionalities of the admin side the following test cases were look
 * The admin can change reservations (e.g. date, time, number of guests)
 * The admin can waitlist a reservation
 * The admin can delete a reservation
-* The admin can filter reservations by table, date, number of guests, is_waitlisted (Boolean)
+* The admin can filter reservations by table, date, number of guests, is_waitlisted (Boolean).
 
-## Debugging
 
 ## Validators
 
-For HTML and CSS the W3 Validators were used. In the first instance there were still bugs showing that are eloborated about in the section above "Debugging". After the debugging was finished no further Validation errors showed.
+For HTML and CSS the W3 Validators were used.
 
 ![HTML Validator](/static/images/readme/validators/htmlvalidation.png "HTML Validator")
 
 The above picture is one example of this website passing the HTML validator. The validations were done for all subpages. Since the screens would all look the same, I decided to not copy them all in here.
 
 ![CSS Validator](/static/images/readme/validators/cssvalidation.png "CSS Validator")
+
+For the javascript code in the base.html file handling the timeout of the django status messages, JS Hint was used for validation.
+
+![JS Hint](/static/images/readme/validators/jshint.png "JS Hint")
+
 
 For the Python files the Pep8 install was used to ensure the code is according to PEP 8 conventions.
 
@@ -521,17 +562,17 @@ i. run migrations
 j. runserver and add host name to the allowed hosts in settings.py
 
 ### 2) Create Heroku App and Elephant SQL database
-a. Log in to Heroku and click button "New" and select "Create new app
-b. Name the new App and choose the region
+a. Log in to Heroku, click button "New" and select "Create new app"
+b. Name the new app and choose the region
 c. Click "Create App" button
 c. Login to Elephant SQL and click button "Create new instance"
 d. Name instance and choose region
 e. Go to the next step "Review" and Click "Create instance"
 
 ### 3) Connect Django Project with Heroko and SQL
-a. Copy the database Url von Elephant SQL and insert it as a 
+a. Copy the database URL from Elephant SQL and insert it as a 
     Config Var in the Heroku App and as an environmental variable in the env.py file in Gitpod
-b. Define the Secret Key in env.py and also add it to the 
+b. Define the secret key in env.py and also add it to the 
    Config Var in Heroku
 c. Reference the env.py file, the database URL and secret key 
    in the settings.py file
@@ -561,7 +602,7 @@ I started to address the issue by following these steps:
     b) Install whitenoise to gitpod
     c) run the command python3 manage.py collectstatic
 
-This resulted in a second folder with the name 'staticfiles being created in my gitpod directory. At this point I realized that not setting up Cloudinary from the start was a mistake.
+This resulted in a second folder with the name 'staticfiles' being created in my gitpod directory. At this point I realized that not setting up Cloudinary from the start was a mistake (I thought I would not need it because the website has not that many pictures).
 Reading about Django not transfering static files to Heroku automatically made me realize how crucial it would have been for me to set up Cloudinary for static file storage upfront. - An important lesson learned for future projects.
 At this point, I could only do the set-up of Cloudinary at the end of the project.
 
@@ -588,71 +629,71 @@ Thus, I did the following steps next:
 
 When looking at the development version as well as the deployed version - all CSS styling and all images were gone. To fix this problem I took the following steps:
    1) checking if my Cloudinary URL was copied correctly into Heroku and env.py
-   2) if my settings.py file was set up correctly (template directory, static files directory, libraries added to the isntalled apps ...)
+   2) if my settings.py file was set up correctly (template directory, static files directory, libraries added to the installed apps ...)
    3) I also tried to rename the static root folder because I had read in a slack channel of the course that it worked for one other student - but the basic problem was a different one
    4) Thanks to the guidance of student tutor Joshua, I then followed the following steps:
       a) delete all folders previously created on Cloudinary
       b) Login to Heroku via the command line by running  the command 'heroku login -i' in the terminal of Gitpod
       c) Enable automatic deploy in Heroku
 
-The static files in cloudinary started to rebuild. Leading to the next issue: My relative file paths to images and css files were not funcitonal anymore. So the final step to set-up Cloudinary at the end of the project was: updating the filepaths in the base.html file and the subpages.css. 
-While the change of the images in the html template was not the problem, the change in the CSS file proved to be more tricky. Apparently Django-specific template tags like "{% static %}" won't work in CSS files. So checked Slack for possible solutions. Linking directly to the cloudinary URL was recommended by CI tutoring to a fellow student (see screenshot below). So I followed this approach as well.
+The static files in cloudinary started to rebuild. Leading to the next issue: My relative file paths to images and css files were not functional anymore. So the final step to set-up Cloudinary at the end of the project was: updating the filepaths in the base.html file and the subpages.css. 
+While the change of the images in the html template was not the problem, the change in the CSS file proved to be more tricky. Apparently Django-specific template tags like "{% static %}" won't work in CSS files. So I checked Slack for possible solutions. Linking directly to the cloudinary URL was recommended by CI tutoring to a fellow student (see screenshot below). So I followed this approach as well.
 
 ![CSS Django BG](/static/images/readme/tutor_solution_cssdjangobg.png "Backgroundimage, CSS and Django")
 
+Thus, the issue was resolved.
+
 ## Forking 
+
 To fork this project follow the following steps:
-Open GitHub
-Find the 'Fork' button at the top right of the page
-Once you click the button the fork will be in your repository
+
+1. Open GitHub
+2. Find the 'Fork' button at the top right of the page
+3. Once you click the button the fork will be in your repository
 
 ## Cloning This Project / Local Deployment
 
 Clone this project by following the steps:
 
-Open GitHub
+1. Open GitHub
 
-You will be provided with three options to choose from, HTTPS, SSH or GitHub CLI, click the clipboard icon in order to copy the URL
+2. You will be provided with three options to choose from, HTTPS, SSH or GitHub CLI, click the clipboard icon in order to copy the URL
 
-Once you click the button the fork will be in your repository
+3. Once you click the button the fork will be in your repository
 
-Open a new terminal
+4. Open a new terminal
 
-Change the current working directory to the location that you want the cloned directory
+5. Change the current working directory to the location that you want the cloned directory
 
-Type 'git clone' and paste the URL copied in step 3
+6. Type 'git clone' and paste the URL copied in step 3
 
-git clone https://github.com/martin-mcinerney/ci-pp5
+7. Press 'Enter' and the project is cloned to your workspace
 
-Press 'Enter' and the project is cloned to your workspace
-
-Create an env.py file(do not commit this file to source control) in the root folder in your project, and add in the following code with the relevant key, value pairs, and ensure you enter the correct key values
+8. Create an env.py file(do not commit this file to source control) in the root folder in your project, and add in the following code with the relevant key, value pairs, and ensure you enter the correct key values
 
 import os
 os.environ["SECRET_KEY"]= 'TO BE ADDED BY USER'
 os.environ["DATABASE_URL"]= 'TO BE ADDED BY USER'
 
-Some values for the environment variables above are described in different sections of this readme
+9. Install the relevant packages as per the requirements.txt file
 
-Install the relevant packages as per the requirements.txt file
+10. In the settings.py ensure the connection is set to either the Heroku postgres database or the local sqllite database
 
-In the settings.py ensure the connection is set to either the Heroku postgres database or the local sqllite database
+11. Ensure debug is set to true in the settings.py file for local development
 
-Ensure debug is set to true in the settings.py file for local development
+12. Add localhost/127.0.0.1 to the ALLOWED_HOSTS variable in settings.py
 
-Add localhost/127.0.0.1 to the ALLOWED_HOSTS variable in settings.py
+13. Check the status of the migrations by running the following command in the terminal: "python3 manage.py showmigrations"
 
-Run "python3 manage.py showmigrations" to check the status of the migrations
+14. Migrate the database by running the following command in the terminal "python3 manage.py migrate"
 
-Run "python3 manage.py migrate" to migrate the database
+15. Create super/admin user by running the following command in the terminal: "python3 manage.py createsuperuser"
 
-Run "python3 manage.py createsuperuser" to create a super/admin user
+16. Load the data into the database  by running the following command in the terminal: un manage.py loaddata db.json
 
-Run manage.py loaddata db.json to load the product data into the database
+17. Start the application by running python3 manage.py runserver
 
-Start the application by running python3 manage.py runserver
-
-Open the application in a web browser, for example: http://127.0.0.1:8000/
+18. Open the application in a web browser, for example: http://127.0.0.1:8000/
 
 
 # Credits
@@ -661,13 +702,16 @@ Open the application in a web browser, for example: http://127.0.0.1:8000/
 Code Institute - Hello Django - Walkthrough
 Code Institute - I think therefore I blog - Django blog project Walkthrough
 
+### Slack - Form Validation
+https://app.slack.com/client/T0L30B202/C026PTF46F5/thread/C026PTF46F5-1690275327.198789
+
 #### Using the Django authentication system (to restrict access for not logged in users)
 https://docs.djangoproject.com/en/dev/topics/http/views/#the-404-page-not-found-view
 https://docs.djangoproject.com/en/1.11/topics/auth/default/#the-loginrequired-mixin
 https://stackoverflow.com/questions/34217400/function-object-has-no-attribute-as-view
 https://stackoverflow.com/questions/17662928/
 
-#### error pages set up
+#### Error Pages Set Up
 https://www.w3schools.com/django/django_404.php
 https://studygyaan.com/django/built-in-error-views-in-django
 django-creating-a-custom-500-404-error-page
@@ -681,6 +725,7 @@ https://www.w3schools.com/howto/howto_css_flip_card.asp
 https://www.datacamp.com/tutorial/pep8-tutorial-python-code?utm_source=google&utm_medium=paid_search&utm_campaignid=19589720818&utm_adgroupid=143216588777&utm_device=c&utm_keyword=&utm_matchtype=&utm_network=g&utm_adpostion=&utm_creative=661628555465&utm_targetid=dsa-1947282172981&utm_loc_interest_ms=&utm_loc_physical_ms=20047&utm_content=dsa~page~community-tuto&utm_campaign=230119_1-sea~dsa~tutorials_2-b2c_3-n-eu_4-prc_5-na_6-na_7-le_8-pdsh-go_9-na_10-na_11-na&gclid=Cj0KCQjw0IGnBhDUARIsAMwFDLlIxFR_fPQKt4TkcMKSAowINprSfDHmO2iF59yPWU06ECHlYAR5dNEaAuh3EALw_wcB
 
 #### Install whitenoise and collect static files to display images and use css files when deployed to Heroku
+https://app.slack.com/client/T0L30B202/C026PTF46F5/thread/C026PTF46F5-1689749368.397689
 https://www.w3schools.com/django/django_static_whitenoise.php
 https://www.w3schools.com/django/django_collect_static_files.php
 
