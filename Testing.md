@@ -367,6 +367,7 @@ Acceptance Criteria 5: python functions have docstrings
 Acceptance Criteria 6: python code follows PEP 8 formatting convensionts
 
 **See python code.**
+The only exception are 5 too long lines in the settings.py. These are the AUTH_PASSWORD_VALIDATORS. I left them on purpose the way they are.
 
 Acceptance Criteria 7: file names avoid capitalization
 
