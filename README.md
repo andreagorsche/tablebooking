@@ -7,11 +7,16 @@ Delicious Daily is a restaurant website offering individual table bookings for t
 ![Delicious Daily Screens](/static/images/responsive.png "Responsive Screens")
 
 
-On the admin side, restaurant managers and waitresses can manage bookings (view bookings, filter bookings, change bookings) and manage tables (add tables, change number of seats, set tables to private booths whenever they are rearranged) 
+On the admin side, restaurant managers and waitresses can manage bookings (view bookings, filter bookings, change bookings) and manage tables (add tables, change number of seats, set tables to private booths whenever they are rearranged). On top they can manage special guest requests like waiting list requests or setting tables up as private booths and marking certain tables in the system as private booth tables.  
 
 ![Admin Screen](/static/images/admin_side.png "Admin Screen")
 
- 
+# Live Website
+The live website can be accessed through by clicking the link below. 
+
+[Link to Delicious Daily Live Website](https://deliciousdaily.herokuapp.com/ )
+
+
 # User Experience
 
 ## Strategy Plane
@@ -43,9 +48,9 @@ Sprint 4: Create Login and Registration functionality
 Sprint 5: Create basic user form functionality (entered data is sent to the sql database)
 
 
-Due to my initial approach to set up a form without the use of a forms.py file and also neglecing the idea of Generic Views I soon realized the limitations I had put onto myself. As time for project submission was running out, I had to hand in an unfinished project, determined to change my approach for the second submission.
+Due to my initial approach to set up a form without the use of a forms.py file and also neglecing the use of Generic Views I soon realized the limitations I had put onto myself. As time for project submission was running out, I had to hand in an unfinished project, determined to change my approach for the second submission.
 
-This time I followed shorter sprints of **1 week** per sprint:
+For the second submission I followed shorter sprints of **1 week** per sprint:
 
 Sprint 6: Re-write the code to work with forms.py and Generic views
 
@@ -59,8 +64,11 @@ Sprint 10: No Double Booking functionality
 
 Sprint 11: Debugging of form validation
 
-Sprint 12: Debugging CSS and finalizing of the project
+Sprint 12: Debugging CSS flip cards
 
+Sprint 13 & 14: Adding error pages and login requirement functionality (based on first assessment feedback)
+
+Sprint 15: Checking the code 1 final time for styling, logic and plausibilty. 
 
 For me personally, it felt like a better approach to have small workpakages in a shorter amount of time. It felt more efficient and targeted than the previous sprints. 
 
@@ -68,9 +76,9 @@ For me personally, it felt like a better approach to have small workpakages in a
 ## Scope Plane
 As already shortly elaborated in the strategy the main functionality and features of the project should revolve around table booking management for admins and guests of a restaurant.
 It was a clear criteria from the start that the guest users need to be logged in, in order to book a table or manage their bookings.
-This is clearly stated on the starting page for users to know at first glance.
+This is clearly stated on the starting page for users to know at first glance and guide them accordingly.
 
-I detailed the scope of the project by deciding on the user stories.
+I detailed the scope of the project by deciding on the required user stories.
 
 ### User Stories for the admin users
 * As an admin I can check the tables booked online and get a quick overview.
@@ -93,13 +101,24 @@ I detailed the scope of the project by deciding on the user stories.
 
 * As a user I can register prior to my booking in order to change or cancel my booking later.
 
+#### Additional User Functionalities
+
+* two key features that I intended to add from the start were:
+1) As a user I can register for the waiting list in case my table is currently not available at the desired time, date and capacity. The reservation might work out due to another one's cancellation.
+2) The user can ask for a private booth for their table.
+
+My mentor advised me to have  these functionalities in the back of my mind when designing the models, but to not prioritize these functionalities. Rather he wanted me to add basic functionalities first and come back to this if there was still time.
+
 #### Future User Functionalities
 
-* As a user I can register for the waiting list in case my table is currently not available at the desired time, date and capacity. It might work out due to another one's cancellation.
+* As a user I get a list of available tables based on my booking inquiry and I can pick my favorite table according to characteristics (private booth, picture of the table etc.).
 
-* As a user I get a list of available tables based on my booking inquiry and can pick my favorite table according to characteristics (private booth, picture of the table).
+* The booking slot now is 1 hour per reservation. The user could be asked in the form how long he intends to stay approx., this could help for occations like birthday parties where longer times are usually required. The user should be given a choice of less than two hours (reserving for 1 hr) or more than two hours (reserving for 4hrs) and according to their answer the system blocks the alloted time.
 
-* The booking slot now is 1 hour per reservation. The user could be asked in the form how long he intends to stay approx., this could help for occations like birthday parties where longer times are usually required. The user should be given a choice of less than two hours or more than two hours and according to his answer the system blocks the alloted time.
+* The number of guests for the reservation form are not limited to a max number because theoretically the whole restaurant could be reserved for a special occasion and thus the number of people for one reservation could be 50 or more  with a special table set up (typical for weddings or big birthday parties). 
+I didn't want to set a limit because this application is supposed to be an example for real restaurant managers, and depending on the size of their restaurant this validation of a maximum number of guests per table would need to be implemented based on the restaurant managers individual preference (scalability of the project). 
+To show the functionality of this application and my coding skills I didn't find it necessary to implement this logic but for future sprints adding a max number of guests per reservation would make sense.
+
 
 
 ## Structure Plane
@@ -115,9 +134,10 @@ The front-end has 6 main pages:
 Plus 5 redirects to confirm actions have taken place:
 1. confirmation for the booking
 2. confirmation for the booking update
-3. asking for confirmation before deletion
-4. confirmation deletion
-5. asking for confirmation before sign out
+3. confirmation for being waitlisted
+4. asking for confirmation before deletion
+5. confirmation deletion
+6. asking for confirmation before sign out
 
 
 ## Skeleton Plane
@@ -143,16 +163,16 @@ b) Have the security that they will actually have an available child seat with t
 The restaurant admins on the other hand can react in case they see a shorthand of child seats for a certain date and react accordingly. – A win-win and good service of the restaurant. Especially with very basic services like bookings at restaurants there is only so much you can do and offer. Adding little small services like the child seat options can turn in a nice little USP that lets families pick Delicious Daily over other restaurants not being so considered in their booking form.
 
 ##### The extra mile for couples and small parties
-A second guest target group I had in mind were couples. They may prefer a more private setting for their lovey-dovey brunches or romantic dinners. Also people who intend to celebrate a birthday may prefer a more secluded spot in the restaurant. Thus, I added the models field private booth to the tables model.
+A second guest target group I had in mind were couples. They may prefer a more private setting for their lovey-dovey brunches or romantic dinners. Also people who intend to celebrate a birthday may prefer a more secluded spot in the restaurant. Thus, I added the model field private booth to the tables model.
 
 ##### The extra mile to smoothen disappointment
-Sometimes it happens that you have the perfect breakfast, lunch or dinner plans and your mind is set on a certain restaurant. Thus, the disappointment is big, if there are no available tables left at the required date or time. This seems especially unfair, considering that people who actually booked sometimes don’t show up or need to cancel their plans last minute. With waiting list functionality I wanted to address this issue and provide the guest with the prospect of a potential table. This extra effort of the restaurant to make their guests wishes true will leave a positive feeling with guest and even if the desired date stays unavailable the guest is more likely to return for another booking because they see the effort.
+Sometimes it happens that you have the perfect breakfast, lunch or dinner plans and your mind is set on a certain restaurant. Thus, the disappointment is big, if there are no available tables left at the required date or time. This seems especially unfair, considering that people who actually booked sometimes don’t show up or need to cancel their plans last minute. With the waiting list functionality I wanted to address this issue and provide the guest with the prospect of a potential table. This extra effort of the restaurant to make their guests wishes come true will leave a positive feeling with guest and even if the desired date stays unavailable the guest is more likely to return for another booking because they see the effort. 
 This feature also provides a relevant benefit for restaurant managers. After all an empty table is equal to missing revenue. So restaurant managers will appreciate the ability to fill up cancellations with waiting reservations.
 
 ##### Future functionalities and the data models
-I initially planned the waiting list as its own model with the table number and reservation number as foreign keys. But my mentor advised me to add this characteristic to the reservation model directly as a Boolean field called “is_waitlisted”. My mentor also advised me to focus on basic functionality first and write this waiting list feature down for later. Still I decided to integrate this idea in my database model right away, to avoid a re-set up to add the field later.
+I initially planned the waiting list as its own model with the table number and reservation number as foreign keys. But my mentor advised me to add this characteristic to the reservation model directly as a Boolean field called “is_waitlisted”. My mentor also advised me to focus on basic functionality first and write this waiting list feature down for later. Still I decided to integrate this idea in my database model right away, to avoid a re-set up to add the field later. As it turned out I could eventually implement the feature and fulfill this requirement as well.
 
-Like already described in the Scope Plane I came up with one additional feature idea about showing pictures of the available tables and letting the user pic the table themselves. Sadly, I didn’t come up with that idea in the initial design concept but later in the development process, thus an image field in the table model is not integrated in this version of the code. But it is planned for a future version.
+Like already described in the Scope Plane I came up with one additional feature idea about showing pictures of the available tables and letting the user pick the table themselves. Sadly, I didn’t come up with that idea in the initial design concept but later in the development process, thus an image field in the table model is not integrated in this version of the code. But it is planned for a future version.
 
 ### The database model design
 Following my above description, I designed the following database model structure for my project Delicious Daily: 
@@ -164,12 +184,12 @@ Following my above description, I designed the following database model structur
 
 A big part of the skeleton design phase was the wireframing. I decided to do low-fidelty wireframes in the design tool Figma. 
 
-For every page and every interaction with the user I design a separate page.
+For every page and every interaction with the user I designed a separate page.
 
 In order to create a full-stack application I designed a **starting page** that has a delicious food pic at its center. And a note telling the user that he or she is able to book a table after free registration. Thus, advertising the main functionality of the page at first glance.
- At the top is a header with the restaurant logo, linking back to the main page from every page, and a menu with basic functionality for checking the menu, registration and login. At the bottom is a footer with the copyright in place.
+ At the top I placed the typical header with the restaurant logo, linking back to the main page from every page, and a navigation with links to check the menu, register and login. At the bottom I placed a footer with the copyright and details about the restaurant, namely address, closing day.
 
-![Main Screen](/static/images/readme/Wireframes/mainscreen.png "Main Screen")
+![Main Screen](/static/images/readme/wireframes/mainscreen.png "Main Screen")
 
 
 A page with breakfast, lunch and dinner menus gives the user a taste of what Delicious Daily has to offer and motivate their free registration to book a table.
@@ -180,24 +200,24 @@ The registration page for first-time users should offer a fast way to enter deta
 
 ![Register](/static/images/readme/wireframes/register.png "Register")
 
-The Login page is designed in similar pattern giving the recurring user the chance to log back in.
+The Login page is designed in a similar pattern giving the recurring user the chance to log back in.
 
 ![Login](/static/images/readme/wireframes/login.png "Login")
 
-Once a user is registered and logged in new menu options present themselves: book a table, view bookings and logout. 
+Once a user is registered and logged in, new menu options present themselves: book a table, view bookings and logout. 
 
 ![RegisteredUser](/static/images/readme/wireframes/registereduser.png "RegisteredUser")
 
-The book a table page is a page of central interest to the user. Therefore the green background of the form is bigger and the background pic is more like a frame to add some visual touch without being to distracting. 
-That way the user can focus on the data entry. Still the grey background of the cafe is a repeated image for recognition purposes.
+The book a table page is a page of central interest to the user. Therefore the green background of the form is bigger and the background pic is more like a frame to add some visual touch without being too distracting. 
+That way the user can focus on the data entry. Still visual of the cafe as a black and white picture is a repeated image for recognition purposes.
 
 ![Book a Table](/static/images/readme/wireframes/bookatable.png "Book a Table")
 
-After clicking the Book button. The user is directed to a feedback page confirming the booking was successful.
+After clicking the Book a table button, the user is directed to a feedback page confirming the booking was successful.
 
 ![Booking Confirmation](/static/images/readme/wireframes/bookingconfirmation.png "Booking Confirmation")
 
-The booking list page follows the same design principle as the book a table page. A big green background highlights the information at center - the booked reservations. These are organized in a list with two possible actions "manage booking" and "delete booking". Part of the green background frame are the buttons "next" and "previous" in case the user has more than 3 bookings.
+The booking list page follows the same design principle as the book a table page. A big green background highlights the information at center - the booked reservations. These are organized in a list with two possible actions as buttons "manage booking" and "delete booking". Part of the green background frame are the buttons "next" and "previous" in case the user has more bookings.
 
 ![View Bookings](/static/images/readme/wireframes/viewbookings.png "View Bookings")
 
@@ -213,11 +233,11 @@ If a user clicks the "delete booking" button, they are directed to a subpage ask
 
 ![Delete Question](/static/images/readme/wireframes/deletequestion.png "Delete Question")
 
-If they confirm the deletion they are directed to user feedback page stating that the booking was deleted successfully.
+If they confirm the deletion they are directed to a user feedback page stating that the booking was deleted successfully.
 
 ![Confirmation Delete](/static/images/readme/wireframes/confirmationdelete.png "Confirmation Delete")
 
-Once the user wants to log out they click on Logout in the top menu and are directed to a page where they have to confirm there logout.
+Once the user wants to log out they click on logout in the top menu and are directed to a page where they have to confirm there logout.
 
 ![Logout Question](/static/images/readme/wireframes/logoutquestion.png "Logout Question")
 
@@ -225,7 +245,7 @@ In general, I followed a  minimalist approach for user feedback pages (like e.g.
 
 ### User Flow
 Wireframing is always closely linked to the user flow. After all, if I don't know how the user navigates to the page and which touchpoints he or she has, how should I consideratley design the wireframing?
-Thus, with the wireframes designed I created a typical user flow for recurring users and first time users in one graphic.
+Thus, with the wireframes designed I created a typical user flow for recurring users and first time users in one graphic:
 
 ![User Flow Delicious Daily](/static/images/readme/userflow_deliciousdaily.png "User Flow")
 
@@ -242,15 +262,15 @@ Recurring users enter the page, browse the menu, login in, book a table and/or l
 Each surface design for me starts with the color scheme. After all it determines the imagery used and also the typography.
 
 ### Color Scheme
-Since by definition imagery of food tends to be colorful and should be at the center of page, the color scheme I choose was subtle and down to earth. No screaming colors but colors that go well as supporting colors.
+Since by definition imagery of food tends to be colorful and should be a central element of the page, the color scheme I choose was subtle and down to earth. No screaming colors but colors that go well as supporting colors.
 
 #### Main color
-For the header, footer, logo as well as the background blocks of forms and lists I choose the color cadetblue to frame the rich imagery and information displayed.
+For the header, footer, logo as well as the background containers of forms and lists I choose the color cadetblue to frame the rich imagery and information displayed.
 
 ![Main Color - Cadet Blue](/static/images/readme/colorscheme/cadetblue.png "Main Color - Cadet Blue")
 
 #### Supporting color
-As supporting colors I choose Alice Blue to create a nice supporting contrast to the cadetblue main color. As further supporting colors I used dark charcoal and white.
+As supporting colors I choose Alice Blue to create a nice supporting contrast to the main color cadetblue. As further supporting colors I used dark charcoal and white.
 
 ![Supporting Color - Alice Blue](/static/images/readme/colorscheme/aliceblue.png "Main Color - Alice Blue")
 ![Supporting Color - Dark Charcoal](/static/images/readme/colorscheme/dark_charcoal.png "Main Color - Dark Charcoal")
@@ -260,11 +280,11 @@ As supporting colors I choose Alice Blue to create a nice supporting contrast to
 For the font I decided to go with Cormorant Garamond as the main font. It is very good to read and still has some unique touch to it. The font Pacifico is more playful and used for special nuances like the quote of the Chef or the logo.
 
 ### Imagery
-The imagery chosen show the delight and deliciousness of eating. It is more than just a process of eating to fill an empty stomach. It is a celebration of taste and touches all senses.
+The imagery chosen shows the delight and deliciousness of eating. It is more than just the process of filling an empty stomach. It is a celebration of taste and touches all senses.
 
 #### Key Visual
 The key visual is the picture of the restaurant from outsite. It appears to be drawn but is actually an edited picture. This effect together with the colors of the visual give a softer touch compared to a pure photograph. 
-The key visual is used in a black-and-white version as a background whenever the user has to enter information or is given information. This way a pattern is visible to the user that makes him or her recognize he is still on the right website and was not redirected somewhere else.
+The key visual is used in a black-and-white version as a background whenever the user has to enter information or is given information. This way a pattern is visible to the users that makes them recognize they are still on the right website and were not redirected somewhere else.
 Furthermore, it undermines the role of the key visual as something recurring and recognizeable, similar to the logo.
 
 ![Key Visual](/static/images/readme/startingpage/starting_page_1.png "Key Visual")
@@ -281,9 +301,46 @@ There is nothing more welcoming than a friendly face. So the restaurant chef him
 
 ![Key Visual](/static/images/readme/startingpage/starting_page_2.png "Key Visual")
 
+### Re-design decisions
+#### starting page greeting
+When implementing the django messages for user status messages, I realized that an additional sign for the user that they are indeed logged in, would be a personalized greeting in the logged in starting page.
+So I adjusted the if user authentificated content in the base.html to a personalized greeting and further instructions on how to proceed in the logged in area.
+
+![Page logged in old design](/static/images/readme/features/page_loggedin.png "Page logged in old design")
+
+The new logged in front page design looks like this:
+
+![Page logged in new design](/static/images/readme/testing/1_user_story/testing/ac1_8.png "Page logged in new design")
+
+#### List bookings
+A major redesign decision was made for the list of reservations shown to the user. At first it was designed as a horizontal table showing 3 bookings per page. 
+
+![List table bookings old design](/static/images/readme/features/reservation_list.png "List table bookings old design")
+
+But when checking my design for mobiles, I realized that a vertically aligned list makes much more sense for desktop AND mobile. After all, most users will mainly have 1 reservation only, so the vertical design is not hindering an overview over all bookings. 
+The main reasons for this design decision were:
+* better readability of the listed reservation
+* forms are also designed vertically (consistency of design between data entry and output) 
+* consistency between mobile and desktop view - which seemed important in this case (although variying designs can make sense sometimes.)
+
+Thus, the redesign of the list view was done like this: 
+
+![List table bookings new design](/static/images/readme/testing/5_userstory/a5.1.png "List table bookings new design")
 
 # Features
 Like already elaborated in the Skeleton Plane the main features and functionalities revolve around the basics of a restaurant table booking system plus individual USPs added to give the user an even better experience.
+
+## User handling
+Since the user can only access all features of the page upon registration, the user handling is a major part of the features.
+This includes the following functionalities:
+* clear information about the pre-requisite to register for table bookings
+* immidiate visibility of the login and register links
+* clear and easy-to-use registration and login form
+
+![Signup Form](/static/images/readme/features/signupform.png "Sign up")
+
+![Login](/static/images/readme/features/sign_in_form.png "Login")
+
 
 ## CRUD
 The main functionality I focused on in the initial developement process was the CRUD functionality:
@@ -294,6 +351,8 @@ The main functionality I focused on in the initial developement process was the 
 
 ### Create a booking
 In order to create a booking the user first has to register. Once logged in the user clicks on "Book a table" in the menu to get to the booking form. The user is required to enter the date, time, number of people and number of child seats required. The commed field is optional. On clicking the Book button the data entry is checked through form validation. If the data entry was correct the user is informed that the booking was successful. Otherwise error messages inform the user about the problem with the entered data.
+
+![Create a booking](/static/images/readme/features/reserve_your_table_form.png "Create a booking")
  
 #### Form Validation
 The form validation checks if:
@@ -301,16 +360,23 @@ The form validation checks if:
 * The time is entered in the format HH:MM
 * The date is not in the past
 * The time is within opening hours
-* The date is not a monday
+* The date is not a monday (closed on mondays)
 * The number of guests is bigger than 0
 * The comment is no more than 300 characters
+
+![Signup Form](/static/images/readme/features/data_validation_form.png "Sign up")
 
 #### Double Booking
 The user is informed in case there is no table available for the requested date, time and number of guests.
 
+In case there is no free table the user can optionally tick the waitlist checkbox, to be waitlisted. The user is then directed to the waitlisted confirmation page. This feature was not included in the initial wireframing, because my mentor advised me to add this feature only if there is time for it. (as already eleborated above.)
+
 ### Read table booking
-When clicking the "view bookings" button the user can check all bookings they did so far. In case there aren't any bookings yet the user is informed through a message. If there are bookings listed the user is free to manage the booking or delete it through the provided buttons.
+When clicking the "view bookings" button the user can check all bookings for future dates and today they did (past reservations are filtered and not shown). In case there aren't any bookings yet the user is informed through a message. If there are bookings listed the user is free to manage the booking or delete it through the provided buttons.
 Many table booking forms are just basic contact forms sending the restaurant email for reservation requests. But Delicious Daily offers a database-based solution that allows users to not only book but also manage and delete their bookings easily and fast.
+
+
+
 
 ### Update and delete table booking 
 Sometimes plans change and the user needs to update or delete their booking. If the reservation request was send via a contact form the user would be required to write an email or call. If the phone is busy or the restaurant closed at the time this easy task of updating or deleting a booking can be tedious. Not with Delicious Daily. Here each customer can manage their reservations themselves giving them maximum flexibility and ease-of-access. 
